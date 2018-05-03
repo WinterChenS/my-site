@@ -1,0 +1,47 @@
+
+/* 
+---------------------------------------------------------------------------------------------------- */
+
+.working {
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-name: fade-in;
+
+    border-radius: 3px 15px 15px 3px;
+
+    height: 20px;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 20;
+
+    padding-right: 30px;
+
+    font-size: 12px;
+    line-height: 20px;
+    color: $color-light-normal;
+
+    &:after {
+        animation: pulse ease infinite;
+        animation-duration: 1.5s;
+
+        border: 2px solid $color-green-heavy;
+        border-radius: 50%;
+
+        width: 20px;
+        height: 20px;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    &:hover {
+        color: $color-light-heavy;
+    }
+
+    @media ($break-m) {
+        display: none;
+    }
+}

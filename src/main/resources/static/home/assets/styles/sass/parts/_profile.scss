@@ -1,0 +1,25 @@
+
+/* The Profile
+---------------------------------------------------------------------------------------------------- */
+
+#profile {
+    background-image: url(../images/profile.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 50%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+
+    @media ($break-m) {
+        width: 40%;
+        height: calc(100% + 100px);
+
+        top: -100px;
+    }
+}

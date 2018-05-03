@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+@media only screen and (max-width: 1350px) {
+	#header, #footer .padding-wrapper { padding:23px 25px 13px; }
+}
+
+@media only screen and (max-width: 1320px) {
+	#container { width:960px; }
+}
+
+@media only screen and (max-width: 992px) {
+	#container { width:640px !important; }
+	.col3-3, .col4-3 { width:620px; }
+}
+
+@media only screen and (max-width: 667px) {
+	#container { width:100% !important; }
+	.col3-3, .col4-3, .col2-3.half, .col1-3.double, .col2-3, .col1-3 { width:calc(100% - 40px); margin-left:20px; height:auto; }
+	.col2-3 .parent { width:300px; height:auto; }
+	
+	.col2-3 .parent, .parent { width:100%; position:relative }
+	
+	.tweet-icon { margin-top:15px; }
+	.tweets-container { margin-bottom:20px; }
+}
+
+@media only screen and (max-width: 480px) {
+	.logo-wrapper { position:absolute; left:0; margin-left:15px; }
+	#header .social-list { display:none; }
+	nav .social-list { display:block; }
+	
+	#container { width:100%; }
+	.col3-3, .col4-3, .col2-3.half, .col1-3.double, .col2-3, .col1-3 { width:calc(100% - 20px); margin-bottom:0px; margin-left:10px; height:auto; }
+	
+	.col2-3 .parent, .boxed { padding:27px 35px !important; position:relative }
+	
+	h1 { font-size:44px; line-height:1.2; letter-spacing:-2px; margin-bottom:20px; }
+	h2 { font-size:34px; line-height:1.25; letter-spacing:-1px; }
+	h2 strong { letter-spacing:0px; }
+	h3 { font-size:26px;  }
+	.col2-3 h2, .col2-3 h3, .col3-3 h2 { padding-bottom:0; }
+	
+	.email { font-size:22px; }
+	
+	.comment { padding:30px 0 25px }
+	.commenter-avatar { padding: 0; margin: 0 auto; width: 150px; display:inline-block; float:none }
+	.comment-content { padding-top:20px; display:block; width:100%; max-width:100%; }
+	.comment.reply.level-1 { padding-left:0 }
+	.comment-form-wrapper { padding-top:29px; }
+	.comment-form-icon-wrapper { position: relative; top: 0; left: 0; text-align:center; margin:0 auto; margin-bottom:30px; }
+	.comment-form-icon-wrapper:before { display: inline-block; }
+	.comment-form { padding: 0; }
+	input, textarea { width: 100% !important; }
+	.left-to-avatar { padding-left:0px; }
+	.avatar { float:none; margin-right:0px; margin-bottom:20px; display:inline-block }
+	.form-part { padding-top:15px; }
+}
+
+/* Safari 6.1+ (9.0 is the latest version of Safari at this time) */
+
+@media screen and (min-color-index:0) 
+and(-webkit-min-device-pixel-ratio:0) { @media
+{
+    .button {  padding:11px 25px 0px; }
+}}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title,google_site_verification,baidu_site_verification)">
+    <meta charset="utf-8">
+
+    <title><th:block th:text="${title!=null?title:'blog'}"></th:block></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="google-site-verification" th:content="${google_site_verification}" />
+    <meta name="baidu-site-verification" th:content="${baidu_site_verification}" />
+
+
+    <link rel="icon" th:href="@{http://ozlpw4ja9.bkt.clouddn.com/favicon.ico}">
+
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css"> -->
+    <!--<link th:href="@{http://fonts.useso.com/css?family=Source+Code+Pro:400,700}" rel="stylesheet" type="text/css">-->
+    <!--<link th:href="@{http://fonts.useso.com/css?family=Open+Sans:300,600}" rel='stylesheet' type='text/css'>-->
+    <link rel="stylesheet" th:href="@{/blog/css/style.css}">
+</head>
+</html>

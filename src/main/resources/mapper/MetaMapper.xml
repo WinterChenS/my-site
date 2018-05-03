@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.luischen.dao.MetaDao">
+
+    <sql id="BASE_TABLE">
+      t_metas
+    </sql>
+
+    <sql id="RELATION_SHIP_TABLE">
+        <include refid="cn.luischen.dao.RelationShipDao.BASE_TABLE"/>
+    </sql>
+
+    <!-- 基本列 -->
+    <sql id="BASE_COLUMN">
+        m.mid, m.name, m.slug, m.type, m.description, m.sort, m.parent
+    </sql>
+
+    <!-- 添加项目信息 -->
+    <insert id="addMeta" parameterType="cn.luischen.model.MetaDomain" useGeneratedKeys="true" keyProperty="mid">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            name, slug, type, description, sort, parent
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{name, jdbcType=VARCHAR}, #{slug, jdbcType=VARCHAR}, #{type, jdbcType=VARCHAR},
+            #{description, jdbcType=VARCHAR}, #{sort, jdbcType=INTEGER}, #{parent, jdbcType=INTEGER}
+        </trim>
+    </insert>
+
+    <!-- 删除项目 -->
+    <delete id="deleteMetaById">
+        DELETE FROM
+        <include refid="BASE_TABLE"/>
+        WHERE mid = #{mid, jdbcType=INTEGER}
+    </delete>
+
+    <!-- 更新项目 -->
+    <update id="updateMeta" parameterType="cn.luischen.model.MetaDomain">
+        UPDATE
+        <include refid="BASE_TABLE"/>
+        <set>
+            <if test="name != null">
+                name = #{name, jdbcType=VARCHAR},
+            </if>
+            <if test="slug != null">
+                slug = #{slug, jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type, jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description, jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                sort = #{sort, jdbcType=INTEGER},
+            </if>
+            <if test="parent != null">
+                parent = #{parent, jdbcType=INTEGER},
+            </if>
+        </set>
+        WHERE mid = #{mid, jdbcType=INTEGER}
+    </update>
+
+    <!-- 根据主键编号获取项目 -->
+    <select id="getMetaById" resultType="cn.luischen.model.MetaDomain">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/> AS m
+        WHERE m.mid = #{mid, jdbcType=INTEGER}
+    </select>
+
+    <!-- 根据条件获取项目 -->
+    <select id="getMetasByCond" resultType="cn.luischen.model.MetaDomain"
+                parameterType="cn.luischen.dto.cond.MetaCond">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/> AS m
+        <where>
+            <if test="name != null">
+                AND m.name = #{name,jdbcType=VARCHAR}
+            </if>
+            <if test="type != null">
+                AND m.type = #{type, jdbcType=VARCHAR}
+            </if>
+        </where>
+        ORDER BY m.sort
+    </select>
+
+    <select id="getMetasCountByType" resultType="java.lang.Long">
+        SELECT count(*)
+        FROM
+        <include refid="BASE_TABLE"/>
+        WHERE type = #{type, jdbcType=VARCHAR}
+    </select>
+
+    <resultMap id="BaseResultMap" type="cn.luischen.model.MetaDomain">
+        <id column="mid" jdbcType="INTEGER" property="mid" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="slug" jdbcType="VARCHAR" property="slug" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="sort" jdbcType="INTEGER" property="sort" />
+        <result column="parent" jdbcType="INTEGER" property="parent" />
+    </resultMap>
+
+    <resultMap id="MetaDto" type="cn.luischen.dto.MetaDto" extends="BaseResultMap">
+        <result column="count" property="count" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="selectFromSql" resultMap="MetaDto" parameterType="Map">
+        select
+            a.*,
+            count(b.cid) as count
+        from <include refid="BASE_TABLE"/> AS a
+        left join <include refid="RELATION_SHIP_TABLE"/> AS b on a.mid = b.mid
+        where a.type = #{type}
+        group by a.mid
+        order by #{order}
+        limit #{limit}
+    </select>
+
+</mapper>

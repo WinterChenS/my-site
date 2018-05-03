@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="header(categories,archives,tags,recentlyArticles,links)">
+<header id="header">
+    <div id="header-outer" class="outer">
+        <a th:href="@{/}" class="logo">
+            <th:block>${commons.site_title()}</th:block>
+        </a>
+        <div id="header-inner" class="inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+
+                <a class="main-nav-link" th:href="@{/}">Home</a>
+
+                <a class="main-nav-link" th:href="@{/photo/index}">Photo</a>
+
+                <a class="main-nav-link" th:href="@{/blog/index}">Blog</a>
+
+                <a class="main-nav-link" th:href="@{/blog/archives/index}">Archives</a>
+
+                <a class="main-nav-link" th:href="@{/about}">About</a>
+
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                    <form id="search-form" th:action="@{/blog/search}" accept-charset="UTF-8" class="search-form">
+                        <input type="search" th:name="param" class="search-form-input" th:value="${param_name}" placeholder="Search">
+                        <!--<button type="submit" onclick="blogSerarch()" class="search-form-submit">&#xF002;</button>-->
+                        <!--<input type="hidden" name="sitesearch" value="http://blog.winterchen.com">-->
+                    </form>
+                </div>
+                <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+                <a id="nav-github-link" class="nav-icon" th:href="${commons.social_github()}"
+                   title="Fork me on GitHub"></a>
+
+            </nav>
+        </div>
+    </div>
+</header>
+<nav id="mobile-nav" class="off">
+
+    <a th:href="@{/}" class="mobile-nav-link">Home</a>
+
+    <a th:href="@{/photo/index}" class="mobile-nav-link">Photo</a>
+
+    <a th:href="@{/blog/index}" class="mobile-nav-link">Blog</a>
+
+    <a th:href="@{/blog/archives/index}" class="mobile-nav-link">Archives</a>
+
+    <a th:href="@{/about}" class="mobile-nav-link">About</a>
+
+    <div id="search-form-wrap-mobile">
+        <form id="search-form-mobile" th:action="@{/blog/search}" accept-charset="UTF-8" class="search-form">
+            <input type="search" name="param" th:value="${param_name}" class="search-form-input" placeholder="Search">
+            <!--<button type="submit" onclick="blogSerarch()" class="search-form-submit">&#xF002;</button>-->
+            <!--<input type="hidden" name="param" th:value="${param}">-->
+        </form>
+    </div>
+</nav>
+<div class="outer">
+
+    <aside id="sidebar">
+        <!-- 分类 -->
+        <th:block th:if="${categories != null and categories.size() > 0}">
+            <div class="widget-wrap">
+                <h3 class="widget-title">Categories</h3>
+                <div class="widget">
+                    <ul class="category-list">
+                        <th:block th:each="categorie : ${categories}">
+                            <li class="category-list-item"><a class="category-list-link"
+                                                              th:href="${commons.categoriePermalink(categorie.name)}" th:text="${categorie.name}">
+                            </a><span
+                                    class="category-list-count" th:text="${categorie.count}"></span></li>
+                        </th:block>
+
+
+                    </ul>
+                </div>
+            </div>
+        </th:block>
+
+
+        <!-- 归档 -->
+        <th:block th:if="${archives != null and archives.size() > 0}">
+            <div class="widget-wrap">
+                <h3 class="widget-title">Archives</h3>
+                <div class="widget">
+                    <ul class="archive-list">
+                        <th:block th:each="archive : ${archives}">
+                            <li class="archive-list-item"><a class="archive-list-link"
+                                                             th:href="${commons.archivePermalink(archive.date)}" th:text="${archive.date}">
+                            </a><span
+                                    class="archive-list-count" th:text="${archive.count}">/span></li>
+                        </th:block>
+                    </ul>
+                </div>
+            </div>
+        </th:block>
+
+
+        <!-- 最近文章 -->
+        <th:block th:if="${recentlyArticles.list != null and recentlyArticles.list.size() > 0}">
+            <div class="widget-wrap">
+                <h3 class="widget-title">Recents</h3>
+                <div class="widget">
+                    <ul>
+                        <th:block th:each="recent : ${recentlyArticles.list}">
+                            <li>
+                                <a th:href="${commons.blogPermalink(recent.cid)}" th:text="${recent.title}">
+                                </a>
+                            </li>
+                        </th:block>
+                    </ul>
+                </div>
+            </div>
+        </th:block>
+
+
+        <!-- 标签 -->
+        <th:block th:if="${tags != null and tags.size() > 0}">
+            <div class="widget-wrap">
+                <h3 class="widget-title">Tags</h3>
+                <div class="widget">
+                    <ul class="tag-list">
+                        <th:block th:each="tag : ${tags}">
+                            <li class="tag-list-item"><a class="tag-list-link"
+                                                         th:href="${commons.tagPermalink(tag.name)}" th:text="${tag.name}">
+                            </a><span
+                                    class="tag-list-count" th:text="${tag.count}"></span></li>
+                        </th:block>
+
+
+                    </ul>
+                </div>
+            </div>
+        </th:block>
+
+
+        <th:block th:if="${tags != null and tags.size() > 0}">
+            <div class="widget-wrap">
+                <h3 class="widget-title">Tag Cloud</h3>
+                <div class="widget tagcloud">
+                    <th:block th:each="tag : ${tags}">
+                        <a th:href="${commons.tagPermalink(tag.name)}"
+                           th:style="'font-size:' + ${10 + ((tag.count > 8 ? 8 : tag.count) * 2)} + 'px;'" th:text="${tag.name}">
+                        </a>
+                    </th:block>
+                </div>
+            </div>
+        </th:block>
+
+        <!-- 友链 -->
+        <th:block th:if="${links != null and links.size() > 0}">
+            <div class="widget-wrap">
+                <h3 class="widget-title">links</h3>
+                <div class="widget">
+                    <ul>
+                        <th:block th:each="link : ${links}">
+                            <li>
+                                <a th:href="${link.slug}" th:text="${link.name}">
+                                </a>
+                            </li>
+                        </th:block>
+                    </ul>
+                </div>
+            </div>
+        </th:block>
+    </aside>
+</html>

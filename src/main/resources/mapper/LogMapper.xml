@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.luischen.dao.LogDao">
+
+    <sql id="BASE_TABLE">
+        t_logs
+    </sql>
+
+    <!-- 基本列 -->
+    <sql id="BASE_COLUMN">
+        l.id, l.action, l.data, l.authorId, l.ip, l.created
+    </sql>
+
+    <!-- 新增日志记录 -->
+    <insert id="addLog" parameterType="cn.luischen.model.LogDomain">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            action, data, authorId, ip, created,
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{action, jdbcType=VARCHAR}, #{data, jdbcType=VARCHAR},
+            #{authorId, jdbcType=INTEGER}, #{ip, jdbcType=VARCHAR}, UNIX_TIMESTAMP(NOW()),
+        </trim>
+    </insert>
+
+
+    <!-- 删除日志 -->
+    <delete id="deleteLogById">
+        DELETE FROM
+        <include refid="BASE_TABLE"/>
+        WHERE id = #{id, jdbcType=INTEGER}
+    </delete>
+
+    <!-- 查找日志 -->
+    <select id="getLogs" resultType="cn.luischen.model.LogDomain">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/> AS l
+        ORDER BY l.id DESC
+    </select>
+
+
+</mapper>

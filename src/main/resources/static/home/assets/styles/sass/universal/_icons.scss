@@ -1,0 +1,93 @@
+
+/* Icons
+---------------------------------------------------------------------------------------------------- */
+
+.icon {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+
+    width: 40px;
+    height: 40px;
+
+    float: left;
+
+    position: relative;
+
+    margin: 0;
+
+    opacity: 0.85;
+
+    &:after {
+        background-color: $color-light-light;
+
+        border-radius: 3px;
+
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        padding: 5px 5px 4px;
+
+        font-size: 10px;
+        line-height: 1;
+        color: $color-light-normal;
+        white-space: nowrap;
+
+        opacity: 0;
+    }
+
+    &:hover {
+        background-position: top 5px center;
+    }
+
+    &:hover:after {
+        top: -20px;
+
+        opacity: 1;
+    }
+
+    @media ($break-s) {
+        &:hover {
+            background-position: center center;
+        }
+
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.icon.email {
+    background-image: url(../images/icon-email.png);
+
+    &:after {
+        content: "Email: hi@jason.sc";
+    }
+}
+
+.icon.instagram {
+    background-image: url(../images/icon-instagram.png);
+
+    &:after {
+        content: "Instagram: @Ca.75";
+    }
+}
+
+
+.icon.twitter {
+    background-image: url(../images/icon-twitter.png);
+
+    &:after {
+        content: "Twitter: @jschuller";
+    }
+}
+
+.icon.dribbble {
+    background-image: url(../images/icon-dribbble.png);
+
+    &:after {
+        content: "Dribbble: @jason";
+    }
+}

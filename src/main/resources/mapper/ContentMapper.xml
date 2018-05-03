@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.luischen.dao.ContentDao">
+
+    <sql id="BASE_TABLE">
+      t_contents
+    </sql>
+
+    <!-- 用户表 -->
+    <sql id="TABLE_USER">
+        <include refid="cn.luischen.dao.UserDao.BASE_TABLE"/>
+    </sql>
+
+    <!-- 文章的基本列 -->
+    <sql id="BASE_COLUMN">
+        c.cid, c.title, c.titlePic, c.slug, c.created, c.modified, c.content, c.authorId,
+        c.type, c.status, c.tags, c.categories, c.hits, c.commentsNum, c.allowComment,
+        c.allowPing, c.allowFeed
+    </sql>
+
+    <!-- 关联查询的用户表需要的字段 -->
+    <sql id="REL_USER_COLUMN">
+        u.username,
+    </sql>
+
+    <!-- 添加文章 -->
+    <insert id="addArticle" parameterType="cn.luischen.model.ContentDomain" useGeneratedKeys="true" keyProperty="cid">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            title, titlePic, slug, created, content, authorId,
+            type, status, tags, categories, hits, commentsNum, allowComment,
+            allowPing, allowFeed,
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{title, jdbcType=VARCHAR}, #{titlePic, jdbcType=VARCHAR}, #{slug, jdbcType=VARCHAR}, UNIX_TIMESTAMP(NOW()),
+            #{content, jdbcType=LONGVARCHAR}, #{authorId, jdbcType=INTEGER},
+            #{type, jdbcType=VARCHAR}, #{status, jdbcType=VARCHAR}, #{tags, jdbcType=VARCHAR},
+            #{categories, jdbcType=VARCHAR}, #{hits, jdbcType=INTEGER}, #{commentsNum, jdbcType=INTEGER},
+            #{allowComment, jdbcType=INTEGER}, #{allowPing, jdbcType=INTEGER}, #{allowFeed, jdbcType=INTEGER},
+        </trim>
+    </insert>
+
+    <!-- 删除文章 -->
+    <delete id="deleteArticleById">
+        DELETE FROM
+        <include refid="BASE_TABLE"/>
+        WHERE cid = #{cid, jdbcType=INTEGER}
+    </delete>
+
+    <!-- 更新文章信息 -->
+    <update id="updateArticleById" parameterType="cn.luischen.model.ContentDomain">
+        UPDATE
+        <include refid="BASE_TABLE"/>
+        <set>
+            <if test="title != null">
+                title = #{title, jdbcType=VARCHAR},
+            </if>
+            <if test="titlePic != null">
+                titlePic = #{titlePic, jdbcType=VARCHAR},
+            </if>
+            <if test="slug != null">
+                slug = #{slug, jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                content = #{content, jdbcType=LONGVARCHAR},
+            </if>
+                modified = UNIX_TIMESTAMP(NOW()),
+            <if test="type != null">
+                type = #{type, jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status, jdbcType=VARCHAR},
+            </if>
+            <if test="tags != null">
+                tags = #{tags, jdbcType=VARCHAR},
+            </if>
+            <if test="categories != null">
+                categories = #{categories, jdbcType=VARCHAR},
+            </if>
+            <if test="hits != null">
+                hits = #{hits, jdbcType=INTEGER},
+            </if>
+            <if test="commentsNum != null">
+                commentsNum = #{commentsNum, jdbcType=INTEGER},
+            </if>
+            <if test="allowComment != null">
+                allowComment = #{allowComment, jdbcType=INTEGER},
+            </if>
+            <if test="allowPing != null">
+                allowPing = #{allowPing, jdbcType=INTEGER},
+            </if>
+            <if test="allowFeed != null">
+                allowFeed = #{allowFeed, jdbcType=INTEGER},
+            </if>
+        </set>
+        WHERE cid = #{cid, jdbcType=INTEGER}
+    </update>
+
+    <update id="updateArticleCommentCountById" >
+        UPDATE
+        <include refid="BASE_TABLE"/>
+        SET commentsNum = #{commentsNum, jdbcType=INTEGER}
+        WHERE cid = #{cid, jdbcType=INTEGER}
+    </update>
+
+    <!-- 根据主键编号获取文章信息 -->
+    <select id="getArticleById" resultType="cn.luischen.model.ContentDomain">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/> AS c
+        WHERE c.cid = #{cid, jdbcType=INTEGER}
+    </select>
+
+    <!-- 根据条件查询文章 -->
+    <select id="getArticlesByCond" resultType="cn.luischen.model.ContentDomain"
+            parameterType="cn.luischen.dto.cond.ContentCond">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/> AS c
+        <where>
+            <if test="tag != null">
+                AND c.tags LIKE CONCAT('%',#{tag, jdbcType=VARCHAR},'%')
+            </if>
+            <if test="category != null">
+                AND c.categories LIKE CONCAT('%',#{category, jdbcType=VARCHAR},'%')
+            </if>
+            <if test="status != null">
+                AND c.status = #{status, jdbcType=VARCHAR}
+            </if>
+            <if test="title != null">
+                AND c.title LIKE CONCAT('%',#{title, jdbcType=VARCHAR},'%')
+            </if>
+            <if test="content != null">
+                AND c.content LIKE CONCAT('%',#{content, jdbcType=VARCHAR},'%')
+            </if>
+            <if test="type != null">
+                AND c.type = #{type, jdbcType=VARCHAR}
+            </if>
+            <if test="startTime != null">
+                AND c.created &gt;= #{startTime, jdbcType=INTEGER}
+            </if>
+            <if test="endTime != null">
+                AND c.created &lt;= #{endTime, jdbcType=INTEGER}
+            </if>
+        </where>
+        ORDER BY c.created
+    </select>
+    
+    <select id="getArticleCount" resultType="java.lang.Long">
+        SELECT count(*)
+        FROM <include refid="BASE_TABLE"/>
+    </select>
+
+    <resultMap id="archiveDtoMap" type="cn.luischen.dto.ArchiveDto">
+        <id column="date" property="date"/>
+        <result column="count" property="count"/>
+    </resultMap>
+
+    <select id="getArchive" resultMap="archiveDtoMap"
+                parameterType="cn.luischen.dto.cond.ContentCond">
+        select
+            FROM_UNIXTIME(created, '%Y年%m月') as date,
+            count(*)                         as count
+        from <include refid="BASE_TABLE"/>
+        <where>
+            type = 'post'
+            and status = 'publish'
+            <if test="startTime != null">
+                AND created &gt;= #{startTime, jdbcType=INTEGER}
+            </if>
+            <if test="endTime != null">
+                AND created &lt;= #{endTime, jdbcType=INTEGER}
+            </if>
+        </where>
+        group by date
+        order by date desc
+    </select>
+    
+    <select id="getRecentlyArticle" resultType="cn.luischen.model.ContentDomain">
+        SELECT
+            cid, title
+        FROM
+        <include refid="BASE_TABLE"/>
+        ORDER BY created DESC
+    </select>
+    
+    <!-- 模糊搜索 -->
+    <select id="searchArticle" resultType="cn.luischen.model.ContentDomain">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/> AS c
+        <where>
+            c.title LIKE CONCAT('%',#{param, jdbcType=VARCHAR},'%')
+            OR
+            c.content LIKE CONCAT('%',#{param, jdbcType=VARCHAR},'%')
+        </where>
+    </select>
+
+
+</mapper>

@@ -1,0 +1,83 @@
+
+/* Animations
+---------------------------------------------------------------------------------------------------- */
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+// Bounce: The boince in animation for the copy.
+
+.bounce-in {
+    animation-name: bounce-in;
+}
+
+@keyframes bounce-in {
+    from, 60%, 75%, 90%, to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+
+        transform: translate3d(-3000px, -50%, 0);
+    }
+
+    60% {
+        opacity: 1;
+
+        transform: translate3d(25px, -50%, 0);
+    }
+
+    75% {
+        transform: translate3d(-10px, -50%, 0);
+    }
+
+    90% {
+        transform: translate3d(5px, -50%, 0);
+    }
+
+    to {
+        transform: translate3d(0, -50%);
+    }
+}
+
+// Pulse: Make it look like someone's working.
+
+.pulse {
+    animation: pulse ease infinite;
+    animation-duration: 1.5s;
+}
+
+@keyframes pulse {
+    from {
+        transform:scale(.85);
+
+        opacity: 0.75;
+    }
+
+    50% {
+        transform:scale(1);
+
+        opacity: 1;
+    }
+
+    to {
+        transform:scale(.85);
+
+        opacity: 0.75;
+    }
+}
+
+// Fade: Fade in animation.
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

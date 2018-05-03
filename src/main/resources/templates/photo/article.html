@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="photo/head::head(${commons.site_title()},${commons.google_site_verification()}, ${commons.baidu_site_verification()})"></div>
+
+
+<div th:replace="photo/header::header"></div>
+<div class="row">
+
+
+    <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+        <h1 th:text="${archive.title}"></h1>
+        <h6 th:text="${commons.fmtdate_en(archive.created)}"></h6>
+    </div>
+    <div class="col-lg-9 col-12 col-xl-7 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+        <th:block th:utext="${commons.article(archive.content)}"/>
+    </div>
+</div>
+
+
+
+
+<div th:replace="photo/footer::footer"></div>
+</body>
+</html>

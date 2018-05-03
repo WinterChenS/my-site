@@ -1,0 +1,43 @@
+
+/* Typography
+---------------------------------------------------------------------------------------------------- */
+
+// Colors: Font colors.
+
+$font-color-normal:  rgba(255, 255, 255, 0.65);
+$font-color-heavy: rgba(255, 255, 255, 0.85);
+
+// Styles: Font styles.
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: $font-color-normal;
+}
+
+h1 {
+    font-family: "Merriweather", sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: $font-color-heavy;
+
+    margin-bottom: 25px;
+}
+
+a {
+    color: $font-color-heavy;
+}
+
+@media ($break-s) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 42px;
+        line-height: 1.45;
+    }
+}

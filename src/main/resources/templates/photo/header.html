@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="header">
+    <div class="container-fluid navbar-container m-sm-5">
+        <!-- Header -->
+        <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+            <a class="navbar-brand ml-2" th:href="@{/photo/index}">Photo By Luis</a>
+            <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto my-auto">
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link"  th:href="@{/}">HOME</a>
+                    </li>
+
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: #000000;font-size: 1.1rem;" th:href="@{/photo/index}">PHOTO</a>
+                    </li>
+
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link"  th:href="@{/blog/index}">BLOG</a>
+                    </li>
+
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link"  th:href="@{/about}">ABOUT</a>
+                    </li>
+
+
+                </ul>
+                <hr class="hidden-md-up" />
+            </div>
+        </nav>
+    </div>
+</html>

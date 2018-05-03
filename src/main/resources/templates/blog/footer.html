@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="footer(title,record,site_url)">
+<footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            <a th:href="@{${site_url}}" class="logo" th:text="${title}"></a>
+            &copy; 2017 - 2018 <th:block th:text="${title}"></th:block><br>
+            <th:block th:if="${record != null and record != ''}"><span class="post-count"><a th:href="@{http://www.miitbeian.gov.cn/}" th:text="${record}"></a></span></th:block>
+        </div>
+    </div>
+</footer>
+</html>

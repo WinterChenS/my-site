@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<div th:replace="photo/head::head(${commons.site_title()},${commons.google_site_verification()}, ${commons.baidu_site_verification()})"></div>
+
+<body>
+<div th:replace="photo/header::header"></div>
+
+
+<div class="row">
+
+    <th:block th:each="archive : ${archives.list}">
+        <div class="col-lg-3 col-md-4 col-12 mb-4">
+            <div class="hovereffect">
+                <a th:href="${commons.photoPermalink(archive.cid)}">
+                    <img class="img-fluid portfolio-img" th:src="${commons.show_thumb(archive.content)}"
+                         th:alt="${archive.title}">
+                    <div class="overlay">
+                        <p class="overlay-text" th:text="${archive.title}"></p><br>
+                        <p class="overlay-text1" th:text="${commons.fmtdate_en(archive.created)}"></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </th:block>
+
+
+</div>
+<div th:replace="photo/footer::footer"></div>
+</body>
+</html>

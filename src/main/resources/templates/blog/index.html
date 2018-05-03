@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="blog/head::head(${commons.site_title()},${commons.google_site_verification()}, ${commons.baidu_site_verification()})"></div>
+<body>
+<div id="container">
+    <div id="wrap">
+        <div th:replace="blog/header::header(${categories},${archives},${tags},${recentlyArticles},${links})"></div>
+
+            <section id="main">
+                <th:block th:each="article : ${articles.list}">
+                    <article id="post-about-tree-body-1" class="article article-type-post" itemscope itemprop="blogPost">
+                        <div class="article-meta">
+                            <a th:href="${commons.blogPermalink(article.cid)}" class="article-date">
+                                <time th:datetime="${commons.fmtdate(article.created)}" itemprop="datePublished" th:text="'发布于 '+ ${commons.fmtdate(article.created)}"></time>
+                            </a>
+
+                            <div class="article-category">
+                                <th:block th:utext="${commons.show_categories(article.categories)}"/>
+                            </div>
+
+                        </div>
+                        <div class="article-inner">
+
+
+                            <header class="article-header">
+
+
+                                <h1 itemprop="name">
+                                    <a class="article-title" th:href="${commons.blogPermalink(article.cid)}" th:text="${article.title}" ></a>
+                                </h1>
+
+
+                            </header>
+
+                            <div class="article-entry" itemprop="articleBody">
+
+                                <!-- 文章预览内容 -->
+                                <p><th:block th:utext="${commons.intro(article.content,250)}"></th:block></p>
+                                <p class="article-more-link">
+                                    <a th:href="${commons.blogPermalink(article.cid)}"  >Read More</a>
+                                </p>
+
+
+                            </div>
+                            <footer class="article-footer">
+                                <!--<a data-url="2018/04/23/about-tree-body-1/index.html" data-id="cjgipq6620000nkbmz4oaks8k"-->
+                                   <!--class="article-share-link">Share</a>-->
+
+                                <!-- 标签 -->
+                                <ul class="article-tag-list">
+                                    <th:block th:utext="${commons.show_tags(article.tags)}"></th:block>
+                                </ul>
+
+                            </footer>
+                        </div>
+
+                    </article>
+                </th:block>
+
+
+
+
+                <th:block th:if="${type == 'articles'}">
+                    <div th:replace="blog/page_nav::page_nav(${articles},'blog/page')"></div>
+                </th:block>
+                <th:block th:if="${type == 'search'}">
+                    <div th:replace="blog/page_nav::page_nav(${articles},'blog/search/' + ${param_name} + '/page')"></div>
+                </th:block>
+            </section>
+        </div>
+        <div th:replace="blog/footer::footer(${commons.site_title()},${commons.site_record()},${commons.site_url()})"></div>
+    </div>
+
+
+    <script th:src="@{/blog/js/jquery.min.js}"></script>
+    <script th:src="@{/blog/js/jquery.scrollLoading.js}"></script>
+
+
+    <link rel="stylesheet" th:href="@{/blog/fancybox/jquery.fancybox.css}">
+    <script th:src="@{/blog/fancybox/jquery.fancybox.pack.js}"></script>
+
+
+    <script th:src="@{/blog/js/script.js}"></script>
+
+</div>
+</body>
+</html>

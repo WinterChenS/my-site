@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.luischen.dao.RelationShipDao">
+
+    <sql id="BASE_TABLE">
+        t_relationships
+    </sql>
+
+    <sql id="BASE_COLUMN">
+        rs.cid, rs.mid
+    </sql>
+
+    <insert id="addRelationShip" parameterType="cn.luischen.model.RelationShipDomain">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            cid, mid,
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{cid, jdbcType=INTEGER},#{mid, jdbcType=INTEGER},
+        </trim>
+    </insert>
+
+    <!-- 根据id删除记录 -->
+    <delete id="deleteRelationShipById">
+        DELETE FROM
+        <include refid="BASE_TABLE"/>
+        WHERE cid =  #{cid, jdbcType=INTEGER}
+        AND mid = #{mid, jdbcType=INTEGER}
+    </delete>
+
+    <!-- 删除文章的关联记录 -->
+    <delete id="deleteRelationShipByCid">
+        DELETE FROM
+        <include refid="BASE_TABLE"/>
+        WHERE cid = #{cid, jdbcType=INTEGER}
+    </delete>
+
+    <!-- 删除meta的所有记录 -->
+    <delete id="deleteRelationShipByMid">
+        DELETE FROM
+        <include refid="BASE_TABLE"/>
+        WHERE mid = #{mid, jdbcType=INTEGER}
+    </delete>
+
+    <!--更新meta-->
+    <update id="updateRelationShip" parameterType="cn.luischen.model.RelationShipDomain">
+        UPDATE
+        <include refid="BASE_TABLE"/>
+        <set>
+            mid = #{mid, jdbcType=INTEGER}
+        </set>
+        WHERE cid = #{cid, jdbcType=INTEGER}
+    </update>
+
+    <!-- 根据文章编号获取对应的标签或分类 -->
+    <select id="getRelationShipByCid" resultType="cn.luischen.model.RelationShipDomain">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM <include refid="BASE_TABLE"/> AS rs
+        WHERE cid = #{cid, jdbcType=INTEGER}
+    </select>
+
+    <!-- 根据meta编号获取对应的标签或分类 -->
+    <select id="getRelationShipByMid" resultType="cn.luischen.model.RelationShipDomain">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM <include refid="BASE_TABLE"/> AS rs
+        WHERE mid = #{mid, jdbcType=INTEGER}
+    </select>
+
+    <!-- 查找数量 -->
+    <select id="getCountById" resultType="java.lang.Long">
+        SELECT count(*)
+        FROM <include refid="BASE_TABLE"/>
+        WHERE cid =  #{cid, jdbcType=INTEGER}
+        AND mid = #{mid, jdbcType=INTEGER}
+    </select>
+
+
+</mapper>

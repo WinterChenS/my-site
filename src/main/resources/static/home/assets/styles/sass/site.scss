@@ -1,0 +1,15 @@
+
+// Universals: Get all universal styles.
+
+@import 'universal/normalize',
+        'universal/variables',
+        'universal/animations',
+        'universal/typography',
+        'universal/icons',
+        'universal/body';
+
+// Content: Get all content specific styles.
+
+@import 'parts/working',
+        'parts/about',
+        'parts/profile';

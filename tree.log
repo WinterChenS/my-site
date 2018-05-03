@@ -1,0 +1,545 @@
+[INFO] Scanning for projects...
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/com/spotify/docker-maven-plugin/1.0.0/docker-maven-plugin-1.0.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/com/spotify/docker-maven-plugin/1.0.0/docker-maven-plugin-1.0.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/com/spotify/docker-maven-plugin/1.0.0/docker-maven-plugin-1.0.0.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/com/spotify/docker-maven-plugin/1.0.0/docker-maven-plugin-1.0.0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-resources-plugin/3.0.1/maven-resources-plugin-3.0.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-resources-plugin/3.0.1/maven-resources-plugin-3.0.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/30/maven-plugins-30.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/30/maven-plugins-30.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/30/maven-parent-30.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/30/maven-parent-30.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-resources-plugin/3.0.1/maven-resources-plugin-3.0.1.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-resources-plugin/3.0.1/maven-resources-plugin-3.0.1.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-jar-plugin/3.0.2/maven-jar-plugin-3.0.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-jar-plugin/3.0.2/maven-jar-plugin-3.0.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-jar-plugin/3.0.2/maven-jar-plugin-3.0.2.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-jar-plugin/3.0.2/maven-jar-plugin-3.0.2.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-compiler-plugin/3.7.0/maven-compiler-plugin-3.7.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-compiler-plugin/3.7.0/maven-compiler-plugin-3.7.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-compiler-plugin/3.7.0/maven-compiler-plugin-3.7.0.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-compiler-plugin/3.7.0/maven-compiler-plugin-3.7.0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-surefire-plugin/2.21.0/maven-surefire-plugin-2.21.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-surefire-plugin/2.21.0/maven-surefire-plugin-2.21.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/surefire/surefire/2.21.0/surefire-2.21.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/surefire/surefire/2.21.0/surefire-2.21.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-surefire-plugin/2.21.0/maven-surefire-plugin-2.21.0.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-surefire-plugin/2.21.0/maven-surefire-plugin-2.21.0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-install-plugin/2.5.2/maven-install-plugin-2.5.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-install-plugin/2.5.2/maven-install-plugin-2.5.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/25/maven-plugins-25.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-plugins/25/maven-plugins-25.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-install-plugin/2.5.2/maven-install-plugin-2.5.2.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-install-plugin/2.5.2/maven-install-plugin-2.5.2.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-deploy-plugin/2.8.2/maven-deploy-plugin-2.8.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-deploy-plugin/2.8.2/maven-deploy-plugin-2.8.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-deploy-plugin/2.8.2/maven-deploy-plugin-2.8.2.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-deploy-plugin/2.8.2/maven-deploy-plugin-2.8.2.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-site-plugin/3.6/maven-site-plugin-3.6.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-site-plugin/3.6/maven-site-plugin-3.6.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-site-plugin/3.6/maven-site-plugin-3.6.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-site-plugin/3.6/maven-site-plugin-3.6.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/jetbrains/kotlin/kotlin-maven-plugin/1.2.31/kotlin-maven-plugin-1.2.31.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/jetbrains/kotlin/kotlin-maven-plugin/1.2.31/kotlin-maven-plugin-1.2.31.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/jetbrains/kotlin/kotlin-project/1.2.31/kotlin-project-1.2.31.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/jetbrains/kotlin/kotlin-project/1.2.31/kotlin-project-1.2.31.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/jetbrains/kotlin/kotlin-maven-plugin/1.2.31/kotlin-maven-plugin-1.2.31.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/jetbrains/kotlin/kotlin-maven-plugin/1.2.31/kotlin-maven-plugin-1.2.31.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/jooq/jooq-codegen-maven/3.10.6/jooq-codegen-maven-3.10.6.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/jooq/jooq-codegen-maven/3.10.6/jooq-codegen-maven-3.10.6.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/jooq/jooq-parent/3.10.6/jooq-parent-3.10.6.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/jooq/jooq-parent/3.10.6/jooq-parent-3.10.6.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/jooq/jooq-codegen-maven/3.10.6/jooq-codegen-maven-3.10.6.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/jooq/jooq-codegen-maven/3.10.6/jooq-codegen-maven-3.10.6.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-antrun-plugin/1.8/maven-antrun-plugin-1.8.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-antrun-plugin/1.8/maven-antrun-plugin-1.8.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-antrun-plugin/1.8/maven-antrun-plugin-1.8.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-antrun-plugin/1.8/maven-antrun-plugin-1.8.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-assembly-plugin/3.1.0/maven-assembly-plugin-3.1.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-assembly-plugin/3.1.0/maven-assembly-plugin-3.1.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-assembly-plugin/3.1.0/maven-assembly-plugin-3.1.0.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-assembly-plugin/3.1.0/maven-assembly-plugin-3.1.0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-dependency-plugin/3.0.2/maven-dependency-plugin-3.0.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-dependency-plugin/3.0.2/maven-dependency-plugin-3.0.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-dependency-plugin/3.0.2/maven-dependency-plugin-3.0.2.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/plugins/maven-dependency-plugin/3.0.2/maven-dependency-plugin-3.0.2.jar (0 B at 0.0 KB/sec)
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building my-site 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:3.0.2:tree (default-cli) @ my-site ---
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-containers/1.6/plexus-containers-1.6.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-containers/1.6/plexus-containers-1.6.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/3.3.2/plexus-3.3.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/3.3.2/plexus-3.3.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-core/3.0/maven-core-3.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-core/3.0/maven-core-3.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings/3.0/maven-settings-3.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings/3.0/maven-settings-3.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.0/doxia-sink-api-1.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.0/doxia-sink-api-1.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia/1.0/doxia-1.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia/1.0/doxia-1.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/10/maven-parent-10.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/10/maven-parent-10.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-impl/2.3/maven-reporting-impl-2.3.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-impl/2.3/maven-reporting-impl-2.3.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-utils/0.6/maven-shared-utils-0.6.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-utils/0.6/maven-shared-utils-0.6.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.2/doxia-sink-api-1.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.2/doxia-sink-api-1.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia/1.2/doxia-1.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia/1.2/doxia-1.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-logging-api/1.2/doxia-logging-api-1.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-logging-api/1.2/doxia-logging-api-1.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-core/1.2/doxia-core-1.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-core/1.2/doxia-core-1.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-lang/commons-lang/2.4/commons-lang-2.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-lang/commons-lang/2.4/commons-lang-2.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/httpclient/4.0.2/httpclient-4.0.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/httpclient/4.0.2/httpclient-4.0.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/httpcomponents-client/4.0.2/httpcomponents-client-4.0.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/httpcomponents-client/4.0.2/httpcomponents-client-4.0.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/project/4.1/project-4.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/project/4.1/project-4.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/httpcomponents-core/4.0.1/httpcomponents-core-4.0.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/httpcomponents-core/4.0.1/httpcomponents-core-4.0.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/project/4.0/project-4.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/project/4.0/project-4.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-codec/commons-codec/1.3/commons-codec-1.3.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-codec/commons-codec/1.3/commons-codec-1.3.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-site-renderer/1.2/doxia-site-renderer-1.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-site-renderer/1.2/doxia-site-renderer-1.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sitetools/1.2/doxia-sitetools-1.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sitetools/1.2/doxia-sitetools-1.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-decoration-model/1.2/doxia-decoration-model-1.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-decoration-model/1.2/doxia-decoration-model-1.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-module-xhtml/1.2/doxia-module-xhtml-1.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-module-xhtml/1.2/doxia-module-xhtml-1.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-modules/1.2/doxia-modules-1.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-modules/1.2/doxia-modules-1.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-module-fml/1.2/doxia-module-fml-1.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-module-fml/1.2/doxia-module-fml-1.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-i18n/1.0-beta-7/plexus-i18n-1.0-beta-7.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-i18n/1.0-beta-7/plexus-i18n-1.0-beta-7.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-components/1.1.12/plexus-components-1.1.12.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-components/1.1.12/plexus-components-1.1.12.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-velocity/1.1.7/plexus-velocity-1.1.7.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-velocity/1.1.7/plexus-velocity-1.1.7.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-container-default/1.0-alpha-20/plexus-container-default-1.0-alpha-20.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-container-default/1.0-alpha-20/plexus-container-default-1.0-alpha-20.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-containers/1.0-alpha-20/plexus-containers-1.0-alpha-20.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-containers/1.0-alpha-20/plexus-containers-1.0-alpha-20.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/1.3/plexus-utils-1.3.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/1.3/plexus-utils-1.3.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/1.0.8/plexus-1.0.8.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/1.0.8/plexus-1.0.8.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-classworlds/1.2-alpha-7/plexus-classworlds-1.2-alpha-7.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-classworlds/1.2-alpha-7/plexus-classworlds-1.2-alpha-7.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/1.0.9/plexus-1.0.9.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/1.0.9/plexus-1.0.9.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity/1.5/velocity-1.5.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity/1.5/velocity-1.5.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/3.1/commons-collections-3.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/3.1/commons-collections-3.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/oro/oro/2.0.8/oro-2.0.8.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/oro/oro/2.0.8/oro-2.0.8.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-validator/commons-validator/1.3.1/commons-validator-1.3.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-validator/commons-validator/1.3.1/commons-validator-1.3.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-logging/commons-logging/1.0.3/commons-logging-1.0.3.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-logging/commons-logging/1.0.3/commons-logging-1.0.3.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-digester/commons-digester/1.6/commons-digester-1.6.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-digester/commons-digester/1.6/commons-digester-1.6.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-beanutils/commons-beanutils/1.6/commons-beanutils-1.6.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-beanutils/commons-beanutils/1.6/commons-beanutils-1.6.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-logging/commons-logging/1.0/commons-logging-1.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-logging/commons-logging/1.0/commons-logging-1.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/2.0/commons-collections-2.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/2.0/commons-collections-2.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/2.1/commons-collections-2.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/2.1/commons-collections-2.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.4/doxia-sink-api-1.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.4/doxia-sink-api-1.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia/1.4/doxia-1.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia/1.4/doxia-1.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-logging-api/1.4/doxia-logging-api-1.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-logging-api/1.4/doxia-logging-api-1.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-site-renderer/1.4/doxia-site-renderer-1.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-site-renderer/1.4/doxia-site-renderer-1.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sitetools/1.4/doxia-sitetools-1.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sitetools/1.4/doxia-sitetools-1.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-core/1.4/doxia-core-1.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-core/1.4/doxia-core-1.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.0.10/plexus-utils-3.0.10.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.0.10/plexus-utils-3.0.10.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-decoration-model/1.4/doxia-decoration-model-1.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-decoration-model/1.4/doxia-decoration-model-1.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-module-xhtml/1.4/doxia-module-xhtml-1.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-module-xhtml/1.4/doxia-module-xhtml-1.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-modules/1.4/doxia-modules-1.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-modules/1.4/doxia-modules-1.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-module-fml/1.4/doxia-module-fml-1.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-module-fml/1.4/doxia-module-fml-1.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-digester/commons-digester/1.8/commons-digester-1.8.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-digester/commons-digester/1.8/commons-digester-1.8.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-logging/commons-logging/1.1/commons-logging-1.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-logging/commons-logging/1.1/commons-logging-1.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/logkit/logkit/1.0.1/logkit-1.0.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/logkit/logkit/1.0.1/logkit-1.0.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/avalon-framework/avalon-framework/4.1.3/avalon-framework-4.1.3.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/avalon-framework/avalon-framework/4.1.3/avalon-framework-4.1.3.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/javax/servlet/servlet-api/2.3/servlet-api-2.3.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/javax/servlet/servlet-api/2.3/servlet-api-2.3.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-chain/commons-chain/1.1/commons-chain-1.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-chain/commons-chain/1.1/commons-chain-1.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/3.2/commons-collections-3.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-collections/commons-collections/3.2/commons-collections-3.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/dom4j/dom4j/1.1/dom4j-1.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/dom4j/dom4j/1.1/dom4j-1.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/sslext/sslext/1.2-0/sslext-1.2-0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/sslext/sslext/1.2-0/sslext-1.2-0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-core/1.3.8/struts-core-1.3.8.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-core/1.3.8/struts-core-1.3.8.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-parent/1.3.8/struts-parent-1.3.8.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-parent/1.3.8/struts-parent-1.3.8.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-master/4/struts-master-4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-master/4/struts-master-4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/2/apache-2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/apache/2/apache-2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/antlr/antlr/2.7.2/antlr-2.7.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/antlr/antlr/2.7.2/antlr-2.7.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-taglib/1.3.8/struts-taglib-1.3.8.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-taglib/1.3.8/struts-taglib-1.3.8.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-tiles/1.3.8/struts-tiles-1.3.8.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-tiles/1.3.8/struts-tiles-1.3.8.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity/1.6.2/velocity-1.6.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity/1.6.2/velocity-1.6.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-archiver/3.4/plexus-archiver-3.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-archiver/3.4/plexus-archiver-3.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/4.0/plexus-4.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus/4.0/plexus-4.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-io/2.7.1/plexus-io-2.7.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-io/2.7.1/plexus-io-2.7.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.0.22/plexus-utils-3.0.22.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.0.22/plexus-utils-3.0.22.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-compress/1.11/commons-compress-1.11.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-compress/1.11/commons-compress-1.11.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/iq80/snappy/snappy/0.4/snappy-0.4.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/iq80/snappy/snappy/0.4/snappy-0.4.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/tukaani/xz/1.5/xz-1.5.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/tukaani/xz/1.5/xz-1.5.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/file-management/1.2.1/file-management-1.2.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/file-management/1.2.1/file-management-1.2.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-io/1.1/maven-shared-io-1.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-io/1.1/maven-shared-io-1.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-components/8/maven-shared-components-8.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-components/8/maven-shared-components-8.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/7/maven-parent-7.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-parent/7/maven-parent-7.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-artifact/2.0.2/maven-artifact-2.0.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-artifact/2.0.2/maven-artifact-2.0.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven/2.0.2/maven-2.0.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven/2.0.2/maven-2.0.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/1.1/plexus-utils-1.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/1.1/plexus-utils-1.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/wagon/wagon-provider-api/1.0-alpha-6/wagon-provider-api-1.0-alpha-6.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/wagon/wagon-provider-api/1.0-alpha-6/wagon-provider-api-1.0-alpha-6.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/wagon/wagon/1.0-alpha-6/wagon-1.0-alpha-6.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/wagon/wagon/1.0-alpha-6/wagon-1.0-alpha-6.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/1.4.6/plexus-utils-1.4.6.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/1.4.6/plexus-utils-1.4.6.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-dependency-analyzer/1.7/maven-dependency-analyzer-1.7.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-dependency-analyzer/1.7/maven-dependency-analyzer-1.7.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-components/30/maven-shared-components-30.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-components/30/maven-shared-components-30.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm/5.0.2/asm-5.0.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm/5.0.2/asm-5.0.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-parent/5.0.2/asm-parent-5.0.2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm-parent/5.0.2/asm-parent-5.0.2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-model/2.0.5/maven-model-2.0.5.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-model/2.0.5/maven-model-2.0.5.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven/2.0.5/maven-2.0.5.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven/2.0.5/maven-2.0.5.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-artifact/2.0.5/maven-artifact-2.0.5.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-artifact/2.0.5/maven-artifact-2.0.5.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether/0.9.0.M2/aether-0.9.0.M2.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether/0.9.0.M2/aether-0.9.0.M2.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-artifact-transfer/0.9.1/maven-artifact-transfer-0.9.1.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-artifact-transfer/0.9.1/maven-artifact-transfer-0.9.1.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-utils/3.2.0/maven-shared-utils-3.2.0.pom
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-utils/3.2.0/maven-shared-utils-3.2.0.pom (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-core/3.0/maven-core-3.0.jar
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-core/3.0/maven-core-3.0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-impl/2.3/maven-reporting-impl-2.3.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-core/1.2/doxia-core-1.2.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/httpclient/4.0.2/httpclient-4.0.2.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/reporting/maven-reporting-impl/2.3/maven-reporting-impl-2.3.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-validator/commons-validator/1.3.1/commons-validator-1.3.1.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-core/1.2/doxia-core-1.2.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-digester/commons-digester/1.6/commons-digester-1.6.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/httpclient/4.0.2/httpclient-4.0.2.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.4/doxia-sink-api-1.4.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-logging-api/1.4/doxia-logging-api-1.4.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-validator/commons-validator/1.3.1/commons-validator-1.3.1.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-site-renderer/1.4/doxia-site-renderer-1.4.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-digester/commons-digester/1.6/commons-digester-1.6.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-decoration-model/1.4/doxia-decoration-model-1.4.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-module-xhtml/1.4/doxia-module-xhtml-1.4.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-sink-api/1.4/doxia-sink-api-1.4.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-module-fml/1.4/doxia-module-fml-1.4.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-site-renderer/1.4/doxia-site-renderer-1.4.jar (0 B at 0.0 KB/sec)
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-logging-api/1.4/doxia-logging-api-1.4.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-i18n/1.0-beta-7/plexus-i18n-1.0-beta-7.jar
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-container-default/1.0-alpha-30/plexus-container-default-1.0-alpha-30.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-decoration-model/1.4/doxia-decoration-model-1.4.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-velocity/1.1.7/plexus-velocity-1.1.7.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-module-xhtml/1.4/doxia-module-xhtml-1.4.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity/1.5/velocity-1.5.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/doxia/doxia-module-fml/1.4/doxia-module-fml-1.4.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/oro/oro/2.0.8/oro-2.0.8.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-container-default/1.0-alpha-30/plexus-container-default-1.0-alpha-30.jar (0 B at 0.0 KB/sec)
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-i18n/1.0-beta-7/plexus-i18n-1.0-beta-7.jar (0 B at 0.0 KB/sec)
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity/1.5/velocity-1.5.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/commons-chain/commons-chain/1.1/commons-chain-1.1.jar
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/dom4j/dom4j/1.1/dom4j-1.1.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-velocity/1.1.7/plexus-velocity-1.1.7.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/sslext/sslext/1.2-0/sslext-1.2-0.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/oro/oro/2.0.8/oro-2.0.8.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-core/1.3.8/struts-core-1.3.8.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/commons-chain/commons-chain/1.1/commons-chain-1.1.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/antlr/antlr/2.7.2/antlr-2.7.2.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-taglib/1.3.8/struts-taglib-1.3.8.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/dom4j/dom4j/1.1/dom4j-1.1.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-tiles/1.3.8/struts-tiles-1.3.8.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/sslext/sslext/1.2-0/sslext-1.2-0.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-archiver/3.4/plexus-archiver-3.4.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-core/1.3.8/struts-core-1.3.8.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-compress/1.11/commons-compress-1.11.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/antlr/antlr/2.7.2/antlr-2.7.2.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/iq80/snappy/snappy/0.4/snappy-0.4.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-taglib/1.3.8/struts-taglib-1.3.8.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/tukaani/xz/1.5/xz-1.5.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/struts/struts-tiles/1.3.8/struts-tiles-1.3.8.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-archiver/3.4/plexus-archiver-3.4.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/file-management/1.2.1/file-management-1.2.1.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/commons/commons-compress/1.11/commons-compress-1.11.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-io/1.1/maven-shared-io-1.1.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/iq80/snappy/snappy/0.4/snappy-0.4.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/wagon/wagon-provider-api/1.0-alpha-6/wagon-provider-api-1.0-alpha-6.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/tukaani/xz/1.5/xz-1.5.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-dependency-analyzer/1.7/maven-dependency-analyzer-1.7.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm/5.0.2/asm-5.0.2.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/file-management/1.2.1/file-management-1.2.1.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-io/1.1/maven-shared-io-1.1.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/wagon/wagon-provider-api/1.0-alpha-6/wagon-provider-api-1.0-alpha-6.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-dependency-analyzer/1.7/maven-dependency-analyzer-1.7.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-artifact-transfer/0.9.1/maven-artifact-transfer-0.9.1.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/ow2/asm/asm/5.0.2/asm-5.0.2.jar (0 B at 0.0 KB/sec)
+Downloading: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-utils/3.2.0/maven-shared-utils-3.2.0.jar
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.jar (0 B at 0.0 KB/sec)
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar (0 B at 0.0 KB/sec)
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.jar (0 B at 0.0 KB/sec)
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-artifact-transfer/0.9.1/maven-artifact-transfer-0.9.1.jar (0 B at 0.0 KB/sec)
+Downloaded: http://maven.aliyun.com/nexus/content/repositories/central/org/apache/maven/shared/maven-shared-utils/3.2.0/maven-shared-utils-3.2.0.jar (0 B at 0.0 KB/sec)
+[INFO] cn.luischen:my-site:jar:0.0.1-SNAPSHOT
+[INFO] +- org.springframework.boot:spring-boot-starter-thymeleaf:jar:2.0.1.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:2.0.1.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:2.0.1.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.0.1.RELEASE:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.10.0:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.10.0:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.25:compile
+[INFO] |  |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.19:runtime
+[INFO] |  +- org.thymeleaf:thymeleaf-spring5:jar:3.0.9.RELEASE:compile
+[INFO] |  |  \- org.thymeleaf:thymeleaf:jar:3.0.9.RELEASE:compile
+[INFO] |  |     +- org.attoparser:attoparser:jar:2.0.4.RELEASE:compile
+[INFO] |  |     \- org.unbescape:unbescape:jar:1.1.5.RELEASE:compile
+[INFO] |  \- org.thymeleaf.extras:thymeleaf-extras-java8time:jar:3.0.1.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:2.0.1.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:2.0.1.RELEASE:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.5:compile
+[INFO] |  |  \- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.5:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.0.1.RELEASE:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:8.5.29:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:8.5.29:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:8.5.29:compile
+[INFO] |  +- org.hibernate.validator:hibernate-validator:jar:6.0.9.Final:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  \- org.jboss.logging:jboss-logging:jar:3.3.2.Final:compile
+[INFO] |  +- org.springframework:spring-web:jar:5.0.5.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-beans:jar:5.0.5.RELEASE:compile
+[INFO] |  \- org.springframework:spring-webmvc:jar:5.0.5.RELEASE:compile
+[INFO] |     +- org.springframework:spring-context:jar:5.0.5.RELEASE:compile
+[INFO] |     \- org.springframework:spring-expression:jar:5.0.5.RELEASE:compile
+[INFO] +- org.mybatis.spring.boot:mybatis-spring-boot-starter:jar:1.3.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.0.1.RELEASE:compile
+[INFO] |  |  +- com.zaxxer:HikariCP:jar:2.7.8:compile
+[INFO] |  |  \- org.springframework:spring-jdbc:jar:5.0.5.RELEASE:compile
+[INFO] |  |     \- org.springframework:spring-tx:jar:5.0.5.RELEASE:compile
+[INFO] |  +- org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:jar:1.3.2:compile
+[INFO] |  +- org.mybatis:mybatis:jar:3.4.6:compile
+[INFO] |  \- org.mybatis:mybatis-spring:jar:1.3.2:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-aop:jar:2.0.1.RELEASE:compile
+[INFO] |  +- org.springframework:spring-aop:jar:5.0.5.RELEASE:compile
+[INFO] |  \- org.aspectj:aspectjweaver:jar:1.8.13:compile
+[INFO] +- mysql:mysql-connector-java:jar:5.1.46:runtime
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:2.0.1.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:2.0.1.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:2.0.1.RELEASE:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.4.0:test
+[INFO] |  |  \- net.minidev:json-smart:jar:2.3:test
+[INFO] |  |     \- net.minidev:accessors-smart:jar:1.2:test
+[INFO] |  |        \- org.ow2.asm:asm:jar:5.0.4:test
+[INFO] |  +- junit:junit:jar:4.12:test
+[INFO] |  +- org.assertj:assertj-core:jar:3.9.1:test
+[INFO] |  +- org.mockito:mockito-core:jar:2.15.0:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy:jar:1.7.11:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.7.11:test
+[INFO] |  |  \- org.objenesis:objenesis:jar:2.6:test
+[INFO] |  +- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] |  +- org.hamcrest:hamcrest-library:jar:1.3:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.0:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  +- org.springframework:spring-core:jar:5.0.5.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:5.0.5.RELEASE:compile
+[INFO] |  +- org.springframework:spring-test:jar:5.0.5.RELEASE:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.5.1:test
+[INFO] +- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.9.5:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.9.5:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
+[INFO] +- com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.9.5:compile
+[INFO] |  \- joda-time:joda-time:jar:2.9.9:compile
+[INFO] +- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.5:compile
+[INFO] +- com.github.pagehelper:pagehelper:jar:5.1.3:compile
+[INFO] |  \- com.github.jsqlparser:jsqlparser:jar:1.0:compile
+[INFO] +- com.alibaba:druid-spring-boot-starter:jar:1.1.0:compile
+[INFO] |  +- com.alibaba:druid:jar:1.1.0:compile
+[INFO] |  |  +- com.alibaba:jconsole:jar:1.8.0:system
+[INFO] |  |  \- com.alibaba:tools:jar:1.8.0:system
+[INFO] |  \- org.springframework.boot:spring-boot-autoconfigure:jar:2.0.1.RELEASE:compile
+[INFO] +- com.vdurmont:emoji-java:jar:3.2.0:compile
+[INFO] |  \- org.json:json:jar:20140107:compile
+[INFO] +- io.springfox:springfox-swagger2:jar:2.2.2:compile
+[INFO] |  +- org.mapstruct:mapstruct:jar:1.0.0.CR1:compile
+[INFO] |  +- io.swagger:swagger-annotations:jar:1.5.3:compile
+[INFO] |  +- io.swagger:swagger-models:jar:1.5.3:compile
+[INFO] |  +- io.springfox:springfox-spi:jar:2.2.2:compile
+[INFO] |  |  \- io.springfox:springfox-core:jar:2.2.2:compile
+[INFO] |  +- io.springfox:springfox-schema:jar:2.2.2:compile
+[INFO] |  +- io.springfox:springfox-swagger-common:jar:2.2.2:compile
+[INFO] |  +- io.springfox:springfox-spring-web:jar:2.2.2:compile
+[INFO] |  +- com.google.guava:guava:jar:18.0:compile
+[INFO] |  +- com.fasterxml:classmate:jar:1.3.4:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.25:compile
+[INFO] |  +- org.aspectj:aspectjrt:jar:1.8.13:compile
+[INFO] |  +- org.springframework.plugin:spring-plugin-core:jar:1.2.0.RELEASE:compile
+[INFO] |  +- org.springframework.plugin:spring-plugin-metadata:jar:1.2.0.RELEASE:compile
+[INFO] |  \- org.springframework.hateoas:spring-hateoas:jar:0.24.0.RELEASE:compile
+[INFO] +- io.springfox:springfox-swagger-ui:jar:2.2.2:compile
+[INFO] +- net.sourceforge.nekohtml:nekohtml:jar:1.9.22:compile
+[INFO] |  \- xerces:xercesImpl:jar:2.11.0:compile
+[INFO] |     \- xml-apis:xml-apis:jar:1.4.01:compile
+[INFO] +- com.qcloud:cos_api:jar:5.2.4:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.5.5:compile
+[INFO] |  |  \- org.apache.httpcomponents:httpcore:jar:4.4.9:compile
+[INFO] |  +- org.slf4j:slf4j-log4j12:jar:1.7.25:compile
+[INFO] |  |  \- log4j:log4j:jar:1.2.17:compile
+[INFO] |  \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] +- com.google.code.gson:gson:jar:2.8.0:compile
+[INFO] +- com.atlassian.commonmark:commonmark:jar:0.8.0:compile
+[INFO] +- com.atlassian.commonmark:commonmark-ext-gfm-tables:jar:0.8.0:compile
+[INFO] \- com.qiniu:qiniu-java-sdk:jar:7.2.11:compile
+[INFO]    +- com.squareup.okhttp3:okhttp:jar:3.9.1:compile
+[INFO]    |  \- com.squareup.okio:okio:jar:1.13.0:compile
+[INFO]    \- com.qiniu:happy-dns-java:jar:0.1.6:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 20.714 s
+[INFO] Finished at: 2018-05-01T13:56:48+08:00
+[INFO] Final Memory: 28M/357M
+[INFO] ------------------------------------------------------------------------

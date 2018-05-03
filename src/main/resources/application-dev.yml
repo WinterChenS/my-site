@@ -1,0 +1,64 @@
+server:
+  port: 1111
+
+
+spring:
+    datasource:
+        name: test
+        url: jdbc:mysql://127.0.0.1:3306/lu_tale?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+        username: root
+        password: 5236320
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxPoolPreparedStatementPerConnectionSize: 20
+        maxOpenPreparedStatements: 20
+    thymeleaf:
+            prefix: classpath:/templates/
+            check-template-location: true
+            suffix: .html
+            encoding: UTF-8
+            mode: LEGACYHTML5
+            cache: false
+    aop:
+      auto: true
+      proxy-target-class: true
+    servlet:
+          multipart:
+            max-file-size: 10Mb
+            max-request-size: 100Mb
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.luischen.model
+
+mapper:
+  mappers:  cn.luischen.dao
+  not-empty: false
+  identity: MYSQL
+
+#pagehelper
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+    returnPageInfo: check
+
+logging:
+  level:
+    cn.luischen.dao : DEBUG
+
+swagger:
+  show: true

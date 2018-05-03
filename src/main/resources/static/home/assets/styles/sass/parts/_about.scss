@@ -1,0 +1,60 @@
+
+/* About
+---------------------------------------------------------------------------------------------------- */
+
+#about {
+    width: 40%;
+
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    z-index: 20;
+
+    transform: translate(0, -50%);
+
+    h1 {
+        margin-bottom: 25px;
+    }
+
+    p {
+        margin: 0 0 27px 10%;
+    }
+
+    .social {
+        width: 100%;
+
+        float: left;
+
+        margin-left: 20%;
+    }
+
+    @media ($break-m) {
+        width: 50%;
+
+        left: 5%;
+
+        p {
+            margin-left: 5%;
+        }
+
+        .social {
+            margin-left: 10%;
+        }
+    }
+
+    @media ($break-s) {
+        width: 45%;
+
+        left: 8%;
+
+        p {
+            margin-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .social {
+            width: 120px;
+            margin-left: -12px;
+        }
+    }
+}

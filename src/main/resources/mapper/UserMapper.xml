@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.luischen.dao.UserDao" >
+    <sql id="BASE_TABLE">
+        t_users
+    </sql>
+
+    <sql id="BASE_COLUMN">
+        uid,username,password,email,homeUrl,screenName,created,activated,logged,groupName
+    </sql>
+
+    <update id="updateUserInfo" parameterType="cn.luischen.model.UserDomain">
+        UPDATE
+          <include refid="BASE_TABLE"/>
+        <set>
+            <if test="password != null">
+                password = #{password, jdbcType=VARCHAR},
+            </if>
+            <if test="screenName != null">
+                screenName = #{screenName, jdbcType=VARCHAR},
+            </if>
+        </set>
+        WHERE uid = #{uid, jdbcType=INTEGER}
+    </update>
+
+    <select id="getUserInfoById" resultType="cn.luischen.model.UserDomain">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/>
+        WHERE
+        uid = #{uid, jdbcType=INTEGER}
+    </select>
+
+    <select id="getUserInfoByCond" resultType="cn.luischen.model.UserDomain">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/>
+        <where>
+            <if test="username != null">
+                AND username = #{username, jdbcType=VARCHAR}
+            </if>
+            <if test="password != null">
+                AND password = #{password, jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>
