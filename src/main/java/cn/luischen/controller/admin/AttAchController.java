@@ -1,6 +1,5 @@
 package cn.luischen.controller.admin;
 
-import cn.luischen.api.QCloudService;
 import cn.luischen.api.QiniuCloudService;
 import cn.luischen.constant.ErrorConstant;
 import cn.luischen.constant.Types;
@@ -42,8 +41,6 @@ public class AttAchController {
 
     public static final String CLASSPATH = TaleUtils.getUplodFilePath();
 
-    @Autowired
-    private QCloudService qCloudService;
 
     @Autowired
     private AttAchService attAchService;

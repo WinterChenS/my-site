@@ -9,6 +9,7 @@ import com.qiniu.storage.Configuration;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -18,11 +19,16 @@ import java.io.IOException;
  */
 public class QiniuCloudService {
 
-    private static final String ACCESS_KEY = "FCS-foi-VhE2qje5vux2gE0nVS4-LJQNRkl6YFP4";
-    private static final String SECRET_KEY = "J6cBu-9ZLZHNIznb88_hYDFfANaRnKr3qGDPNnWS";
-    private static final String BUCKET = "blog";
-
-    public static final String QINIU_UPLOAD_SITE = "http://ozlpw4ja9.bkt.clouddn.com/";
+    private static final String ACCESS_KEY = "";
+    private static final String SECRET_KEY = "";
+    /**
+     * 仓库
+     */
+    private static final String BUCKET = "";
+    /**
+     * 七牛云外网访问地址
+     */
+    public static final String QINIU_UPLOAD_SITE = "";
 
     public static String upload(MultipartFile file, String fileName) {
 
