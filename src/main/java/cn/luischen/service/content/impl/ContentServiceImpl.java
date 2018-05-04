@@ -115,27 +115,19 @@ public class ContentServiceImpl implements ContentService {
         });
     }
 
-    @Override
-    @Transactional
-    public void updateContentCommentCount(Integer cid) {
-        /**
-         * 重新统计评论数：只重新统计状态为显示的评论
-         */
-        if (null == cid)
-            throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
-        List<CommentDomain> comments = commentDao.getCommentsByCId(cid);
-        if (null != comments && comments.size() > 0){
-            contentDao.updateArticleCommentCountById(cid, comments.size());
-        }
 
+
+    @Override
+    public void updateContentByCid(ContentDomain content) {
+        if (null != content && null != content.getCid()) {
+            contentDao.updateArticleById(content);
+        }
     }
 
     @Override
     public ContentDomain getAtricleById(Integer cid) {
         if (null == cid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
-        //更新评论数
-        updateContentCommentCount(cid);
         return contentDao.getArticleById(cid);
     }
 

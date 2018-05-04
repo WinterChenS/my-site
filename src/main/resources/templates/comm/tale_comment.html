@@ -23,7 +23,7 @@
             subComment: function () {
                 $.ajax({
                     type: 'post',
-                    url: '/comment',
+                    url: '/blog/comment',
                     data: $('#comment-form').serialize(),
                     async: false,
                     dataType: 'json',

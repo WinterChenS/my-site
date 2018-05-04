@@ -58,7 +58,7 @@
         FROM
         <include refid="BASE_TABLE"/> AS cm
         WHERE cm.cid =  #{cid,jdbcType=INTEGER}
-        AND cm.status = 'normal'
+        AND cm.status = 'approved'
         ORDER BY cm.created
     </select>
 

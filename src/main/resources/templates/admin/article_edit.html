@@ -82,25 +82,27 @@
                                 </select>
                             </div>
 
-                            <div class="form-group col-md-6" style="padding: 0 10px 0 0;">
-                                <input name="tags" id="tags" type="text" class="form-control" placeholder="请填写文章标签"
-                                       th:value="${contents!=null and contents.tags !=null}?${contents.tags}: ''"/>
-                            </div>
 
-                            <div class="form-group col-md-6">
-                                <select id="multiple-sel" class="select2 form-control" multiple="multiple"
-                                        data-placeholder="请选择分类...">
-                                    <th:block th:if="${null == categories}">
-                                        <option value="默认分类" selected="selected">默认分类</option>
-                                    </th:block>
-                                    <th:block th:unless="${null == categories}">
-                                        <th:block th:each="c : ${categories}">
-                                            <option th:value="${c.name}" th:text="${c.name}"
-                                                    th:selected="${null !=contents and adminCommons.exist_cat(c, contents.categories)}?true:false"></option>
+                                <div class="form-group col-md-6" style="padding: 0 10px 0 0;">
+                                    <!-- 如果是作品类，那么暂时不允许使用标签 -->
+                                    <input name="tags" id="tags"  type="text" class="form-control" placeholder="请填写文章标签"
+                                           th:value="${contents!=null and contents.tags !=null}?${contents.tags}: ''"/>
+                                </div>
+                                <div class="form-group col-md-6" >
+                                    <select id="multiple-sel"   class="select2 form-control" multiple="multiple"
+                                            data-placeholder="请选择分类...">
+                                        <th:block th:if="${null == categories}">
+                                            <option value="默认分类" selected="selected">默认分类</option>
                                         </th:block>
-                                    </th:block>
-                                </select>
-                            </div>
+                                        <th:block th:unless="${null == categories}">
+                                            <th:block th:each="c : ${categories}">
+                                                <option th:value="${c.name}" th:text="${c.name}"
+                                                        th:selected="${null !=contents and adminCommons.exist_cat(c, contents.categories)}?true:false"></option>
+                                            </th:block>
+                                        </th:block>
+                                    </select>
+                                </div>
+
                             <div class="clearfix"></div>
                             <div id="my-editormd" >
                                 <textarea id="my-text" name="my-text" style="display:none;" class="markdown-textarea"
@@ -122,21 +124,21 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-3 col-sm-4">
-                                <label class="col-sm-4">允许Ping</label>
-                                <div class="col-sm-8">
-                                    <div th:class="${contents!=null and contents.allowPing !=null}?'toggle toggle-success allow-'+${contents.allowPing}:'toggle toggle-success allow-true'"
-                                         onclick="allow_ping(this);"></div>
-                                </div>
-                            </div>
+                            <!--<div class="form-group col-md-3 col-sm-4">-->
+                                <!--<label class="col-sm-4">允许Ping</label>-->
+                                <!--<div class="col-sm-8">-->
+                                    <!--<div th:class="${contents!=null and contents.allowPing !=null}?'toggle toggle-success allow-'+${contents.allowPing}:'toggle toggle-success allow-true'"-->
+                                         <!--onclick="allow_ping(this);"></div>-->
+                                <!--</div>-->
+                            <!--</div>-->
 
-                            <div class="form-group col-md-3 col-sm-4">
-                                <label class="col-sm-4">允许订阅</label>
-                                <div class="col-sm-8">
-                                    <div th:class="${contents!=null and  contents.allowFeed !=null}?'toggle toggle-success allow-'+${contents.allowFeed}: 'toggle toggle-success allow-true'"
-                                         onclick="allow_feed(this);"></div>
-                                </div>
-                            </div>
+                            <!--<div class="form-group col-md-3 col-sm-4">-->
+                                <!--<label class="col-sm-4">允许订阅</label>-->
+                                <!--<div class="col-sm-8">-->
+                                    <!--<div th:class="${contents!=null and  contents.allowFeed !=null}?'toggle toggle-success allow-'+${contents.allowFeed}: 'toggle toggle-success allow-true'"-->
+                                         <!--onclick="allow_feed(this);"></div>-->
+                                <!--</div>-->
+                            <!--</div>-->
 
                             <div class="clearfix"></div>
 

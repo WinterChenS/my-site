@@ -88,7 +88,7 @@
                                             </div>
                                             <th:block th:unless="${comment.url}!=null and ${comment.url}!=''" th:text="${comment.author}"/>
                                             于<th:block th:text="${commons.fmtdate(comment.created,'MM月dd日HH:mm')}"/>：<a
-                                                th:href="${commons.site_url('/article/')}+${comment.cid}+'#comments'"
+                                                th:href="${commons.site_url('/blog/article/')}+${comment.cid}+'#comments'"
                                                 target="_blank" th:utext="${commons.article(comment.content)}"></a>
                                         </li>
                                     </ul>

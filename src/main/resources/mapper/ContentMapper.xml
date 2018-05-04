@@ -104,6 +104,7 @@
         WHERE cid = #{cid, jdbcType=INTEGER}
     </update>
 
+
     <!-- 根据主键编号获取文章信息 -->
     <select id="getArticleById" resultType="cn.luischen.model.ContentDomain">
         SELECT

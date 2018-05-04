@@ -89,7 +89,7 @@ public class CommentController extends BaseController{
     ){
         try {
             CommentDomain comment = commentService.getCommentById(coid);
-            if (null == comment){
+            if (null != comment){
                 commentService.updateCommentStatus(coid, status);
             }else{
                 return APIResponse.fail("删除失败");

@@ -5,7 +5,11 @@ import cn.luischen.dao.CommentDao;
 import cn.luischen.dto.cond.CommentCond;
 import cn.luischen.exception.BusinessException;
 import cn.luischen.model.CommentDomain;
+import cn.luischen.model.ContentDomain;
 import cn.luischen.service.comment.CommentService;
+import cn.luischen.service.content.ContentService;
+import cn.luischen.utils.DateKit;
+import cn.luischen.utils.TaleUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.StringUtils;
@@ -27,6 +31,9 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentDao commentDao;
 
+    @Autowired
+    private ContentService contentService;
+
 
 
     private static final Map<String,String> STATUS_MAP = new ConcurrentHashMap<>();
@@ -34,23 +41,59 @@ public class CommentServiceImpl implements CommentService {
     /**
      * 评论状态：正常
      */
-    private static final String STATUS_NORMAL = "normal";
+    private static final String STATUS_NORMAL = "approved";
     /**
      * 评论状态：不显示
      */
-    private static final String STATUS_BLANK = "blank";
+    private static final String STATUS_BLANK = "not_audit";
 
     static {
-        STATUS_MAP.put("normal",STATUS_NORMAL);
-        STATUS_MAP.put("blank",STATUS_BLANK);
+        STATUS_MAP.put("approved",STATUS_NORMAL);
+        STATUS_MAP.put("not_audit",STATUS_BLANK);
     }
 
     @Override
-    public void addComment(CommentDomain commentDomain) {
-        if (StringUtils.isBlank(commentDomain.getAuthor()))
-            throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
+    @Transactional
+    public void addComment(CommentDomain comments) {
+        String msg = null;
+        if (null == comments) {
+            msg = "评论对象为空";
+        }
+        if (StringUtils.isBlank(comments.getAuthor())) {
+            comments.setAuthor("热心网友");
+        }
+        if (StringUtils.isNotBlank(comments.getMail()) && !TaleUtils.isEmail(comments.getMail())) {
+            msg =  "请输入正确的邮箱格式";
+        }
+        if (StringUtils.isBlank(comments.getContent())) {
+            msg = "评论内容不能为空";
+        }
+        if (comments.getContent().length() < 5 || comments.getContent().length() > 2000) {
+            msg = "评论字数在5-2000个字符";
+        }
+        if (null == comments.getCid()) {
+            msg = "评论文章不能为空";
+        }
+        if (msg != null)
+            throw BusinessException.withErrorCode(msg);
+        ContentDomain atricle = contentService.getAtricleById(comments.getCid());
+        if (null == atricle)
+            throw BusinessException.withErrorCode("该文章不存在");
+        comments.setOwnerId(atricle.getAuthorId());
+        comments.setStatus(STATUS_MAP.get(STATUS_BLANK));
+        comments.setCreated(DateKit.getCurrentUnixTime());
+        commentDao.addComment(comments);
 
-        commentDao.addComment(commentDomain);
+        ContentDomain temp = new ContentDomain();
+        temp.setCid(atricle.getCid());
+        Integer count = temp.getCommentsNum();
+        if (null == count){
+            count = 0;
+        }
+        temp.setCommentsNum(atricle.getCommentsNum() + 1);
+        contentService.updateContentByCid(temp);
+
+        commentDao.addComment(comments);
     }
 
     @Transactional

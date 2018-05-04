@@ -1,27 +1,37 @@
 package cn.luischen.controller;
 
+import cn.luischen.constant.ErrorConstant;
 import cn.luischen.constant.Types;
 import cn.luischen.constant.WebConst;
 import cn.luischen.dto.ArchiveDto;
 import cn.luischen.dto.MetaDto;
 import cn.luischen.dto.cond.ContentCond;
 import cn.luischen.dto.cond.MetaCond;
+import cn.luischen.exception.BusinessException;
+import cn.luischen.model.CommentDomain;
 import cn.luischen.model.ContentDomain;
+import cn.luischen.service.comment.CommentService;
 import cn.luischen.service.content.ContentService;
 import cn.luischen.service.meta.MetaService;
 import cn.luischen.service.site.SiteService;
-import cn.luischen.utils.DateKit;
+import cn.luischen.utils.*;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
+import com.vdurmont.emoji.EmojiParser;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.PermitAll;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 
@@ -41,6 +51,9 @@ public class BlogController extends BaseController {
 
     @Autowired
     private SiteService siteService;
+
+    @Autowired
+    private CommentService commentService;
 
 
     @ApiOperation("blog首页")
@@ -86,9 +99,37 @@ public class BlogController extends BaseController {
         ContentCond contentCond = new ContentCond();
         contentCond.setType(Types.ARTICLE.getType());
         this.blogBaseData(request, contentCond);//获取公共分类标签等数据
+        //更新文章的点击量
+        this.updateArticleHit(atricle.getCid(),atricle.getHits());
+        List<CommentDomain> commentsPaginator = commentService.getCommentsByCId(cid);
+        request.setAttribute("comments", commentsPaginator);
         return "blog/post";
 
     }
+    /**
+     * 更新文章的点击率
+     *
+     * @param cid
+     * @param chits
+     */
+    private void updateArticleHit(Integer cid, Integer chits) {
+        Integer hits = cache.hget("article", "hits");
+        if (chits == null) {
+            chits = 0;
+        }
+        hits = null == hits ? 1 : hits + 1;
+        if (hits >= WebConst.HIT_EXCEED) {
+            ContentDomain temp = new ContentDomain();
+            temp.setCid(cid);
+            temp.setHits(chits + hits);
+            contentService.updateContentByCid(temp);
+            cache.hset("article", "hits", 1);
+        } else {
+            cache.hset("article", "hits", hits);
+        }
+    }
+
+
 
     @ApiOperation("归档页-按日期")
     @GetMapping(value = "/archives/{date}")
@@ -258,6 +299,109 @@ public class BlogController extends BaseController {
         return "blog/index";
     }
 
+    /**
+     * 评论操作
+     */
+    @PostMapping(value = "/comment")
+    @ResponseBody
+    public APIResponse comment(HttpServletRequest request, HttpServletResponse response,
+                               @RequestParam Integer cid, @RequestParam Integer coid,
+                               @RequestParam String author, @RequestParam String mail,
+                               @RequestParam String url, @RequestParam String text, @RequestParam String _csrf_token) {
 
+        String ref = request.getHeader("Referer");
+        if (StringUtils.isBlank(ref) || StringUtils.isBlank(_csrf_token)) {
+            return APIResponse.fail("访问失败");
+        }
+
+        String token = cache.hget(Types.CSRF_TOKEN.getType(), _csrf_token);
+        if (StringUtils.isBlank(token)) {
+            return APIResponse.fail("访问失败");
+        }
+
+        if (null == cid || StringUtils.isBlank(text)) {
+            return APIResponse.fail("请输入完整后评论");
+        }
+
+        if (StringUtils.isNotBlank(author) && author.length() > 50) {
+            return APIResponse.fail("姓名过长");
+        }
+
+        if (StringUtils.isNotBlank(mail) && !TaleUtils.isEmail(mail)) {
+            return APIResponse.fail("请输入正确的邮箱格式");
+        }
+
+        if (StringUtils.isNotBlank(url) && !PatternKit.isURL(url)) {
+            return APIResponse.fail("请输入正确的URL格式");
+        }
+
+        if (text.length() > 200) {
+            return APIResponse.fail("请输入200个字符以内的评论");
+        }
+
+        String val = IPKit.getIpAddrByRequest(request) + ":" + cid;
+        Integer count = cache.hget(Types.COMMENTS_FREQUENCY.getType(), val);
+        if (null != count && count > 0) {
+            return APIResponse.fail("您发表评论太快了，请过会再试");
+        }
+
+        author = TaleUtils.cleanXSS(author);
+        text = TaleUtils.cleanXSS(text);
+
+        author = EmojiParser.parseToAliases(author);
+        text = EmojiParser.parseToAliases(text);
+
+        CommentDomain comments = new CommentDomain();
+        comments.setAuthor(author);
+        comments.setCid(cid);
+        comments.setIp(request.getRemoteAddr());
+        comments.setUrl(url);
+        comments.setContent(text);
+        comments.setMail(mail);
+        comments.setParent(coid);
+        try {
+            commentService.addComment(comments);
+            cookie("tale_remember_author", URLEncoder.encode(author, "UTF-8"), 7 * 24 * 60 * 60, response);
+            cookie("tale_remember_mail", URLEncoder.encode(mail, "UTF-8"), 7 * 24 * 60 * 60, response);
+            if (StringUtils.isNotBlank(url)) {
+                cookie("tale_remember_url", URLEncoder.encode(url, "UTF-8"), 7 * 24 * 60 * 60, response);
+            }
+            // 设置对每个文章1分钟可以评论一次
+            cache.hset(Types.COMMENTS_FREQUENCY.getType(), val, 1, 60);
+
+            return APIResponse.success();
+        } catch (Exception e) {
+            throw BusinessException.withErrorCode(ErrorConstant.Comment.ADD_NEW_COMMENT_FAIL);
+        }
+    }
+
+
+    /**
+     * 注销
+     *
+     * @param session
+     * @param response
+     */
+    @RequestMapping("logout")
+    public void logout(HttpSession session, HttpServletResponse response) {
+        TaleUtils.logout(session, response);
+    }
+
+
+
+    /**
+     * 设置cookie
+     *
+     * @param name
+     * @param value
+     * @param maxAge
+     * @param response
+     */
+    private void cookie(String name, String value, int maxAge, HttpServletResponse response) {
+        Cookie cookie = new Cookie(name, value);
+        cookie.setMaxAge(maxAge);
+        cookie.setSecure(false);
+        response.addCookie(cookie);
+    }
 
 }

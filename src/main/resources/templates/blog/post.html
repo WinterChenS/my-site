@@ -14,10 +14,16 @@
                             <time th:datetime="${commons.fmtdate(article.created)}" itemprop="datePublished" th:text="'发布于 '+ ${commons.fmtdate(article.created)}"></time>
                         </a>
 
+
                         <div class="article-category">
                             <th:block th:utext="${commons.show_categories(article.categories)}"/>
                         </div>
-
+                        <div class="article-category">
+                            <th:block th:text="${article.hits ?: 0} + '阅读 '"></th:block>
+                        </div>
+                        <div class="article-category">
+                            <th:block th:text="${article.commentsNum ?: 0} + '条评论  '"></th:block>
+                        </div>
                     </div>
                     <div class="article-inner">
 
@@ -57,7 +63,12 @@
                 </article>
 
             </section>
+        <div>
+            <div th:replace="blog/comments::comments"></div>
         </div>
+
+        </div>
+
         <div th:replace="blog/footer::footer(${commons.site_title()},${commons.site_record()},${commons.site_url()})"></div>
     </div>
 

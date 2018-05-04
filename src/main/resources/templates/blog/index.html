@@ -18,6 +18,16 @@
                                 <th:block th:utext="${commons.show_categories(article.categories)}"/>
                             </div>
 
+                            <div class="article-category">
+                                <th:block th:utext="${commons.show_categories(article.categories)}"/>
+                            </div>
+                            <div class="article-category">
+                                <th:block th:text="${article.hits ?: 0} + '阅读 '"></th:block>
+                            </div>
+                            <div class="article-category">
+                                <th:block th:text="${article.commentsNum ?: 0} + '条评论  '"></th:block>
+                            </div>
+
                         </div>
                         <div class="article-inner">
 

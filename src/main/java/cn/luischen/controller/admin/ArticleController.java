@@ -116,8 +116,9 @@ public class ArticleController extends BaseController {
         contentDomain.setContent(content);
         contentDomain.setType(type);
         contentDomain.setStatus(status);
-        contentDomain.setTags(tags);
-        contentDomain.setCategories(categories);
+        contentDomain.setTags(type.equals(Types.ARTICLE.getType()) ? tags : null);
+        //只允许博客文章有分类，防止作品被收入分类
+        contentDomain.setCategories(type.equals(Types.ARTICLE.getType()) ? categories : null);
         contentDomain.setAllowComment(allowComment ? 1 : 0);
 
         contentService.addArticle(contentDomain);

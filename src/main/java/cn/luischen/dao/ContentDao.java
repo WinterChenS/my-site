@@ -44,6 +44,8 @@ public interface ContentDao {
      */
     int updateArticleCommentCountById(@Param("cid") Integer cid, @Param("commentsNum") Integer commentsNum);
 
+
+
     /**
      * 根据编号获取文章
      * @param cid

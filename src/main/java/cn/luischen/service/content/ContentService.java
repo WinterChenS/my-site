@@ -38,11 +38,13 @@ public interface ContentService {
      */
     void updateCategory(String ordinal, String newCatefory);
 
+
+
     /**
-     * 重新统计文章的评论数
-     * @param cid
+     * 添加文章点击量
+     * @param content
      */
-    void updateContentCommentCount(Integer cid);
+    void updateContentByCid(ContentDomain content);
 
     /**
      * 根据编号获取文章

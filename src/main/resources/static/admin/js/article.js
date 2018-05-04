@@ -108,3 +108,29 @@ $('div.allow-false').toggles({
         off: '关闭'
     }
 });
+
+$('#multiple-type').change(function () {
+    var postType = $('#multiple-type').val();
+    var tags = $('#tags');
+    var categories = $('#multiple-sel');
+    if(postType == 'post'){
+        $('#tags_tagsinput').show(500);
+        $('#s2id_multiple-sel').show(500);
+    }else {
+        $('#tags_tagsinput').hide(500);
+        $('#s2id_multiple-sel').hide(500);
+    }
+});
+
+$(function () {
+    var postType = $('#multiple-type').val();
+    var tags = $('#tags');
+    var categories = $('#multiple-sel');
+    if(postType == 'post'){
+        $('#tags_tagsinput').show();
+        $('#s2id_multiple-sel').show();
+    }else {
+        $('#tags_tagsinput').hide();
+        $('#s2id_multiple-sel').hide();
+    }
+});
