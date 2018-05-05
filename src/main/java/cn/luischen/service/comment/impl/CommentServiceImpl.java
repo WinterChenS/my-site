@@ -90,10 +90,9 @@ public class CommentServiceImpl implements CommentService {
         if (null == count){
             count = 0;
         }
-        temp.setCommentsNum(atricle.getCommentsNum() + 1);
+        temp.setCommentsNum(count + 1);
         contentService.updateContentByCid(temp);
 
-        commentDao.addComment(comments);
     }
 
     @Transactional
