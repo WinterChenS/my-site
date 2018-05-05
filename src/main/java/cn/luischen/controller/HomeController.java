@@ -29,7 +29,7 @@ public class HomeController extends BaseController{
     private OptionService optionService;
 
     @ApiIgnore
-    @GetMapping("/")
+    @GetMapping(value = {"/","/home/index", "/index"})
     public String getIndex(HttpServletRequest request){
         return "home/index";
     }
@@ -37,7 +37,7 @@ public class HomeController extends BaseController{
 
 
     @ApiIgnore
-    @GetMapping("/about")
+    @GetMapping(value = {"/about", "/about/index"})
     public String getAbout(HttpServletRequest request){
         return "home/about";
     }
