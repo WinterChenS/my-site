@@ -682,7 +682,7 @@ header.main {
     max-width: 96rem;
     width: 90%;
     margin: 0 auto 1em;
-    padding: 2rem 0 2rem;
+    padding: 4rem 0 2rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -709,19 +709,19 @@ header.main nav {
     font-size: 1.1rem;
 }
 
-@media (max-width: 580px) {
+@media (max-width: 480px) {
     header.main nav {
-        justify-content: flex-start;
-        margin-left: 0rem;
-
-        }
+        margin: 0 0.8rem;
+    }
 }
 
 header.main nav a {
+    font-family: 'Open Sans', "Microsoft Yahei";
+    font-size: 0.9rem;
     color: #666;
     font-weight: 600;
     letter-spacing: 1px;
-    margin: 0 0.9rem;
+    margin: 0 1.5rem;
     -webkit-transition: color 800ms ease, opacity 800ms ease;
     transition: color 800ms ease, opacity 800ms ease;
 }
@@ -735,9 +735,10 @@ header.main nav a.active {
         font-size: 1.5 rem;
     }
     header.main nav a {
-        margin: 0 2rem;
+        margin: 0 0.8rem;
     }
 }
+
 
 
 

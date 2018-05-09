@@ -116,9 +116,12 @@ $('#multiple-type').change(function () {
     if(postType == 'post'){
         $('#tags_tagsinput').show(500);
         $('#s2id_multiple-sel').show(500);
+        $('#comment-div').attr("style","display:block;");
     }else {
         $('#tags_tagsinput').hide(500);
         $('#s2id_multiple-sel').hide(500);
+        $('#comment-div').attr("style","display:none;");
+
     }
 });
 
@@ -129,8 +132,11 @@ $(function () {
     if(postType == 'post'){
         $('#tags_tagsinput').show();
         $('#s2id_multiple-sel').show();
+        $('#comment-div').attr("style","display:block;");
     }else {
         $('#tags_tagsinput').hide();
         $('#s2id_multiple-sel').hide();
+        $('#comment-div').attr("style","display:none;");
+
     }
 });

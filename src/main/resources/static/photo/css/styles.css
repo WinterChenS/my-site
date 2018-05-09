@@ -7,6 +7,15 @@ form {
 	margin: 0 auto;
 }
 
+.nav-link {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	padding-right: .5rem;
+	padding-left: .5rem;
+	margin: 0 .6rem;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+
 button {
   color: #777;
 	background: #fff;
@@ -79,21 +88,12 @@ h1, h2, h3 {
 }
 
 .nav-item {
-	font-size: 1.1rem;
-	color: rgba(0,0,0,.5);
-	padding-right: 0;
-	padding-left: 0;
-	font-weight: 600;
-	letter-spacing: 1px;
-	display: block;
-	padding: .5em 1em;
-	touch-action: manipulation;
+	font-size: 0.8rem;
+	font-weight: 300;
+	letter-spacing: 1.5px;
 }
 
-.navbar-toggleable-sm .navbar-nav .nav-link {
-	padding-right: 0;
-	padding-left: 0;
-}
+
 
 .navbar-toggler {
 	border: 0;

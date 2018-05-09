@@ -203,12 +203,12 @@ body {
 
 .logo {
     display: block;
-    width: 150px;
-    height: 24px;
-    background: url("images/logo.png") no-repeat;
-    -webkit-background-size: 150px 24px;
-    -moz-background-size: 150px 24px;
-    background-size: 150px 24px;
+    width: 300px;
+    height: 48px;
+    background: url("http://ozlpw4ja9.bkt.clouddn.com/BF6AC5E5-C8D7-4841-B3ED-9D898586D5FF-9703-0000073B1BF8A7F8_tmp.PNG") no-repeat;
+    -webkit-background-size: 300px 48px;
+    -moz-background-size: 300px 48px;
+    background-size: 100px 48px;
     text-indent: -9999px;
 }
 
@@ -414,8 +414,7 @@ body {
 #header {
     height: 0px;
     position: relative;
-    background: #3a3f41;
-    margin-bottom: 50px;
+    background: #fff;
     padding: 0px 20px;
     -webkit-transition: height 0.2s ease-in;
     -moz-transition: height 0.2s ease-in;
@@ -445,18 +444,15 @@ body {
 
 #main-nav {
     position: relative;
-    float: left;
+    float: right;
     top: 37px;
 }
 
 .nav-icon,
 .main-nav-link {
     float: left;
-    color: #fff;
+    color: #000;
     text-decoration: none;
-    -webkit-transition: color 0.2s;
-    -moz-transition: color 0.2s;
-    -ms-transition: color 0.2s;
     transition: color 0.2s;
     display: block;
     padding: 0px 10px;
@@ -1306,15 +1302,12 @@ a.article-title:hover {
 }
 
 #footer {
-    background: #3a3f41;
-    padding: 50px 20px;
+    background: #fff;
+    padding: 50px container-padding;
     border-top: 1px solid #ddd;
     color: #999;
     margin-top: 100px;
     opacity: 0;
-    -webkit-transition: opacity 0.2s ease-in;
-    -moz-transition: opacity 0.2s ease-in;
-    -ms-transition: opacity 0.2s ease-in;
     transition: opacity 0.2s ease-in;
 }
 
@@ -1337,6 +1330,7 @@ a.article-title:hover {
 
 #footer-info .logo {
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .article-entry pre,

@@ -116,7 +116,7 @@
                                           <!--th:utext="${contents!=null and contents.content !=null}?${contents.content}: ''"></textarea>-->
                             <!--</div>-->
 
-                            <div class="form-group col-md-3 col-sm-4">
+                            <div class="form-group col-md-3 col-sm-4" id="comment-div">
                                 <label class="col-sm-4">开启评论</label>
                                 <div class="col-sm-8">
                                     <div th:class="${contents!=null and contents.allowComment!=null }?'toggle toggle-success allow-'+${contents.allowComment}:'toggle toggle-success allow-true'"
