@@ -72,7 +72,7 @@ public class HomeController extends BaseController{
     public String blogIndex(
             HttpServletRequest request,
             @ApiParam(name = "limit", value = "页数", required = false)
-            @RequestParam(name = "limit", required = false, defaultValue = "10")
+            @RequestParam(name = "limit", required = false, defaultValue = "11")
                     int limit
     ){
         return this.blogIndex(request, 1, limit);

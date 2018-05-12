@@ -147,7 +147,7 @@
                 AND c.created &lt;= #{endTime, jdbcType=INTEGER}
             </if>
         </where>
-        ORDER BY c.created
+        ORDER BY c.created DESC
     </select>
     
     <select id="getArticleCount" resultType="java.lang.Long">
