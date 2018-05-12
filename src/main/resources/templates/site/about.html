@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="site/head::head(${commons.site_title()},${commons.google_site_verification()}, ${commons.baidu_site_verification()})"></div>
+
+
+
+
+<body>
+
+    
+
+    	<!-- header -->
+
+        <div th:replace="site/header::header"></div>
+
+
+        <!-- header -->
+
+        <!-- main -->
+
+        <main role="main-inner-wrapper" class="container">
+
+        	
+
+            <div class="row">
+
+            
+
+            	<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+
+                	<article role="pge-title-content">
+
+                    	<header>
+
+                        	<h2><span>Hi! </span> My name is Winter.</h2>
+
+                        </header>
+
+                        <p>I’m a Java Developer with an enduring interest in Coding and Write Blog</p>
+
+                    </article>
+
+                </section>
+
+                
+
+                <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                	<article class="about-content">
+
+                    	<p>In my free time I enjoy coding, cycling, photography and meeting new people.</p>
+
+                        <p>Want to work together on something? Just Email me . And scan the QR code to add me on WeChat.</p>
+
+                    </article>
+
+                </section>
+
+                
+
+                <div class="clearfix"></div>
+
+                
+
+                <!-- thumbnails -->
+
+                	<div class="thumbnails-pan">
+                        <th:block th:each="link,linkStat : ${links}">
+                            <th:block th:if="${linkStat.index < 3}">
+                                <section class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
+
+                                    <figure>
+
+                                        <img th:src="@{'/site/images/about-images/about-image-' + ${linkStat.index+1} + '.jpg'}" th:onclick="'javascript:linkFirend(\''+${link.slug}+'\')'" class="img-responsive"/>
+
+                                        <figcaption>
+
+                                            <h3><th:block th:text="${link.name}"></th:block></h3>
+
+                                            <h5><th:block th:text="${link.description}"></th:block></h5>
+
+                                        </figcaption>
+
+                                    </figure>
+
+                                </section>
+                            </th:block>
+
+                        </th:block>
+
+
+
+                        
+
+                     
+
+                    </div>
+
+                <!-- thumbnails -->
+
+                
+
+                
+
+            </div>
+
+        </main>
+
+    	<!-- main -->
+
+        <!-- footer -->
+
+        <div th:replace="site/footer::footer(${commons.site_title()},${commons.site_record()},${commons.site_url()})"></div>
+
+</body>
+<script>
+    function linkFirend(link) {
+        window.location.href=link;
+    }
+</script>
+</html>

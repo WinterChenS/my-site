@@ -8,7 +8,7 @@
 
 
     <th:block th:each="navIndex :${ pageInfo.navigatepageNums}">
-        <li th:class="${pageInfo.pageNum==navIndex}?'current':''"><a th:href="@{'/'+${prefix}+'/'+ ${navIndex}}"
+        <li th:class="${pageInfo.pageNum==navIndex}?'current':''"><a th:href="@{'/page/'+${navIndex}}"
                                                                      th:text="${navIndex}"></a></li>
     </th:block>
 

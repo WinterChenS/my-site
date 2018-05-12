@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="site/head::head(${commons.site_title()},${commons.google_site_verification()}, ${commons.baidu_site_verification()})"></div>
+
+
+
+
+<body>
+
+    
+
+    	<!-- header -->
+
+        <div th:replace="site/header::header"></div>
+
+        <!-- header -->
+
+        <!-- main -->
+
+        <main role="main-inner-wrapper" class="container">
+
+        	
+
+            
+
+            	
+
+                <!-- work details -->
+
+                	<div class="work-details">
+
+                    	
+
+                        <div class="row">
+
+                        	<div class="col-xs-12 col-sm-12 col-md-4">
+
+                            	<header role="work-title">
+
+                                	<h2 th:text="${archive.title}"></h2>
+
+                                    <h6 th:utext="${commons.fmtdate_en(archive.created)}"></h6>
+
+                                </header>
+
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-8">
+
+                            	<section>
+
+                                	<th:block th:each="p : ${commons.show_all_p(archive.content)}">
+                                        <th:block th:utext="${p}"></th:block>
+                                    </th:block>
+
+                                </section>
+
+                            
+
+                            </div>
+
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        
+
+                        <div class="work-images grid">
+
+                            <ul class="grid-lod effect-2" id="grid">
+                                <th:block th:each="pic : ${commons.show_all_thumb(archive.content)}">
+                                    <li><img th:src="${pic}" alt="" class="img-responsive"/></li>
+                                </th:block>
+                            </ul>
+
+                        </div>
+
+                        
+
+                    </div>
+
+                <!-- work details -->
+
+            
+
+            
+
+        </main>
+
+    	<!-- main -->
+
+        <!-- footer -->
+
+        <div th:replace="site/footer::footer(${commons.site_title()},${commons.site_record()},${commons.site_url()})"></div>
+
+    </body>
+
+</html>

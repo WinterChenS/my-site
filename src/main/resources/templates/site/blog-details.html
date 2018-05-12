@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="site/head::head(${article.title},${commons.google_site_verification()}, ${commons.baidu_site_verification()})"></div>
+
+
+<body>
+
+
+<!-- header -->
+
+<div th:replace="site/header::header"></div>
+
+<!-- header -->
+
+<!-- main -->
+
+<main role="main-inner-wrapper" class="container">
+
+
+    <div class="blog-details">
+
+        <article class="post-details" id="post-details">
+
+            <header role="bog-header" class="bog-header text-center">
+
+                <h3>
+                    <th:block th:utext="${commons.fmtdate_en(article.created)}"></th:block>
+                </h3>
+
+                <h2>
+                    <th:block th:text="${article.title}"></th:block>
+                </h2>
+
+            </header>
+
+
+            <figure>
+
+                <img src="images/blog-images/blog-details-image.jpg" alt="" class="img-responsive"/>
+
+            </figure>
+
+            <div id="post-content" class="post-content" itemprop="articleBody">
+                <th:block th:utext="${commons.article(article.content)}"></th:block>
+            </div>
+
+
+        </article>
+
+
+        <!-- Comments -->
+        <div id="comments-content" th:if="${article}!=null">
+            <div th:id="${article.cid ?: 0}"  class="comments-pan">
+
+                <h3>
+                    <th:block th:text="${article.commentsNum ?: 0}"></th:block>
+                    Comments
+                </h3>
+
+                <ul th:if="${comments}" class="comments-reply">
+                    <th:block th:each="comment :${comments}">
+                        <li th:id="'li-comment-'+${comment.coid}">
+
+                            <figure th:id="'comment-'+${comment.coid}">
+
+                                <img th:src="@{${commons.gravatar(comment.mail)}(s='80',r='G',d='')}" alt="" class="img-responsive"/>
+
+                            </figure>
+
+                            <section>
+
+                                <h4> <a th:href="${comment.url}" target="blank" th:text="${comment.author}"></a></h4>
+
+                                <div class="date-pan"><th:block th:text="${commons.fmtdate(comment.created)}"></th:block></div>
+
+                                <th:block th:utext="${commons.article(comment.content)}"></th:block>
+
+                            </section>
+
+
+
+                        </li>
+                    </th:block>
+
+
+
+                </ul>
+
+
+                <div class="commentys-form">
+
+                    <h4>Leave a comment</h4>
+
+
+                    <div class="row">
+
+                        <form method="post" id="comment-form" class="comment-form" role="form"
+                              onsubmit="return TaleComment.subComment();">
+
+                            <input type="hidden" name="coid" id="coid"/>
+                            <input type="hidden" name="cid" id="cid" th:value="${article.cid}"/>
+                            <input type="hidden" name="_csrf_token" th:value="${_csrf_token}"/>
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+
+                                <input type="text" name="author" maxlength="12" id="author"
+                                       placeholder="姓名 (*)"
+                                />
+
+                            </div>
+
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+
+                                <input type="email" name="mail" id="mail"
+                                       placeholder="邮箱 (*)"
+                                />
+
+                            </div>
+
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+
+                                <input type="url" name="url" id="url"
+                                       placeholder="网址 (http://)"
+                                />
+
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                                <textarea name="text" id="textarea"  placeholder="以上信息可以为空,评论不能为空哦!"
+                                          required="required" minlength="5"
+                                          maxlength="2000"></textarea>
+                            </div>
+
+                            <div class="text-center">
+
+                                <input type="submit" value="Post Comment"  id="misubmit"></input>
+
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+</main>
+
+<!-- main -->
+
+<!-- footer -->
+
+<div th:replace="site/footer::footer(${commons.site_title()},${commons.site_record()},${commons.site_url()})"></div>
+
+</body>
+<div th:replace="comm/tale_comment::tale_comment"></div>
+</html>

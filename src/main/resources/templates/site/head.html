@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title,google_site_verification,baidu_site_verification)">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta charset="utf-8">
+
+    <!-- Description, Keywords and Author -->
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title><th:block th:text="${title!=null?title:'blog'}"></th:block></title>
+    <link rel="shortcut icon" th:href="@{http://ozlpw4ja9.bkt.clouddn.com/favicon.ico}" type="image/x-icon">
+
+    <meta name="google-site-verification" th:content="${google_site_verification}" />
+    <meta name="baidu-site-verification" th:content="${baidu_site_verification}" />
+    <!-- style -->
+
+    <link th:href="@{/site/css/style.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/site/css/style.min.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{//cdn.bootcss.com/highlight.js/9.9.0/styles/xcode.min.css}" rel="stylesheet"/>
+
+    <!-- style -->
+
+    <!-- bootstrap -->
+
+    <link th:href="@{/site/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+
+    <!-- responsive -->
+
+    <link th:href="@{/site/css/responsive.css}" rel="stylesheet" type="text/css">
+
+    <!-- font-awesome -->
+
+    <link rel="stylesheet" type="text/css" th:href="@{/site/jquery/font-awesome.4.6.0.css}">
+
+    <!-- font-awesome -->
+
+    <link th:href="@{/site/css/effects/set2.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/site/css/effects/normalize.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/site/css/effects/component.css}"  rel="stylesheet" type="text/css" >
+</head>
+</html>

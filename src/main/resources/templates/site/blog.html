@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="site/head::head(${commons.site_title()},${commons.google_site_verification()}, ${commons.baidu_site_verification()})"></div>
+
+<body>
+
+
+<!-- header -->
+
+<div th:replace="site/header::header"></div>
+
+<!-- header -->
+
+<!-- main -->
+
+<main role="main-inner-wrapper" class="container">
+
+
+    <div class="row">
+
+
+        <!-- Left -->
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+
+            <article role="pge-title-content" class="blog-header">
+
+                <header>
+
+                    <h2><span>Blog</span> write by luis</h2>
+
+                </header>
+
+                <p>Some technical blogs and life logs about Java.</p>
+
+            </article>
+
+            <ul class="grid-lod effect-2" id="grid">
+                <th:block th:each="article,articleStat : ${articles.list}">
+                    <th:block th:if="${articleStat.index % 2 != 0}">
+                        <li>
+                            <section class="blog-content">
+
+                                <a th:href="${commons.blogPermalink(article.cid)}">
+
+                                    <figure>
+
+                                        <div class="post-date">
+
+                                            <th:block th:utext="${commons.fmtdate_en(article.created)}"></th:block>
+
+                                        </div>
+
+                                        <img th:src="${commons.show_thumb(article.content)}" alt=""
+                                             class="img-responsive"/>
+
+                                    </figure>
+
+                                </a>
+
+                                <article>
+
+                                    <th:block th:text="${article.title}"></th:block>
+
+                                </article>
+
+                            </section>
+                        </li>
+
+                    </th:block>
+                </th:block>
+
+
+            </ul>
+
+        </div>
+
+
+        <!-- right -->
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+            <ul class="grid-lod effect-2" id="grid">
+                <th:block th:each="article,articleStat : ${articles.list}">
+                    <th:block th:if="${articleStat.index % 2 == 0}">
+                        <li>
+                            <section class="blog-content">
+
+                                <a th:href="${commons.blogPermalink(article.cid)}">
+
+                                    <figure>
+
+                                        <div class="post-date">
+
+                                            <th:block th:utext="${commons.fmtdate_en(article.created)}"></th:block>
+
+                                        </div>
+
+                                        <img th:src="${commons.show_thumb(article.content)}" alt=""
+                                             class="img-responsive"/>
+
+                                    </figure>
+
+                                </a>
+
+                                <article>
+
+                                    <th:block th:text="${article.title}"></th:block>
+
+                                </article>
+
+                            </section>
+                        </li>
+
+                    </th:block>
+                </th:block>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+    <div class="lists-navigator clearfix">
+        <div th:replace="comm/macros::pageNav(${articles},'←','→','blog/page')"></div>
+    </div>
+</main>
+
+<!-- main -->
+
+<!-- footer -->
+
+<div th:replace="site/footer::footer(${commons.site_title()},${commons.site_record()},${commons.site_url()})"></div>
+
+</body>
+
+</html>

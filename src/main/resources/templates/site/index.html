@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="site/head::head(${commons.site_title()},${commons.google_site_verification()}, ${commons.baidu_site_verification()})"></div>
+
+<body>
+
+<!-- header -->
+
+<div th:replace="site/header::header"></div>
+
+<!-- header --> 
+
+<!-- main -->
+
+<main role="main-home-wrapper" class="container">
+  <div class="row">
+    <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+      <article role="pge-title-content">
+        <header>
+          <h2><span>Luis</span> A Java Developer.</h2>
+        </header>
+        <p>maker of things for the web app, always focused on elegant simplicity, relentlessly learning by making mistakes.</p>
+      </article>
+    </section>
+    <th:block th:each="archive,archiveStat : ${archives.list}">
+      <th:block th:if="${archiveStat.index == 1}">
+        <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
+          <figure class="effect-oscar"> <img th:src="${commons.show_thumb(archive.content)}" alt="" class="img-responsive"/>
+            <figcaption>
+              <h2><th:block th:text="${archive.title}" ></th:block></h2>
+              <p><th:block th:utext="${commons.fmtdate_en(archive.created)}"></th:block></p>
+              <a th:href="${commons.photoPermalink(archive.cid)}">View more</a> </figcaption>
+          </figure>
+        </section>
+      </th:block>
+    </th:block>
+
+    <!-- left -->
+    <div class="clearfix"></div>
+    <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
+      <ul class="grid-lod effect-2" id="grid">
+        <th:block th:each="archive,archiveStat : ${archives.list}">
+          <th:block th:if="${archiveStat.index != 1 && archiveStat.index % 2 != 0}">
+            <li>
+              <figure class="effect-oscar"> <img th:src="${commons.show_thumb(archive.content)}" alt="" class="img-responsive"/>
+                <figcaption>
+                  <h2><th:block th:text="${archive.title}" ></th:block></h2>
+                  <p><th:block th:utext="${commons.fmtdate_en(archive.created)}"></th:block></p>
+                  <a th:href="${commons.photoPermalink(archive.cid)}">View more</a> </figcaption>
+              </figure>
+            </li>
+          </th:block>
+        </th:block>
+      </ul>
+    </section>
+
+    <!-- right -->
+    <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
+      <ul class="grid-lod effect-2" id="grid">
+        <th:block th:each="archive,archiveStat : ${archives.list}">
+          <th:block th:if="${archiveStat.index != 1 && archiveStat.index % 2 == 0}">
+            <li>
+              <figure class="effect-oscar"> <img th:src="${commons.show_thumb(archive.content)}" alt="" class="img-responsive"/>
+                <figcaption>
+                  <h2><th:block th:text="${archive.title}" ></th:block></h2>
+                  <p><th:block th:utext="${commons.fmtdate_en(archive.created)}"></th:block></p>
+                  <a th:href="${commons.photoPermalink(archive.cid)}">View more</a> </figcaption>
+              </figure>
+            </li>
+          </th:block>
+        </th:block>
+      </ul>
+    </section>
+    <div class="clearfix"></div>
+  </div>
+</main>
+
+<!-- main --> 
+
+<!-- footer -->
+<div th:replace="site/footer::footer(${commons.site_title()},${commons.site_record()},${commons.site_url()})"></div>
+
+</body>
+</html>

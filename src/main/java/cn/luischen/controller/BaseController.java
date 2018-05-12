@@ -48,18 +48,18 @@ public abstract class BaseController {
      * @return
      */
     public BaseController blogBaseData(HttpServletRequest request, ContentCond contentCond){
-        List<MetaDto> categories = metaService.getMetaList(Types.CATEGORY.getType(), null, WebConst.MAX_POSTS);
-        List<MetaDto> tags = metaService.getMetaList(Types.TAG.getType(), null, WebConst.MAX_POSTS);
+//        List<MetaDto> categories = metaService.getMetaList(Types.CATEGORY.getType(), null, WebConst.MAX_POSTS);
+//        List<MetaDto> tags = metaService.getMetaList(Types.TAG.getType(), null, WebConst.MAX_POSTS);
         List<MetaDto> links = metaService.getMetaList(Types.LINK.getType(), null,WebConst.MAX_POSTS);
-        request.setAttribute("categories", categories);//分类
-        request.setAttribute("tags", tags);//标签
+//        request.setAttribute("categories", categories);//分类
+//        request.setAttribute("tags", tags);//标签
         request.setAttribute("links", links);
-        PageInfo<ContentDomain> recentlyArticles = contentService.getRecentlyArticle(1, 10);
-        ContentCond cond = new ContentCond();
-        cond.setType(contentCond.getType());
-        request.setAttribute("recentlyArticles", recentlyArticles);
-        List<ArchiveDto> archives = siteService.getArchivesSimple(cond);
-        request.setAttribute("archives", archives);//归档数据
+//        PageInfo<ContentDomain> recentlyArticles = contentService.getRecentlyArticle(1, 10);
+//        ContentCond cond = new ContentCond();
+//        cond.setType(contentCond.getType());
+//        request.setAttribute("recentlyArticles", recentlyArticles);
+//        List<ArchiveDto> archives = siteService.getArchivesSimple(cond);
+//        request.setAttribute("archives", archives);//归档数据
 
         return this;
     }

@@ -2,12 +2,9 @@ package cn.luischen.utils;
 
 import cn.luischen.constant.WebConst;
 import cn.luischen.model.ContentDomain;
-import cn.luischen.model.OptionsDomain;
-import cn.luischen.service.option.OptionService;
 import com.github.pagehelper.PageInfo;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
@@ -168,7 +165,10 @@ public class Commons {
      * @return
      */
     public static String fmtdate_en(Integer unixTime){
-        return fmtdate(unixTime,"MMM d, yyyy");
+        String fmtdate = fmtdate(unixTime, "d,MMM,yyyy");
+        String[] dateArr = fmtdate.split(",");
+        String rs = "<span>" + dateArr[0] + "</span> " + dateArr[1] + "  " + dateArr[2];
+        return rs;
     }
 
 
@@ -415,6 +415,88 @@ public class Commons {
             }
         }
         return "";
+    }
+
+    /**
+     * 获取文章中的所有图片
+     * @param content
+     * @return
+     */
+    public static List<String> show_all_thumb(String content) {
+        List<String> rs = new LinkedList();
+        content = TaleUtils.mdToHtml(content);
+        if (content.contains("<img")) {
+            String img = "";
+            String regEx_img = "<[a-zA-Z]+.*?>([\\s\\S]*?)</[a-zA-Z]*>";
+            Pattern p_image = Pattern.compile(regEx_img, Pattern.MULTILINE);
+            Matcher m_image = p_image.matcher(content);
+            while (m_image.find()) {
+                String data = m_image.group(1).trim();
+                if(!"".equals(data) && data.contains("<img")) {
+                    System.out.println(data);
+                    // //匹配src
+                    Matcher m = Pattern.compile("src\\s*=\\s*\'?\"?(.*?)(\'|\"|>|\\s+)").matcher(data);
+                    if (m.find()) {
+                        rs.add(m.group(1));
+                    }
+                }
+
+            }
+        }
+        return rs;
+    }
+
+    /**
+     * 获取文章的文字预览
+     * @param content
+     * @return
+     */
+    public static String show_p(String content){
+        String result = "";
+        content = TaleUtils.mdToHtml(content);
+        String reg = "<[a-zA-Z]+.*?>([\\s\\S]*?)</[a-zA-Z]*>";
+
+        Pattern p = Pattern.compile(reg, Pattern.MULTILINE);
+        content = content.replace("&nbsp;", "");
+        Matcher m = p.matcher(content);
+        if (m.find()) {
+            String data = m.group(1).trim();
+            if(!"".equals(data) && !data.contains("<img")) {
+                System.out.println(data);
+                result = data;
+            }
+        }
+        result = result.replace("<img>","");
+        result = result.replace("</img>","");
+        result = result.replace("<p>","");
+        result = result.replace("</p>","");
+        if (result.length() > 20)
+            result = result.substring(0, 20);
+        return result;
+    }
+
+    /**
+     * 获取文章中所有的文字
+     * @param content
+     * @return
+     */
+    public static List<String> show_all_p(String content){
+        List<String> rs = new LinkedList();
+        content = TaleUtils.mdToHtml(content);
+        String reg = "<[a-zA-Z]+.*?>([\\s\\S]*?)</[a-zA-Z]*>";
+
+        Pattern p = Pattern.compile(reg, Pattern.MULTILINE);
+        content = content.replace("&nbsp;", "");
+        Matcher m = p.matcher(content);
+        while(m.find()) {
+            String data = m.group(1).trim();
+            if(!"".equals(data) && !data.contains("<img")) {
+                System.out.println(data);
+                data = "<p>" + data + "</p>";
+                rs.add(data);
+            }
+        }
+        return rs;
     }
 
     /**

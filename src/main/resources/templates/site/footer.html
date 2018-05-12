@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="footer(title,record,site_url)">
+<footer role="footer">
+
+    <!-- logo -->
+
+    <h1> <a th:href="@{/}" title="avana LLC"><img th:src="@{http://ozlpw4ja9.bkt.clouddn.com/BF6AC5E5-C8D7-4841-B3ED-9D898586D5FF-9703-0000073B1BF8A7F8_tmp.PNG}" style="width: 66px;" title="Luis" alt="Luis"/></a> </h1>
+
+
+    <!-- logo -->
+
+    <!-- nav -->
+
+    <nav role="footer-nav">
+        <ul>
+            <li><a th:href="@{/}" title="Work">Work</a></li>
+            <li><a th:href="@{/about}" title="About">About</a></li>
+            <li><a th:href="@{/blog/index}" title="Blog">Blog</a></li>
+        </ul>
+    </nav>
+
+    <!-- nav -->
+
+    <ul role="social-icons">
+        <th:block th:each="index:${commons.social()}">
+            <th:block th:if="${index.value}!=null and ${index.value}!=''">
+                <th:block th:switch="${index.key}">
+                    <th:block th:case="'csdn'">
+                        <li><a class="icon csdn" target="blank" th:href="@{${index.value}}"></a></li>
+                    </th:block>
+                    <th:block th:case="'jianshu'">
+                        <li><a class="icon jianshu" target="blank" th:href="@{${index.value}}"></a></li>
+                    </th:block>
+                    <th:block th:case="'resume'">
+                        <li><a class="icon resume" target="blank" th:href="@{${index.value}}"></a></li>
+                    </th:block>
+                    <th:block th:case="'weibo'">
+                        <li><a class="icon weibo" th:href="@{${index.value}}" target="blank"></a></li>
+                    </th:block>
+                    <th:block th:case="'zhihu'">
+                        <li><a class="icon zhihu" target="blank" th:href="@{${index.value}}"></a></li>
+                    </th:block>
+                    <th:block th:case="'github'">
+                        <li><a class="icon github" target="blank" th:href="@{${index.value}}"></a></li>
+                    </th:block>
+                    <th:block th:case="'twitter'">
+                        <li><a class="icon twitter" target="blank" th:href="@{${index.value}}"></a></li>
+                    </th:block>
+                </th:block>
+            </th:block>
+        </th:block>
+    </ul>
+    <p class="copy-right">&copy; 2018 <th:block th:text="${title}"></th:block></p>
+    <th:block th:if="${record != null and record != ''}"><a class="copy-right" th:href="@{http://www.miitbeian.gov.cn/}" th:text="${record}"></a></th:block>
+</footer>
+
+<!-- footer -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+<script th:src="@{/site/js/jquery.min.js}" type="text/javascript"></script>
+
+<!-- custom -->
+
+<script th:src="@{/site/js/nav.js}" type="text/javascript"></script>
+<script th:src="@{/site/js/custom.js}" type="text/javascript"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+<script th:src="@{/site/js/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/site/js/effects/masonry.pkgd.min.js}"  type="text/javascript"></script>
+<script th:src="@{/site/js/effects/imagesloaded.js}"  type="text/javascript"></script>
+<script th:src="@{/site/js/effects/classie.js}"  type="text/javascript"></script>
+<script th:src="@{/site/js/effects/AnimOnScroll.js}"  type="text/javascript"></script>
+<script th:src="@{/site/js/effects/modernizr.custom.js}"></script>
+<script th:src="@{//cdn.bootcss.com/headroom/0.9.1/headroom.min.js}"></script>
+<script th:src="@{//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js}"></script>
+<script th:src="@{//cdn.bootcss.com/instantclick/3.0.1/instantclick.min.js}"></script>
+
+<!-- jquery.countdown -->
+
+<script th:src="@{/site/js/html5shiv.js}" type="text/javascript"></script>
+<script data-no-instant="">
+    /*<![CDATA[*/
+    InstantClick.on('change', function (isInitialLoad) {
+        var blocks = document.querySelectorAll('pre code');
+        for (var i = 0; i < blocks.length; i++) {
+            hljs.highlightBlock(blocks[i]);
+        }
+        if (isInitialLoad === false) {
+            if (typeof ga !== 'undefined') ga('send', 'pageview', location.pathname + location.search);
+        }
+    });
+    InstantClick.init('mousedown');
+    /*]]>*/
+</script>
+</html>
