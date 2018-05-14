@@ -279,8 +279,8 @@ public class Commons {
      * 如果blog没有配图，随机获取一张
      * @return
      */
-    public static String randomBlogPic(){
-        return "/site/images/blog-images/blog-" + random( 1085L,5,".jpg");
+    public static String randomBlogPic(Long seed){
+        return "/site/images/blog-images/blog-" + random( seed,5,".jpg");
     }
 
     /**

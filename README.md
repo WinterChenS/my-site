@@ -13,7 +13,7 @@ My Site是由Docker+SpringBoot2.0+Mybatis+thymeleaf等技术实现的个人网�
 
 #### 相关博客文章
 
-- 正在加急撰写中 ...
+- [springboot+mybatis+thymeleaf+docker构建的个人站点开源项目（集成了个人主页、个人作品、个人博客](https://blog.csdn.net/winter_chen001/article/details/80266339)
 
 # Quick Start
 
