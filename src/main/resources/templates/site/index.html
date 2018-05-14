@@ -41,7 +41,7 @@
     <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
       <ul class="grid-lod effect-2" id="grid">
         <th:block th:each="archive,archiveStat : ${archives.list}">
-          <th:block th:if="${archiveStat.index != 1 && archiveStat.index % 2 != 0}">
+          <th:block th:if="${archiveStat.index != 1 && archiveStat.index % 2 == 0}">
             <li>
               <figure class="effect-oscar"> <img th:src="${commons.show_thumb(archive.content)}" alt="" class="img-responsive"/>
                 <figcaption>
@@ -59,7 +59,7 @@
     <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
       <ul class="grid-lod effect-2" id="grid">
         <th:block th:each="archive,archiveStat : ${archives.list}">
-          <th:block th:if="${archiveStat.index != 1 && archiveStat.index % 2 == 0}">
+          <th:block th:if="${archiveStat.index != 1 && archiveStat.index % 2 != 0}">
             <li>
               <figure class="effect-oscar"> <img th:src="${commons.show_thumb(archive.content)}" alt="" class="img-responsive"/>
                 <figcaption>

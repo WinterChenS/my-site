@@ -86,7 +86,7 @@ public class CommentServiceImpl implements CommentService {
 
         ContentDomain temp = new ContentDomain();
         temp.setCid(atricle.getCid());
-        Integer count = temp.getCommentsNum();
+        Integer count = atricle.getCommentsNum();
         if (null == count){
             count = 0;
         }

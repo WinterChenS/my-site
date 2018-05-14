@@ -268,6 +268,21 @@ public class Commons {
         return UUID.random(1, max) + str;
     }
 
+    public static String random(Long seed, int max, String str){
+        if (seed == null)
+            return random(max, str);
+        Random random = new Random(seed);
+        return random.nextInt(max) + str;
+    }
+
+    /**
+     * 如果blog没有配图，随机获取一张
+     * @return
+     */
+    public static String randomBlogPic(){
+        return "/site/images/blog-images/blog-" + random( 1085L,5,".jpg");
+    }
+
     /**
      * 返回github头像地址
      *

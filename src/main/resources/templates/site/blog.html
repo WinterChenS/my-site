@@ -51,7 +51,7 @@
 
                                         </div>
 
-                                        <img th:src="${commons.show_thumb(article.content)}" alt=""
+                                        <img th:src="${commons.show_thumb(article.content) ?:commons.randomBlogPic()}" alt=""
                                              class="img-responsive"/>
 
                                     </figure>
@@ -95,7 +95,7 @@
 
                                         </div>
 
-                                        <img th:src="${commons.show_thumb(article.content)}" alt=""
+                                        <img th:src="${commons.show_thumb(article.content) ?:commons.randomBlogPic()}" alt=""
                                              class="img-responsive"/>
 
                                     </figure>
