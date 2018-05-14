@@ -316,9 +316,13 @@ public class HomeController extends BaseController{
     @PostMapping(value = "/blog/comment")
     @ResponseBody
     public APIResponse comment(HttpServletRequest request, HttpServletResponse response,
-                               @RequestParam Integer cid, @RequestParam Integer coid,
-                               @RequestParam String author, @RequestParam String mail,
-                               @RequestParam String url, @RequestParam String text, @RequestParam String _csrf_token) {
+                               @RequestParam(name = "cid", required = true) Integer cid,
+                               @RequestParam(name = "coid", required = false) Integer coid,
+                               @RequestParam(name = "author", required = false) String author,
+                               @RequestParam(name = "mail", required = false) String mail,
+                               @RequestParam(name = "url", required = false) String url,
+                               @RequestParam(name = "text", required = true) String text,
+                               @RequestParam(name = "_csrf_token", required = true) String _csrf_token) {
 
         String ref = request.getHeader("Referer");
         if (StringUtils.isBlank(ref) || StringUtils.isBlank(_csrf_token)) {
