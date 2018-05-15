@@ -62,6 +62,7 @@ public class HomeController extends BaseController{
     @GetMapping(value = {"/about", "/about/index"})
     public String getAbout(HttpServletRequest request){
         this.blogBaseData(request, null);//获取友链
+        request.setAttribute("active","about");
         return "site/about";
     }
 
@@ -93,6 +94,7 @@ public class HomeController extends BaseController{
         PageInfo<ContentDomain> articles = contentService.getArticlesByCond(contentCond, p, limit);
         request.setAttribute("articles", articles);//文章列表
         request.setAttribute("type", "articles");
+        request.setAttribute("active", "blog");
 //        this.blogBaseData(request, contentCond);//获取公共分类标签等数据
         return "site/blog";
     }
@@ -114,6 +116,7 @@ public class HomeController extends BaseController{
         this.updateArticleHit(atricle.getCid(),atricle.getHits());
         List<CommentDomain> commentsPaginator = commentService.getCommentsByCId(cid);
         request.setAttribute("comments", commentsPaginator);
+        request.setAttribute("active","blog");
         return "site/blog-details";
 
     }
@@ -442,9 +445,7 @@ public class HomeController extends BaseController{
         contentCond.setType(Types.PHOTO.getType());
         PageInfo<ContentDomain> articles = contentService.getArticlesByCond(contentCond, page, limit);
         request.setAttribute("archives", articles);
-        if (page > 1) {
-            this.title(request, "第" + page + "页");
-        }
+        request.setAttribute("active", "work");
         return "site/index";
     }
 
@@ -458,6 +459,7 @@ public class HomeController extends BaseController{
     ){
         ContentDomain article = contentService.getAtricleById(cid);
         request.setAttribute("archive", article);
+        request.setAttribute("active","work");
         return "site/works-details";
     }
 

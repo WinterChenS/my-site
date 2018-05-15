@@ -820,3 +820,14 @@ input[type="submit"] {
 	margin-bottom: 6px;
 	margin-top: 0;
 }
+
+#post-content ol,#post-content ul {
+	padding-left: 30px;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.blog-details {
+	max-width: 750px;
+	margin: 0 auto;
+}

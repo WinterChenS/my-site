@@ -14,9 +14,9 @@
 
         <nav role="header-nav" class="navy">
             <ul>
-                <li class="nav-active"><a th:href="@{/}" title="Work">Work</a></li>
-                <li><a  th:href="@{/about}" title="About">About</a></li>
-                <li><a th:href="@{/blog/index}" title="Blog">Blog</a></li>
+                <li th:class="${active == 'work' ? 'nav-active':''}"><a th:href="@{/}" title="Work">Work</a></li>
+                <li th:class="${active == 'about' ? 'nav-active':''}"><a  th:href="@{/about}" title="About">About</a></li>
+                <li th:class="${active == 'blog' ? 'nav-active':''}"><a th:href="@{/blog/index}" title="Blog">Blog</a></li>
             </ul>
         </nav>
 

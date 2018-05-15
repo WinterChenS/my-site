@@ -280,7 +280,7 @@ public class Commons {
      * @return
      */
     public static String randomBlogPic(Long seed){
-        return "/site/images/blog-images/blog-" + random( seed,5,".jpg");
+        return "/site/images/blog-images/blog-" + random( seed,12,".jpg");
     }
 
     /**
