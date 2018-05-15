@@ -22,15 +22,15 @@ My Site是由Docker+SpringBoot2.0+Mybatis+thymeleaf等技术实现的个人网�
 # Preview
 
 **首页：**
-![网站首页](http://ozlpw4ja9.bkt.clouddn.com/WX20180512-181947@2x.png)
+![网站首页](http://img.winterchen.com/WX20180512-181947@2x.png)
 **关于页：**
-![关于页](http://ozlpw4ja9.bkt.clouddn.com/WX20180512-182037@2x.png)
+![关于页](http://img.winterchen.com/eqqeqqe.png)
 **博客首页：**
-![博客首页](http://ozlpw4ja9.bkt.clouddn.com/WX20180512-182057@2x.png)
+![博客首页](http://img.winterchen.com/WX20180512-182057@2x.png)
 **登录页：**
-![登录页](http://ozlpw4ja9.bkt.clouddn.com/upload/2018/05/tqad8k3tisi01qjtrv47k5nso4.png)
+![登录页](http://img.winterchen.com/tqad8k3tisi01qjtrv47k5nso4.png)
 **后台首页：**
-![文章列表页](http://ozlpw4ja9.bkt.clouddn.com/upload/2018/05/0cgj75a9muia1rhvu8g32bc6dj.png)
+![文章列表页](http://img.winterchen.com/eqeqeqeqe.png)
 
 # Log
 
