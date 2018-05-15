@@ -104,16 +104,28 @@ public class CommentServiceImpl implements CommentService {
         //查找当前评论是否有子评论
         CommentCond commentCond = new CommentCond();
         commentCond.setParent(coid);
+        CommentDomain comment = commentDao.getCommentById(coid);
         List<CommentDomain> childComments = commentDao.getCommentsByCond(commentCond);
+        Integer count = 0;
         //删除子评论
         if (null != childComments && childComments.size() > 0){
             for (int i = 0; i < childComments.size(); i++) {
                 commentDao.deleteComment(childComments.get(i).getCoid());
+                count++;
             }
         }
         //删除当前评论
         commentDao.deleteComment(coid);
+        count++;
 
+        //更新当前文章的评论数
+        ContentDomain contentDomain = contentService.getAtricleById(comment.getCid());
+        if (null != contentDomain
+                && null != contentDomain.getCommentsNum()
+                && contentDomain.getCommentsNum() != 0){
+            contentDomain.setCommentsNum(contentDomain.getCommentsNum() - count);
+            contentService.updateContentByCid(contentDomain);
+        }
     }
 
     @Override
