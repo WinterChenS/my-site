@@ -8,6 +8,8 @@ My Site是由Docker+SpringBoot2.0+Mybatis+thymeleaf等技术实现的个人网�
 
 演示站点：https://luischen.cn/
 
+大家部署成功的，欢迎发来地址学习交流: [大家部署成功的欢迎发来地址](https://github.com/WinterChenS/my-site/issues/1)
+
 ![Version 1.0.0.RELEASE](https://img.shields.io/badge/version-1.0.0-yellow.svg)
 [![License](https://img.shields.io/badge/license-apache-blue.svg)](https://github.com/ZHENFENG13/My-Blog/blob/master/LICENSE)
 
