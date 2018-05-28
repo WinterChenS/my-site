@@ -46,6 +46,12 @@
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 
+		<!-- EhCache 相关 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -153,8 +159,6 @@
 			<artifactId>qiniu-java-sdk</artifactId>
 			<version>7.2.11</version>
 		</dependency>
-
-
 
 
 	</dependencies>

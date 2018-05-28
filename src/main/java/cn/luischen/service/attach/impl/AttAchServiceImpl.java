@@ -9,6 +9,7 @@ import cn.luischen.service.attach.AttAchService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -56,6 +57,7 @@ public class AttAchServiceImpl implements AttAchService {
     }
 
     @Override
+    @Cacheable(value = "attCache", key = "'attAchById' + #p0")
     public AttAchDto getAttAchById(Integer id) {
         if (null == id)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -63,6 +65,7 @@ public class AttAchServiceImpl implements AttAchService {
     }
 
     @Override
+    @Cacheable(value = "attCaches", key = "'atts' + #p0")
     public PageInfo<AttAchDto> getAtts(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<AttAchDto> atts = attAchDao.getAtts();

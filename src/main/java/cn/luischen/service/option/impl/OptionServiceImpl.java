@@ -7,6 +7,7 @@ import cn.luischen.model.OptionsDomain;
 import cn.luischen.service.option.OptionService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -52,6 +53,7 @@ public class OptionServiceImpl implements OptionService {
     }
 
     @Override
+    @Cacheable(value = "optionCache", key = "'optionByName_' + #p0")
     public OptionsDomain getOptionByName(String name) {
         if(StringUtils.isBlank(name))
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -59,6 +61,7 @@ public class OptionServiceImpl implements OptionService {
     }
 
     @Override
+    @Cacheable(value = "optionsCache", key = "'options_'")
     public List<OptionsDomain> getOptions() {
         return optionDao.getOptions();
     }

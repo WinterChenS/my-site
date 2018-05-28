@@ -23,6 +23,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -52,6 +53,7 @@ public class SiteServiceImpl implements SiteService{
     private AttAchDao attAchDao;
 
     @Override
+    @Cacheable(value = "siteCache", key = "'comments_' + #p0")
     public List<CommentDomain> getComments(int limit) {
         LOGGER.debug("Enter recentComments method:limit={}", limit);
         if (limit < 0 || limit > 10){
@@ -64,6 +66,7 @@ public class SiteServiceImpl implements SiteService{
     }
 
     @Override
+    @Cacheable(value = "siteCache", key = "'newArticles_' + #p0")
     public List<ContentDomain> getNewArticles(int limit) {
         LOGGER.debug("Enter recentArticles method:limit={}", limit);
         if (limit < 0 || limit > 10)
@@ -75,6 +78,7 @@ public class SiteServiceImpl implements SiteService{
     }
 
     @Override
+    @Cacheable(value = "siteCache", key = "'comment_' + #p0")
     public CommentDomain getComment(Integer coid) {
         LOGGER.debug("Enter recentComment method");
         if (null == coid)
@@ -85,6 +89,7 @@ public class SiteServiceImpl implements SiteService{
     }
 
     @Override
+    @Cacheable(value = "siteCache", key = "'statistics_'")
     public StatisticsDto getStatistics() {
         LOGGER.debug("Enter recentStatistics method");
         //文章总数
@@ -107,6 +112,7 @@ public class SiteServiceImpl implements SiteService{
     }
 
     @Override
+    @Cacheable(value = "siteCache", key = "'archivesSimple_' + #p0")
     public List<ArchiveDto> getArchivesSimple(ContentCond contentCond) {
         LOGGER.debug("Enter getArchives method");
         List<ArchiveDto> archives = contentDao.getArchive(contentCond);
@@ -115,6 +121,7 @@ public class SiteServiceImpl implements SiteService{
     }
 
     @Override
+    @Cacheable(value = "siteCache", key = "'archives_' + #p0")
     public List<ArchiveDto> getArchives(ContentCond contentCond) {
         LOGGER.debug("Enter getArchives method");
         List<ArchiveDto> archives = contentDao.getArchive(contentCond);
@@ -143,6 +150,7 @@ public class SiteServiceImpl implements SiteService{
     }
 
     @Override
+    @Cacheable(value = "siteCache", key = "'metas_' + #p0")
     public List<MetaDto> getMetas(String type, String orderBy, int limit) {
         LOGGER.debug("Enter metas method:type={},order={},limit={}", type, orderBy, limit);
         List<MetaDto> retList=null;

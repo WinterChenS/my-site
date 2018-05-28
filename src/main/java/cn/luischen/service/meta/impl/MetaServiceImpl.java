@@ -17,6 +17,7 @@ import cn.luischen.service.content.ContentService;
 import cn.luischen.service.meta.MetaService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -174,6 +175,7 @@ public class MetaServiceImpl implements MetaService {
     }
 
     @Override
+    @Cacheable(value = "metaCache", key = "'metaById_' + #p0")
     public MetaDomain getMetaById(Integer mid) {
         if (null == mid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -181,12 +183,14 @@ public class MetaServiceImpl implements MetaService {
     }
 
     @Override
+    @Cacheable(value = "metaCaches", key = "'metas_' + #p0")
     public List<MetaDomain> getMetas(MetaCond metaCond) {
         return metaDao.getMetasByCond(metaCond);
     }
 
 
     @Override
+    @Cacheable(value = "metaCaches", key = "'metaList_' + #p0")
     public List<MetaDto> getMetaList(String type, String orderby, int limit) {
         if (StringUtils.isNotBlank(type)){
             if (StringUtils.isBlank(orderby)) {

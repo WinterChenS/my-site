@@ -18,6 +18,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -125,6 +126,7 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
+    @Cacheable(value = "atricleCache", key = "'atricleById_' + #p0")
     public ContentDomain getAtricleById(Integer cid) {
         if (null == cid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -132,6 +134,7 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
+    @Cacheable(value = "atricleCaches", key = "'articlesByCond_' + #p1")
     public PageInfo<ContentDomain> getArticlesByCond(ContentCond contentCond, int pageNum, int pageSize) {
         if (null == contentCond)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -142,6 +145,7 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
+    @Cacheable(value = "atricleCaches", key = "'recentlyArticle_' + #p0")
     public PageInfo<ContentDomain> getRecentlyArticle(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<ContentDomain> recentlyArticle = contentDao.getRecentlyArticle();
