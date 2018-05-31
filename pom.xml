@@ -46,6 +46,11 @@
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<!-- EhCache 相关 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -160,6 +165,13 @@
 			<version>7.2.11</version>
 		</dependency>
 
+		<!-- 客户端包 -->
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
 
 	</dependencies>
 
@@ -168,6 +180,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<!-- Docker maven plugin -->
 			<plugin>
