@@ -1,9 +1,9 @@
 server:
-  port: 443
-  ssl:
-    key-store: classpath:luischen.cn.pfx
-    key-store-password: l29df164yf5d4z
-    key-store-type: PKCS12
+  port: 8091
+#  ssl:
+#    key-store: classpath:luischen.cn.pfx
+#    key-store-password: l29df164yf5d4z
+#    key-store-type: PKCS12
 
 
 spring:
@@ -53,7 +53,7 @@ spring:
     boot:
       admin:
         client:
-            url: http://localhost:8091
+            url: http://127.0.0.1:8080
             instance:
               prefer-ip: true
     application:
@@ -76,7 +76,7 @@ pagehelper:
 swagger:
   show: false
 
-  
+
 logging:
   file: ./target/admin-server.log
 
