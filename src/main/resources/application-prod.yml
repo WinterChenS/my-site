@@ -50,6 +50,14 @@ spring:
           multipart:
             max-file-size: 10Mb
             max-request-size: 100Mb
+    boot:
+      admin:
+        client:
+            url: http://localhost:8091
+            instance:
+              prefer-ip: true
+    application:
+        name: @project.description@
 
 
 mybatis:
@@ -67,6 +75,11 @@ pagehelper:
 
 swagger:
   show: false
+
+  
+logging:
+  file: ./target/admin-server.log
+
 
 
 

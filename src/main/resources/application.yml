@@ -3,3 +3,21 @@ spring:
     active: dev
 
 
+# 描述信息
+info:
+  blog-url: https://winterchen.com
+  author: Lius
+  version: @project.version@
+  name: @project.artifactId@
+
+# 加载所有的端点/默认只加载了 info / health
+management:
+      endpoints:
+        web:
+          exposure:
+            include: "*"
+      endpoint:
+              health:
+                show-details: always
+              shutdown:
+                enabled: false
