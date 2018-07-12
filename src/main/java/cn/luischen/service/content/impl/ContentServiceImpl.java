@@ -18,6 +18,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,6 +46,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Transactional
     @Override
+    @CacheEvict(value="atricleCache",allEntries=true,beforeInvocation=true)
     public void addArticle(ContentDomain contentDomain) {
         if (null == contentDomain)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -70,6 +72,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     @Transactional
+    @CacheEvict(value="atricleCache",allEntries=true,beforeInvocation=true)
     public void deleteArticleById(Integer cid) {
         if (null == cid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -91,6 +94,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     @Transactional
+    @CacheEvict(value="atricleCache",allEntries=true,beforeInvocation=true)
     public void updateArticleById(ContentDomain contentDomain) {
         //标签和分类
         String tags = contentDomain.getTags();
@@ -106,6 +110,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     @Transactional
+    @CacheEvict(value="atricleCache",allEntries=true,beforeInvocation=true)
     public void updateCategory(String ordinal, String newCatefory) {
         ContentCond cond = new ContentCond();
         cond.setCategory(ordinal);
@@ -119,6 +124,7 @@ public class ContentServiceImpl implements ContentService {
 
 
     @Override
+    @CacheEvict(value="atricleCache",allEntries=true,beforeInvocation=true)
     public void updateContentByCid(ContentDomain content) {
         if (null != content && null != content.getCid()) {
             contentDao.updateArticleById(content);
