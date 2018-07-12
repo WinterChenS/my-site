@@ -14,6 +14,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,6 +56,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     @Transactional
+    @CacheEvict(value="commentCache",allEntries=true)
     public void addComment(CommentDomain comments) {
         String msg = null;
         if (null == comments) {
@@ -98,6 +100,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Transactional
     @Override
+    @CacheEvict(value="commentCache",allEntries=true)
     public void deleteComment(Integer coid) {
         if (null == coid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -130,6 +133,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    @CacheEvict(value="commentCache",allEntries=true)
     public void updateCommentStatus(Integer coid, String status) {
         if (null == coid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
