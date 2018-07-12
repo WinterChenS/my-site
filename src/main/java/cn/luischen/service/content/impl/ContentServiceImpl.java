@@ -46,7 +46,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Transactional
     @Override
-    @CacheEvict(value="atricleCache",allEntries=true,beforeInvocation=true)
+    @CacheEvict(value={"atricleCache","atricleCaches"},allEntries=true,beforeInvocation=true)
     public void addArticle(ContentDomain contentDomain) {
         if (null == contentDomain)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -72,7 +72,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     @Transactional
-    @CacheEvict(value="atricleCache",allEntries=true,beforeInvocation=true)
+    @CacheEvict(value={"atricleCache","atricleCaches"},allEntries=true,beforeInvocation=true)
     public void deleteArticleById(Integer cid) {
         if (null == cid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -94,7 +94,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     @Transactional
-    @CacheEvict(value="atricleCache",allEntries=true,beforeInvocation=true)
+    @CacheEvict(value={"atricleCache","atricleCaches"},allEntries=true,beforeInvocation=true)
     public void updateArticleById(ContentDomain contentDomain) {
         //标签和分类
         String tags = contentDomain.getTags();
@@ -110,7 +110,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     @Transactional
-    @CacheEvict(value="atricleCache",allEntries=true,beforeInvocation=true)
+    @CacheEvict(value={"atricleCache","atricleCaches"},allEntries=true,beforeInvocation=true)
     public void updateCategory(String ordinal, String newCatefory) {
         ContentCond cond = new ContentCond();
         cond.setCategory(ordinal);
@@ -124,7 +124,7 @@ public class ContentServiceImpl implements ContentService {
 
 
     @Override
-    @CacheEvict(value="atricleCache",allEntries=true,beforeInvocation=true)
+    @CacheEvict(value={"atricleCache","atricleCaches"},allEntries=true,beforeInvocation=true)
     public void updateContentByCid(ContentDomain content) {
         if (null != content && null != content.getCid()) {
             contentDao.updateArticleById(content);
