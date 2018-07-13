@@ -41,6 +41,8 @@ My Site是由Docker+SpringBoot2.0+Mybatis+thymeleaf等技术实现的个人网�
 
 # Log
 
+- 2018-07-12: 修复缓存导致更新和删除文章不生效的Bug
+
 - 2018-05-28：增加了EhCache缓存功能
 
 - 2018-05-15：修复主页和博客的列表的样式在手机端显示有偏位的bug
