@@ -9,6 +9,7 @@ import cn.luischen.service.attach.AttAchService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,7 @@ public class AttAchServiceImpl implements AttAchService {
     private AttAchDao attAchDao;
 
     @Override
+    @CacheEvict(value={"attCaches","attCache"},allEntries=true,beforeInvocation=true)
     public void addAttAch(AttAchDomain attAchDomain) {
         if (null == attAchDomain)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -33,6 +35,7 @@ public class AttAchServiceImpl implements AttAchService {
     }
 
     @Override
+    @CacheEvict(value={"attCaches","attCache"},allEntries=true,beforeInvocation=true)
     public void batchAddAttAch(List<AttAchDomain> list) {
         if (null == list || list.size() == 0)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -41,6 +44,7 @@ public class AttAchServiceImpl implements AttAchService {
     }
 
     @Override
+    @CacheEvict(value={"attCaches","attCache"},allEntries=true,beforeInvocation=true)
     public void deleteAttAch(Integer id) {
         if (null == id)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -49,6 +53,7 @@ public class AttAchServiceImpl implements AttAchService {
     }
 
     @Override
+    @CacheEvict(value={"attCaches","attCache"},allEntries=true,beforeInvocation=true)
     public void updateAttAch(AttAchDomain attAchDomain) {
         if (null == attAchDomain || null == attAchDomain.getId())
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);

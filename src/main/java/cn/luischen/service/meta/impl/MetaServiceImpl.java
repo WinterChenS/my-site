@@ -17,6 +17,7 @@ import cn.luischen.service.content.ContentService;
 import cn.luischen.service.meta.MetaService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,6 +44,7 @@ public class MetaServiceImpl implements MetaService {
 
     @Override
     @Transactional
+    @CacheEvict(value={"metaCaches","metaCache"},allEntries=true,beforeInvocation=true)
     public void addMeta(MetaDomain meta) {
         if (null == meta)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -51,6 +53,7 @@ public class MetaServiceImpl implements MetaService {
     }
 
     @Override
+    @CacheEvict(value={"metaCaches","metaCache"},allEntries=true,beforeInvocation=true)
     public void saveMeta(String type, String name, Integer mid) {
         if (StringUtils.isNotBlank(type) && StringUtils.isNotBlank(name)){
             MetaCond metaCond = new MetaCond();
@@ -82,6 +85,7 @@ public class MetaServiceImpl implements MetaService {
 
     @Override
     @Transactional
+    @CacheEvict(value={"metaCaches","metaCache"},allEntries=true,beforeInvocation=true)
     public void addMetas(Integer cid, String names, String type) {
         if (null == cid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -95,6 +99,7 @@ public class MetaServiceImpl implements MetaService {
     }
 
     @Override
+    @CacheEvict(value={"metaCaches","metaCache"},allEntries=true,beforeInvocation=true)
     public void saveOrUpdate(Integer cid, String name, String type) {
         MetaCond metaCond = new MetaCond();
         metaCond.setName(name);
@@ -130,6 +135,7 @@ public class MetaServiceImpl implements MetaService {
 
     @Override
     @Transactional
+    @CacheEvict(value={"metaCaches","metaCache"},allEntries=true,beforeInvocation=true)
     public void deleteMetaById(Integer mid) {
         if (null == mid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -167,6 +173,7 @@ public class MetaServiceImpl implements MetaService {
 
     @Override
     @Transactional
+    @CacheEvict(value={"metaCaches","metaCache"},allEntries=true,beforeInvocation=true)
     public void updateMeta(MetaDomain meta) {
         if (null == meta || null == meta.getMid())
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
