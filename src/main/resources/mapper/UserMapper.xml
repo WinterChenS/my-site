@@ -19,6 +19,9 @@
             <if test="screenName != null">
                 screenName = #{screenName, jdbcType=VARCHAR},
             </if>
+            <if test="email != null">
+                email = #{email, jdbcType=VARCHAR},
+            </if>
         </set>
         WHERE uid = #{uid, jdbcType=INTEGER}
     </update>
