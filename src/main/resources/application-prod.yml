@@ -1,9 +1,9 @@
 server:
-  port: 443
-  ssl:
-    key-store: classpath:luischen.cn.pfx
-    key-store-password: l29df164yf5d4z
-    key-store-type: PKCS12
+  port: 8091
+#  ssl:
+#    key-store: classpath:luischen.cn.pfx
+#    key-store-password: l29df164yf5d4z
+#    key-store-type: PKCS12
 
 
 spring:
@@ -50,6 +50,14 @@ spring:
           multipart:
             max-file-size: 10Mb
             max-request-size: 100Mb
+    boot:
+      admin:
+        client:
+            url: http://127.0.0.1:8080
+            instance:
+              prefer-ip: true
+    application:
+        name: @project.description@
 
 
 mybatis:
@@ -67,6 +75,11 @@ pagehelper:
 
 swagger:
   show: false
+
+
+logging:
+  file: ./target/admin-server.log
+
 
 
 
