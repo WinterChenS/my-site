@@ -15,6 +15,7 @@ My Site是由Docker+SpringBoot2.0+Mybatis+thymeleaf等技术实现的个人网�
 
 #### 福利
 给各位初学者准备了一个随机金额的支付宝红包，每天都可以领
+
 <img src="https://img-blog.csdnimg.cn/2018120312072477.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dpbnRlcl9jaGVuMDAx,size_16,color_FFFFFF,t_70" height="200" width="200">
 
 #### 赞赏
