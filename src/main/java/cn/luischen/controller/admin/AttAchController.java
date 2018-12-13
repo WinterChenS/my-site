@@ -44,6 +44,8 @@ public class AttAchController {
 
     @Autowired
     private AttAchService attAchService;
+    @Autowired
+    private QiniuCloudService qiniuCloudService;
 
 
 
@@ -82,14 +84,14 @@ public class AttAchController {
 
             String fileName = TaleUtils.getFileKey(file.getOriginalFilename()).replaceFirst("/","");
 
-            QiniuCloudService.upload(file, fileName);
+            qiniuCloudService.upload(file, fileName);
             AttAchDomain attAch = new AttAchDomain();
             HttpSession session = request.getSession();
             UserDomain sessionUser = (UserDomain) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
             attAch.setAuthorId(sessionUser.getUid());
             attAch.setFtype(TaleUtils.isImage(file.getInputStream()) ? Types.IMAGE.getType() : Types.FILE.getType());
             attAch.setFname(fileName);
-            attAch.setFkey(QiniuCloudService.QINIU_UPLOAD_SITE + fileName);
+            attAch.setFkey(qiniuCloudService.QINIU_UPLOAD_SITE + fileName);
             attAchService.addAttAch(attAch);
             response.getWriter().write( "{\"success\": 1, \"message\":\"上传成功\",\"url\":\"" + attAch.getFkey() + "\"}" );
         } catch (IOException e) {
@@ -122,14 +124,14 @@ public class AttAchController {
 
                 String fileName = TaleUtils.getFileKey(file.getOriginalFilename()).replaceFirst("/","");
 
-                QiniuCloudService.upload(file, fileName);
+                qiniuCloudService.upload(file, fileName);
                 AttAchDomain attAch = new AttAchDomain();
                 HttpSession session = request.getSession();
                 UserDomain sessionUser = (UserDomain) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
                 attAch.setAuthorId(sessionUser.getUid());
                 attAch.setFtype(TaleUtils.isImage(file.getInputStream()) ? Types.IMAGE.getType() : Types.FILE.getType());
                 attAch.setFname(fileName);
-                attAch.setFkey(QiniuCloudService.QINIU_UPLOAD_SITE + fileName);
+                attAch.setFkey(qiniuCloudService.QINIU_UPLOAD_SITE + fileName);
                 attAchService.addAttAch(attAch);
             }
             return APIResponse.success();

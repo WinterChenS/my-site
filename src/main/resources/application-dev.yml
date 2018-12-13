@@ -14,7 +14,7 @@ spring:
           #基本属性
           url: jdbc:mysql://127.0.0.1:3306/lu_tale?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
           username: root
-          password: root
+          password: 123456
           #配置初始化大小/最小/最大
           initial-size: 1
           min-idle: 1
@@ -67,3 +67,10 @@ logging:
 
 swagger:
   show: true
+
+qiniu:
+  accesskey: ztLuaY8zxOYgilGa9ytmlfW2q86sygBr40LpqMOs
+  serectkey: CLwa2dACDel17_hMH7_u0ZIzKNbTsZPncZ_3-9ns
+  bucket: tale
+  cdn:
+    url: http://pjoashor0.bkt.clouddn.com/
