@@ -69,8 +69,8 @@ swagger:
   show: true
 
 qiniu:
-  accesskey: ztLuaY8zxOYgilGa9ytmlfW2q86sygBr40LpqMOs
-  serectkey: CLwa2dACDel17_hMH7_u0ZIzKNbTsZPncZ_3-9ns
-  bucket: tale
+  accesskey: ""
+  serectkey: ""
+  bucket: ""
   cdn:
-    url: http://pjoashor0.bkt.clouddn.com/
+    url: ""
