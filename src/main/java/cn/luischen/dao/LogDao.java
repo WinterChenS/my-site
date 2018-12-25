@@ -3,6 +3,7 @@ package cn.luischen.dao;
 import cn.luischen.model.LogDomain;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * Created by Donghua.Chen on 2018/4/29.
  */
 @Mapper
+@Service
 public interface LogDao {
 
     /**
