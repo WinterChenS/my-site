@@ -7,7 +7,7 @@
 
 <!-- header -->
 
-<div th:replace="site/header::header"></div>
+<div th:replace="site/header::header(${commons.site_logo()})"></div>
 
 <!-- header --> 
 
@@ -18,7 +18,7 @@
     <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
       <article role="pge-title-content">
         <header>
-          <h2><span>Luis</span> A Java Developer.</h2>
+          <h2><span> <th:block th:text="${commons.site_nickname()}"></th:block></span> A Java Developer.</h2>
         </header>
         <p>maker of things for the web app, always focused on elegant simplicity, relentlessly learning by making mistakes.</p>
       </article>
@@ -79,7 +79,7 @@
 <!-- main --> 
 
 <!-- footer -->
-<div th:replace="site/footer::footer(${commons.site_title()},${commons.site_record()},${commons.site_url()})"></div>
+<div th:replace="site/footer::footer(${commons.site_title()},${commons.site_logo()},${commons.site_record()},${commons.site_url()})"></div>
 
 </body>
 </html>

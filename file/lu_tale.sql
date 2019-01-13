@@ -130,7 +130,7 @@ CREATE TABLE `t_options` (
 --  Records of `t_options`
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_options` VALUES ('baidu_site_verification', null, '百度网站验证码'), ('google_site_verification', null, 'google网站验证码'), ('site_description', null, '网站描述'), ('site_keywords', null, null), ('site_record', null, '备案号'), ('site_title', null, '网站标题'), ('social_csdn', null, 'csdn'), ('social_github', null, 'github'), ('social_jianshu', null, '简书地址'), ('social_resume', null, '简历地址'), ('social_twitter', null, 'twitter'), ('social_weibo', null, '微博地址'), ('social_zhihu', null, '知乎地址');
+INSERT INTO `t_options` VALUES ('baidu_site_verification', null, '百度网站验证码'), ('google_site_verification', null, 'google网站验证码'), ('site_description', null, '网站描述'), ('site_keywords', null, null), ('site_record', null, '备案号'), ('site_title', null, '网站标题'), ('site_logo', null, '网站logo'), ('site_nickname', null, '站长昵称'), ('social_csdn', null, 'csdn'), ('social_github', null, 'github'), ('social_jianshu', null, '简书地址'), ('social_resume', null, '简历地址'), ('social_twitter', null, 'twitter'), ('social_weibo', null, '微博地址'), ('social_zhihu', null, '知乎地址');
 COMMIT;
 
 -- ----------------------------

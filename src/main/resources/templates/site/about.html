@@ -12,7 +12,7 @@
 
     	<!-- header -->
 
-        <div th:replace="site/header::header"></div>
+        <div th:replace="site/header::header(${commons.site_logo()})"></div>
 
 
         <!-- header -->
@@ -33,7 +33,7 @@
 
                     	<header>
 
-                        	<h2><span>Hi! </span> My name is Winter.</h2>
+                        	<h2><span>Hi! </span> My name is <th:block th:text="${commons.site_nickname()}"></th:block>.</h2>
 
                         </header>
 
@@ -111,7 +111,7 @@
 
         <!-- footer -->
 
-        <div th:replace="site/footer::footer(${commons.site_title()},${commons.site_record()},${commons.site_url()})"></div>
+        <div th:replace="site/footer::footer(${commons.site_title()},${commons.site_logo()},${commons.site_record()},${commons.site_url()})"></div>
 
 </body>
 </html>

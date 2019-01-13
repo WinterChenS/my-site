@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      th:fragment="header">
+      th:fragment="header(logo)">
 <header role="header">
     <div class="container">
 
         <!-- logo -->
 
-        <h1> <a th:href="@{/}" title="avana LLC"><img th:src="@{http://img.winterchen.com/BF6AC5E5-C8D7-4841-B3ED-9D898586D5FF-9703-0000073B1BF8A7F8_tmp.PNG}" style="width: 66px;" title="avana LLC" alt="avana LLC"/></a> </h1>
+        <h1> <a th:href="@{/}" title="avana LLC"><img th:src="@{${logo}}" style="width: 66px;" title="avana LLC" alt="avana LLC"/></a> </h1>
 
         <!-- logo -->
 

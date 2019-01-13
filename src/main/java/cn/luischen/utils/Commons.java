@@ -84,6 +84,22 @@ public class Commons {
     }
 
     /**
+     * 获取网站logo
+     * @return
+     */
+    public static String site_logo() {
+        return site_option("site_logo");
+    }
+
+    /**
+     * 获取站长昵称
+     * @return
+     */
+    public static String site_nickname() {
+        return site_option("site_nickname");
+    }
+
+    /**
      * 网站配置项
      *
      * @param key
