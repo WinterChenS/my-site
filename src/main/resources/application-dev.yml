@@ -67,3 +67,10 @@ logging:
 
 swagger:
   show: true
+
+qiniu:
+  accesskey: ""
+  serectkey: ""
+  bucket: ""
+  cdn:
+    url: ""
