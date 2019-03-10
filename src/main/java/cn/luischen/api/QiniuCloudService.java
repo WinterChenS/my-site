@@ -9,7 +9,10 @@ import com.qiniu.storage.Configuration;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -17,20 +20,25 @@ import java.io.IOException;
 /**
  * Created by Donghua.Chen on 2018/5/1.
  */
+@Component
 public class QiniuCloudService {
 
-    private static final String ACCESS_KEY = "";
-    private static final String SECRET_KEY = "";
+    @Value("${qiniu.accesskey}")
+    private String ACCESS_KEY;
+    @Value("${qiniu.serectkey}")
+    private String SECRET_KEY;
     /**
      * 仓库
      */
-    private static final String BUCKET = "";
+    @Value("${qiniu.bucket}")
+    private String BUCKET;
     /**
      * 七牛云外网访问地址
      */
-    public static final String QINIU_UPLOAD_SITE = "";
+    @Value("${qiniu.cdn.url}")
+    public String QINIU_UPLOAD_SITE;
 
-    public static String upload(MultipartFile file, String fileName) {
+    public String upload(MultipartFile file, String fileName) {
 
         //构造一个带指定Zone对象的配置类
         Configuration cfg = new Configuration(Zone.zone0());
