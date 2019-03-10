@@ -164,7 +164,7 @@ CREATE TABLE `t_users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
---  Records of `t_users`
+--  Records of `t_users` password 123456
 -- ----------------------------
 BEGIN;
 INSERT INTO `t_users` VALUES ('1', 'admin', 'a66abb5684c45962d887564f08346e8d', '1034683568@qq.com', null, 'admin', '1490756162', '0', '0', 'visitor');
