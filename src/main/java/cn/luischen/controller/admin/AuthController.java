@@ -8,6 +8,7 @@ import cn.luischen.model.UserDomain;
 import cn.luischen.service.log.LogService;
 import cn.luischen.service.user.UserService;
 import cn.luischen.utils.APIResponse;
+import cn.luischen.utils.IPKit;
 import cn.luischen.utils.TaleUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -64,7 +65,9 @@ public class AuthController extends BaseController{
             @RequestParam(name = "remeber_me", required = false)
             String remeber_me
     ){
-        Integer error_count = cache.get("login_error_count");
+
+        String ip= IPKit.getIpAddrByRequest(request); // 获取ip并过滤登录时缓存的bug
+        Integer error_count = cache.hget("login_error_count",ip);
         try {
             UserDomain userInfo = userService.login(username, password);
             request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, userInfo);
@@ -78,7 +81,7 @@ public class AuthController extends BaseController{
             if (error_count > 3) {
                 return APIResponse.fail("您输入密码已经错误超过3次，请10分钟后尝试");
             }
-            cache.set("login_error_count", error_count, 10 * 60);
+            cache.hset("login_error_count", ip,error_count, 10 * 60);// 加入ip的过滤
             String msg = "登录失败";
             if (e instanceof BusinessException) {
                 msg = e.getMessage();
