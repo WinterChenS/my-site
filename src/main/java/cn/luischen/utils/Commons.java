@@ -451,7 +451,8 @@ public class Commons {
                     System.out.println(data);
                     // //匹配src
                     Matcher m = Pattern.compile("src\\s*=\\s*\'?\"?(.*?)(\'|\"|>|\\s+)").matcher(data);
-                    if (m.find()) {
+                    while (m.find()){
+				 //  if (m.find()) {
                         rs.add(m.group(1));
                     }
                 }
