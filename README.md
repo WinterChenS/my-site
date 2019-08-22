@@ -6,7 +6,7 @@ My Site是由Docker+SpringBoot2.0+Mybatis+thymeleaf等技术实现的个人网�
 - **你也可以把它作为springboot技术的学习项目，My Site也足够符合要求，且代码和功能完备；**
 - **你还可以将其视为一个docker技术的练手教程，体验和使用红极一时的虚拟容器技术，My Site中文档十分完善并且持续更新。**
 
-演示站点：https://luischen.cn
+演示站点：https://demo.winterchen.com
 
 大家部署成功的，欢迎发来地址学习交流: [大家部署成功的欢迎发来地址](https://github.com/WinterChenS/my-site/issues/1)
 
