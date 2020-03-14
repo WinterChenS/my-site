@@ -59,4 +59,3 @@ My Site是由Docker+SpringBoot2.0+Mybatis+thymeleaf等技术实现的个人网�
 - 2018-05-05: 优化了选择文章类型，增加了评论功能
 
 - 2018-05-03: 发布第一版
-
