@@ -107,7 +107,7 @@ public class HomeController extends BaseController{
                     Integer cid,
             HttpServletRequest request
     ){
-        ContentDomain atricle = contentService.getAtricleById(cid);
+        ContentDomain atricle = contentService.getArticleById(cid);
         request.setAttribute("article", atricle);
         ContentCond contentCond = new ContentCond();
         contentCond.setType(Types.ARTICLE.getType());
@@ -457,7 +457,7 @@ public class HomeController extends BaseController{
                     Integer cid,
             HttpServletRequest request
     ){
-        ContentDomain article = contentService.getAtricleById(cid);
+        ContentDomain article = contentService.getArticleById(cid);
         request.setAttribute("archive", article);
         request.setAttribute("active","work");
         return "site/works-details";

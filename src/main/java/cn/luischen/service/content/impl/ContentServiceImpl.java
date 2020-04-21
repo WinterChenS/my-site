@@ -133,7 +133,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     @Cacheable(value = "atricleCache", key = "'atricleById_' + #p0")
-    public ContentDomain getAtricleById(Integer cid) {
+    public ContentDomain getArticleById(Integer cid) {
         if (null == cid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
         return contentDao.getArticleById(cid);

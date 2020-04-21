@@ -97,21 +97,21 @@ public class TaleUtils {
         if (StringUtils.isBlank(source)) {
             return null;
         }
-        MessageDigest messageDigest = null;
         try {
-            messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            byte[] encode = messageDigest.digest(source.getBytes());
+            StringBuilder hexString = new StringBuilder();
+            for (byte anEncode : encode) {
+                String hex = Integer.toHexString(0xff & anEncode);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+            return hexString.toString();
         } catch (NoSuchAlgorithmException ignored) {
         }
-        byte[] encode = messageDigest.digest(source.getBytes());
-        StringBuilder hexString = new StringBuilder();
-        for (byte anEncode : encode) {
-            String hex = Integer.toHexString(0xff & anEncode);
-            if (hex.length() == 1) {
-                hexString.append('0');
-            }
-            hexString.append(hex);
-        }
-        return hexString.toString();
+        return "";
     }
 
     /**

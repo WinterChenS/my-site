@@ -51,7 +51,7 @@ public interface ContentService {
      * @param cid
      * @return
      */
-    ContentDomain getAtricleById(Integer cid);
+    ContentDomain getArticleById(Integer cid);
 
     /**
      * 根据条件获取文章列表
