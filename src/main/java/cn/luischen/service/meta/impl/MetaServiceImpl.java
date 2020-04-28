@@ -3,11 +3,9 @@ package cn.luischen.service.meta.impl;
 import cn.luischen.constant.ErrorConstant;
 import cn.luischen.constant.Types;
 import cn.luischen.constant.WebConst;
-import cn.luischen.dao.ContentDao;
 import cn.luischen.dao.MetaDao;
 import cn.luischen.dao.RelationShipDao;
 import cn.luischen.dto.MetaDto;
-import cn.luischen.dto.cond.ContentCond;
 import cn.luischen.dto.cond.MetaCond;
 import cn.luischen.exception.BusinessException;
 import cn.luischen.model.ContentDomain;
@@ -30,6 +28,7 @@ import java.util.Map;
  * Created by Donghua.Chen on 2018/4/29.
  */
 @Service
+@Transactional
 public class MetaServiceImpl implements MetaService {
 
     @Autowired
@@ -43,7 +42,6 @@ public class MetaServiceImpl implements MetaService {
     private ContentService contentService;
 
     @Override
-    @Transactional
     @CacheEvict(value={"metaCaches","metaCache"},allEntries=true,beforeInvocation=true)
     public void addMeta(MetaDomain meta) {
         if (null == meta)
@@ -70,7 +68,9 @@ public class MetaServiceImpl implements MetaService {
 
                     metaDao.updateMeta(metaDomain);
                     //更新原有的文章分类
-                    contentService.updateCategory(meta.getName(), name);
+                    if(meta !=null) {
+                        contentService.updateCategory(meta.getName(), name);
+                    }
                 } else {
                     metaDomain.setType(type);
                     metaDao.addMeta(metaDomain);
@@ -84,7 +84,6 @@ public class MetaServiceImpl implements MetaService {
     }
 
     @Override
-    @Transactional
     @CacheEvict(value={"metaCaches","metaCache"},allEntries=true,beforeInvocation=true)
     public void addMetas(Integer cid, String names, String type) {
         if (null == cid)
@@ -134,7 +133,6 @@ public class MetaServiceImpl implements MetaService {
     }
 
     @Override
-    @Transactional
     @CacheEvict(value={"metaCaches","metaCache"},allEntries=true,beforeInvocation=true)
     public void deleteMetaById(Integer mid) {
         if (null == mid)
@@ -149,7 +147,7 @@ public class MetaServiceImpl implements MetaService {
             List<RelationShipDomain> relationShips = relationShipDao.getRelationShipByMid(mid);
             if (null != relationShips && relationShips.size() > 0){
                 for (RelationShipDomain relationShip : relationShips) {
-                    ContentDomain article = contentService.getAtricleById(relationShip.getCid());
+                    ContentDomain article = contentService.getArticleById(relationShip.getCid());
                     if (null != article){
                         ContentDomain temp = new ContentDomain();
                         temp.setCid(relationShip.getCid());
@@ -172,7 +170,6 @@ public class MetaServiceImpl implements MetaService {
     }
 
     @Override
-    @Transactional
     @CacheEvict(value={"metaCaches","metaCache"},allEntries=true,beforeInvocation=true)
     public void updateMeta(MetaDomain meta) {
         if (null == meta || null == meta.getMid())

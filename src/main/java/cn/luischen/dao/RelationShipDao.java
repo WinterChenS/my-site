@@ -3,6 +3,7 @@ package cn.luischen.dao;
 import cn.luischen.model.RelationShipDomain;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Created by Donghua.Chen on 2018/4/30.
  */
 @Mapper
+@Component
 public interface RelationShipDao {
 
     /**

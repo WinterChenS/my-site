@@ -386,11 +386,13 @@ public class DateKit {
                 }
             }
 
-            int betweentoday1;
-            if(endDate.after(startDate)) {
-                betweentoday1 = (int)((endDate.getTime() - startDate.getTime()) / 86400000L);
-            } else {
-                betweentoday1 = (int)((startDate.getTime() - endDate.getTime()) / 86400000L);
+            int betweentoday1 = 0;
+            if(endDate != null) {
+                if (endDate.after(startDate)) {
+                    betweentoday1 = (int) ((endDate.getTime() - startDate.getTime()) / 86400000L);
+                } else {
+                    betweentoday1 = (int) ((startDate.getTime() - endDate.getTime()) / 86400000L);
+                }
             }
 
             return betweentoday1;

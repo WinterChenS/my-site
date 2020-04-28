@@ -5,6 +5,7 @@ import cn.luischen.dto.cond.MetaCond;
 import cn.luischen.model.MetaDomain;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import java.util.Map;
  * Created by Donghua.Chen on 2018/4/29.
  */
 @Mapper
+@Component
 public interface MetaDao {
 
     /**

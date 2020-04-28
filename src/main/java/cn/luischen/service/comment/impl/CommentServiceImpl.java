@@ -62,39 +62,41 @@ public class CommentServiceImpl implements CommentService {
         if (null == comments) {
             msg = "评论对象为空";
         }
-        if (StringUtils.isBlank(comments.getAuthor())) {
-            comments.setAuthor("热心网友");
-        }
-        if (StringUtils.isNotBlank(comments.getMail()) && !TaleUtils.isEmail(comments.getMail())) {
-            msg =  "请输入正确的邮箱格式";
-        }
-        if (StringUtils.isBlank(comments.getContent())) {
-            msg = "评论内容不能为空";
-        }
-        if (comments.getContent().length() < 5 || comments.getContent().length() > 2000) {
-            msg = "评论字数在5-2000个字符";
-        }
-        if (null == comments.getCid()) {
-            msg = "评论文章不能为空";
-        }
-        if (msg != null)
-            throw BusinessException.withErrorCode(msg);
-        ContentDomain atricle = contentService.getAtricleById(comments.getCid());
-        if (null == atricle)
-            throw BusinessException.withErrorCode("该文章不存在");
-        comments.setOwnerId(atricle.getAuthorId());
-        comments.setStatus(STATUS_MAP.get(STATUS_BLANK));
-        comments.setCreated(DateKit.getCurrentUnixTime());
-        commentDao.addComment(comments);
+        if(comments != null) {
+            if (StringUtils.isBlank(comments.getAuthor())) {
+                comments.setAuthor("热心网友");
+            }
+            if (StringUtils.isNotBlank(comments.getMail()) && !TaleUtils.isEmail(comments.getMail())) {
+                msg = "请输入正确的邮箱格式";
+            }
+            if (StringUtils.isBlank(comments.getContent())) {
+                msg = "评论内容不能为空";
+            }
+            if (comments.getContent().length() < 5 || comments.getContent().length() > 2000) {
+                msg = "评论字数在5-2000个字符";
+            }
+            if (null == comments.getCid()) {
+                msg = "评论文章不能为空";
+            }
+            if (msg != null)
+                throw BusinessException.withErrorCode(msg);
+            ContentDomain article = contentService.getArticleById(comments.getCid());
+            if (null == article)
+                throw BusinessException.withErrorCode("该文章不存在");
+            comments.setOwnerId(article.getAuthorId());
+            comments.setStatus(STATUS_MAP.get(STATUS_BLANK));
+            comments.setCreated(DateKit.getCurrentUnixTime());
+            commentDao.addComment(comments);
 
-        ContentDomain temp = new ContentDomain();
-        temp.setCid(atricle.getCid());
-        Integer count = atricle.getCommentsNum();
-        if (null == count){
-            count = 0;
+            ContentDomain temp = new ContentDomain();
+            temp.setCid(article.getCid());
+            Integer count = article.getCommentsNum();
+            if (null == count) {
+                count = 0;
+            }
+            temp.setCommentsNum(count + 1);
+            contentService.updateContentByCid(temp);
         }
-        temp.setCommentsNum(count + 1);
-        contentService.updateContentByCid(temp);
 
     }
 
@@ -123,7 +125,7 @@ public class CommentServiceImpl implements CommentService {
         count++;
 
         //更新当前文章的评论数
-        ContentDomain contentDomain = contentService.getAtricleById(comment.getCid());
+        ContentDomain contentDomain = contentService.getArticleById(comment.getCid());
         if (null != contentDomain
                 && null != contentDomain.getCommentsNum()
                 && contentDomain.getCommentsNum() != 0){
