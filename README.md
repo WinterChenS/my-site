@@ -40,6 +40,9 @@ My Site是由Docker+SpringBoot2.0+Mybatis+thymeleaf等技术实现的个人网�
 **后台首页：**
 ![文章列表页](http://img.winterchen.com/eqeqeqeqe.png)
 
+# todo
+近期会考虑重构一下代码，第一版距今已经两年了，很多代码自己都看不下去了
+
 # Log
 
 - 2018-07-12: 修复缓存导致更新和删除文章不生效的Bug
