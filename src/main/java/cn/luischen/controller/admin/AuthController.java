@@ -10,6 +10,7 @@ import cn.luischen.service.user.UserService;
 import cn.luischen.utils.APIResponse;
 import cn.luischen.utils.IPKit;
 import cn.luischen.utils.TaleUtils;
+import com.sun.jmx.snmp.Timestamp;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -27,6 +28,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Donghua.Chen on 2018/4/30.
@@ -68,7 +71,15 @@ public class AuthController extends BaseController{
     ){
 
         String ip= IPKit.getIpAddrByRequest(request); // 获取ip并过滤登录时缓存的bug
-        Integer error_count = cache.hget("login_error_count",ip);
+        Integer error_count = cache.hget("login_error_count", ip);
+
+        if (error_count != null && error_count > 3) {
+            long expired = cache.hgetExpired("login_error_count", ip);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String format = simpleDateFormat.format(new Date(expired));
+            return APIResponse.fail("您输入密码已经错误超过3次，请于" + format + "后尝试");
+        }
+
         try {
             UserDomain userInfo = userService.login(username, password);
             request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, userInfo);
@@ -79,10 +90,10 @@ public class AuthController extends BaseController{
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
             error_count = null == error_count ? 1 : error_count + 1;
+            cache.hset("login_error_count", ip, error_count, 10 * 60); // 加入ip的过滤
             if (error_count > 3) {
                 return APIResponse.fail("您输入密码已经错误超过3次，请10分钟后尝试");
             }
-            cache.hset("login_error_count", ip,error_count, 10 * 60); // 加入ip的过滤
             String msg = "登录失败";
             if (e instanceof BusinessException) {
                 msg = e.getMessage();
@@ -93,7 +104,6 @@ public class AuthController extends BaseController{
         }
 
         return APIResponse.success();
-
     }
 
     /**

@@ -135,6 +135,30 @@ public class MapCache {
     }
 
     /**
+     * 根据缓存key获取缓存的过期时间戳
+     * @param key 缓存key
+     * @return
+     */
+    public long getExpired(String key) {
+        CacheObject cacheObject = cachePool.get(key);
+        if (null != cacheObject) {
+            return cacheObject.getExpired() * 1000;
+        }
+        return 0;
+    }
+
+    /**
+     * 根据缓存key获取缓存的过期时间戳
+     * @param key   缓存key
+     * @param field 缓存field
+     * @return
+     */
+    public long hgetExpired(String key, String field) {
+        key = key + ":" + field;
+        return this.getExpired(key);
+    }
+
+    /**
      * 清空缓存
      */
     public void clean() {
