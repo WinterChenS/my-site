@@ -142,8 +142,4 @@ public class IndexController extends BaseController{
             return APIResponse.fail(msg);
         }
     }
-
-
-
-
 }

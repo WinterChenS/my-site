@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.luischen.dao.NewsDao">
+    <select id="getNews" resultType="cn.luischen.model.NewsDomain">
+        select * from t_news order by id desc
+    </select>
+
+
+    <insert id="addNews" parameterType="cn.luischen.model.NewsDomain">
+        insert into t_news(`title`, `content`, `createAt`) values(#{title}, #{content}, #{createAt})
+    </insert>
+
+    <update id="updateNewsById" parameterType="cn.luischen.model.NewsDomain">
+        update t_news set `title` = #{title}, `content` = #{content} where `id` = #{id}
+    </update>
+
+    <delete id="deleteNewsById" parameterType="Integer">
+        delete from t_news where `id` = #{id}
+    </delete>
+
+    <select id="getNewsInfoById" parameterType="Integer" resultType="cn.luischen.model.NewsDomain">
+        select * from t_news where `id` = #{id}
+    </select>
+</mapper>
