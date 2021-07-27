@@ -12,6 +12,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Created by Donghua.Chen on 2018/4/30.
@@ -61,8 +64,12 @@ public class SettingController extends BaseController {
                 querys.put(key, join(value));
             });
             optionService.saveOptions(querys);
-            WebConst.initConfig = querys;
 
+            //刷新设置
+            List<OptionsDomain> options = optionService.getOptions();
+            if(! CollectionUtils.isEmpty(options)){
+                WebConst.initConfig = options.stream().collect(Collectors.toMap(OptionsDomain::getName,OptionsDomain::getValue));
+            }
             logService.addLog(LogActions.SYS_SETTING.getAction(), GsonUtils.toJsonString(querys), request.getRemoteAddr(), this.getUid(request));
             return APIResponse.success();
         } catch (Exception e) {
