@@ -1,7 +1,7 @@
 package cn.luischen.model;
 
 /**
- * Created by Donghua.Chen on 2018/4/20.
+ * Created by winterchen on 2018/4/20.
  */
 public class UserDomain {
 

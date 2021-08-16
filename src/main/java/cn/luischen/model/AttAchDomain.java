@@ -2,7 +2,7 @@ package cn.luischen.model;
 
 /**
  * 网站图片文件相关
- * Created by Donghua.Chen on 2018/4/29.
+ * Created by winterchen on 2018/4/29.
  */
 public class AttAchDomain {
 

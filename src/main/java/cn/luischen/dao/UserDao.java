@@ -5,13 +5,13 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * Created by Donghua.Chen on 2018/4/20.
+ * Created by winterchen on 2018/4/20.
  */
 @Mapper
 public interface UserDao {
 
     /**
-     * @Author: Donghua.Chen
+     * @Author: winterchen
      * @Description: 更改用户信息
      * @Date: 2018/4/20
      * @param user
@@ -19,7 +19,7 @@ public interface UserDao {
     int updateUserInfo(UserDomain user);
 
     /**
-     * @Author: Donghua.Chen
+     * @Author: winterchen
      * @Description: 根据主键编号获取用户信息
      * @Date: 2018/4/20
      * @param uId 主键

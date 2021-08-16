@@ -5,13 +5,13 @@ import cn.luischen.model.UserDomain;
 import java.util.List;
 import org.springframework.stereotype.Service;
 /**
- * Created by Donghua.Chen on 2018/4/20.
+ * Created by winterchen on 2018/4/20.
  */
 @Service
 public interface UserService {
 
     /**
-     * @Author: Donghua.Chen
+     * @Author: winterchen
      * @Description: 更改用户信息
      * @Date: 2018/4/20
      * @param user
@@ -19,7 +19,7 @@ public interface UserService {
     int updateUserInfo(UserDomain user);
 
     /**
-     * @Author: Donghua.Chen
+     * @Author: winterchen
      * @Description: 根据主键编号获取用户信息
      * @Date: 2018/4/20
      * @param uId 主键

@@ -1,7 +1,7 @@
 package cn.luischen.dto;
 
 /**
- * Created by Donghua.Chen on 2018/4/29.
+ * Created by winterchen on 2018/4/29.
  */
 public class AttAchDto extends BaseDto{
 
