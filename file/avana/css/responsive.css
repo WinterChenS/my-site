@@ -1,0 +1,202 @@
+
+/* md */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+.comments-reply li section {
+	width: 88%
+}
+}
+
+/* sm */
+
+@media (min-width: 768px) and (max-width: 991px) {
+header[role="header"] {
+	padding: 8% 0;
+}
+header[role="header"] nav ul {
+	padding-top: 10%
+}
+main[role="main-home-wrapper"] article[role="pge-title-content"], main[role="main-inner-wrapper"] article[role="pge-title-content"] {
+	padding-left: 0
+}
+main[role="main-home-wrapper"] article[role="pge-title-content"] header, main[role="main-inner-wrapper"] article[role="pge-title-content"] header {
+	padding-top: 0
+}
+main[role="main-home-wrapper"] article[role="pge-title-content"] header h2, main[role="main-inner-wrapper"] article[role="pge-title-content"] header h2 {
+	font-size: 34px
+}
+main[role="main-home-wrapper"] article p br {
+	display: none
+}
+footer[role="footer"] {
+	padding: 30px 0
+}
+footer[role="footer"] nav {
+	padding: 15px 0
+}
+main[role="main-inner-wrapper"] .about-content {
+	padding: 5%
+}
+main[role="main-inner-wrapper"] .thumbnails-pan section figure figcaption {
+	margin: 0 10%
+}
+section.blog-content figure .post-date {
+	padding-top: 20px;
+	height: 100px;
+	width: 100px
+}
+article.contact-header[role="pge-title-content"] p a {
+	padding-right: 10px
+}
+.contat-from-wrapper {
+	margin-top: 10px;
+	padding: 0 15px
+}
+.grid-lod li {
+	width: 100% !important;
+	position: static !important;
+	display: inline-block
+}
+.grid-lod li img {
+	width: 100%
+}
+.work-details, .blog-details {
+	padding: 0;
+	margin-top: 0
+}
+.comments-reply li section {
+	width: 88%
+}
+}
+
+/* xs */
+
+@media (max-width: 767px) {
+header[role="header"] {
+	padding: 8% 0;
+}
+header[role="header"] nav ul {
+	padding-top: 10%
+}
+header[role="header"] nav ul > li {
+	font-size: 30px
+}
+header[role="header"] nav ul > li > a {
+	line-height: 55px
+}
+main[role="main-home-wrapper"] article[role="pge-title-content"], main[role="main-inner-wrapper"] article[role="pge-title-content"] {
+	padding-left: 0
+}
+main[role="main-home-wrapper"] article[role="pge-title-content"] header, main[role="main-inner-wrapper"] article[role="pge-title-content"] header {
+	padding-top: 10px
+}
+main[role="main-home-wrapper"] article[role="pge-title-content"] header h2, main[role="main-inner-wrapper"] article[role="pge-title-content"] header h2 {
+	font-size: 47px
+}
+main[role="main-home-wrapper"] article[role="pge-title-content"] header h2 span, main[role="main-inner-wrapper"] article[role="pge-title-content"] header h2 span {
+	font-size: 60px;
+}
+main[role="main-home-wrapper"] article {
+	padding-bottom: 30px
+}
+main[role="main-home-wrapper"] article p br {
+	display: none
+}
+footer[role="footer"] {
+	padding: 40px 0
+}
+footer[role="footer"] nav {
+	padding: 15px 0
+}
+main[role="main-inner-wrapper"] .about-content {
+	padding: 5%
+}
+main[role="main-inner-wrapper"] .thumbnails-pan section figure {
+	margin-bottom: 20px
+}
+article[role="pge-title-content"].blog-header, article[role="pge-title-content"].contact-header {
+	padding-bottom: 30px
+}
+section.blog-content figure .post-date {
+	padding-top: 20px;
+	height: 100px;
+	width: 100px
+}
+section.blog-content article {
+	padding: 2% 5%;
+	font-size: 18px;
+	line-height: 24px;
+	font-family: 'proxima_nova_cn_rgregular';
+}
+article.contact-header[role="pge-title-content"] p a {
+	font-size: 18px;
+	padding-right: 10px
+}
+.contat-from-wrapper {
+	margin-top: 10px;
+	padding: 0 15px
+}
+.contat-from-wrapper input[type="text"], .contat-from-wrapper input[type="email"] {
+	margin-bottom: 20px
+}
+.contat-from-wrapper textarea {
+	margin-top: 0
+}
+.work-details, .blog-details {
+	padding: 0;
+	margin-top: 0
+}
+.work-images {
+	margin-top: 0
+}
+.work-images li {
+	margin-bottom: 0;
+	width: 100%
+}
+.work-images li figcaption h2 {
+	font-size: 18px;
+}
+.grid-lod li {
+	width: 100% !important;
+	position: static !important
+}
+.bog-header h3, .comments-pan h3, .commentys-form h4 {
+	padding-bottom: 0
+}
+.bog-header h2 {
+	font-size: 18px;
+	line-height: 26px
+}
+.bog-header {
+	padding-bottom: 20px
+}
+.blog-details .enter-content {
+	margin-top: 10px
+}
+.blog-details .enter-content p, .comments-reply li section {
+	font-size: 14px;
+	line-height: 26px
+}
+.comments-pan h3 {
+	padding-bottom: 20px;
+	margin-top: 0
+}
+.comments-reply li section {
+	float: none;
+	width: auto;
+	padding-left: 0
+}
+.comments-reply li figure {
+	margin-right: 20px
+}
+.reply-pan {
+	margin-left: 20px
+}
+.commentys-form input[type="text"], .commentys-form input[type="email"], .commentys-form input[type="url"], .commentys-form textarea {
+	margin-bottom: 20px
+}
+.commentys-form textarea {
+	margin-top: 0;
+	margin-bottom: 0
+}
+}
