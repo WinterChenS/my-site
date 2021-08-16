@@ -19,7 +19,5 @@ echo "------------------------"
 mvn -DskipTests=true package docker:build &&
 
 
-docker build -f="Dockerfile-push" -t="winterchen/my-site:$version" . &&
-
 docker push winterchen/my-site:$version
 echo "[上传完成]"
