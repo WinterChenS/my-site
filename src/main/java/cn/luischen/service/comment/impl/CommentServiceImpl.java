@@ -56,7 +56,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     @Transactional
-    @CacheEvict(value="commentCache",allEntries=true)
+    @CacheEvict(value={"commentCache","siteCache"},allEntries=true)
     public void addComment(CommentDomain comments) {
         String msg = null;
         if (null == comments) {
@@ -102,7 +102,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Transactional
     @Override
-    @CacheEvict(value="commentCache",allEntries=true)
+    @CacheEvict(value={"commentCache","siteCache"},allEntries=true)
     public void deleteComment(Integer coid) {
         if (null == coid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
@@ -135,7 +135,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    @CacheEvict(value="commentCache",allEntries=true)
+    @CacheEvict(value={"commentCache","siteCache"},allEntries=true)
     public void updateCommentStatus(Integer coid, String status) {
         if (null == coid)
             throw BusinessException.withErrorCode(ErrorConstant.Common.PARAM_IS_EMPTY);
