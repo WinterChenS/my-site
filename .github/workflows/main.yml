@@ -30,8 +30,6 @@ jobs:
         # uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         uses: docker/login-action@v1.10.0
         with:
-          # Server address of Docker registry. If not set then will default to Docker Hub
-          registry: hub.docker.com # optional
           # Username used to log against the Docker registry
           username: ${{ secrets.USERNAME }} # optional
           # Password or personal access token used to log against the Docker registry
