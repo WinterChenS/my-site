@@ -107,13 +107,13 @@ public class HomeController extends BaseController{
                     Integer cid,
             HttpServletRequest request
     ){
-        ContentDomain atricle = contentService.getArticleById(cid);
-        request.setAttribute("article", atricle);
+        ContentDomain article = contentService.getArticleById(cid);
+        request.setAttribute("article", article);
         ContentCond contentCond = new ContentCond();
         contentCond.setType(Types.ARTICLE.getType());
 //        this.blogBaseData(request, contentCond);//获取公共分类标签等数据
         //更新文章的点击量
-        this.updateArticleHit(atricle.getCid(),atricle.getHits());
+        this.updateArticleHit(article.getCid(),article.getHits());
         List<CommentDomain> commentsPaginator = commentService.getCommentsByCId(cid);
         request.setAttribute("comments", commentsPaginator);
         request.setAttribute("active","blog");
@@ -459,7 +459,7 @@ public class HomeController extends BaseController{
     ){
         ContentDomain article = contentService.getArticleById(cid);
         //更新文章的点击量
-        this.updateArticleHit(atricle.getCid(),atricle.getHits());
+        this.updateArticleHit(article.getCid(),article.getHits());
         request.setAttribute("archive", article);
         request.setAttribute("active","work");
         return "site/works-details";
