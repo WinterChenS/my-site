@@ -458,6 +458,8 @@ public class HomeController extends BaseController{
             HttpServletRequest request
     ){
         ContentDomain article = contentService.getArticleById(cid);
+        //更新文章的点击量
+        this.updateArticleHit(atricle.getCid(),atricle.getHits());
         request.setAttribute("archive", article);
         request.setAttribute("active","work");
         return "site/works-details";
