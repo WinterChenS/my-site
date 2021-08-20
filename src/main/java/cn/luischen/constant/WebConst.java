@@ -54,7 +54,7 @@ public class WebConst {
     /**
      * 点击次数超过多少更新到数据库
      */
-    public static final int HIT_EXCEED = 10;
+    public static final int HIT_EXCEED = 1;
 
     /**
      * 上传文件最大1M
