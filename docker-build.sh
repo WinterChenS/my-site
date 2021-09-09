@@ -18,6 +18,7 @@ echo "------------------------"
 
 mvn -DskipTests=true package docker:build &&
 
+docker tag winterchen/my-site:latest winterchen/my-site:$version &&
 
 docker push winterchen/my-site:$version
 echo "[上传完成]"
