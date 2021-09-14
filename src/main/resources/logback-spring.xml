@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+    scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。
+    debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。
+    configuration 子节点为 appender、logger、root
+-->
+<configuration scan="true" scanPeriod="15 seconds" debug="false">
+
+    <!--用于区分不同应用程序的记录-->
+    <contextName>logback</contextName>
+
+    <property resource="application.yml"/>
+    <springProperty scope="context" name="SERVER_PORT" source="server.port"/>
+    <springProperty scope="context" name="LOG_NAME" source="spring.application.name"/>
+
+    <!-- 彩色日志 -->
+    <!-- 彩色日志依赖的渲染类 -->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+    <!-- 彩色日志格式   [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n  -->
+    <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+
+    <!--控制台-->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %logger输出日志的logger名 %msg：日志消息，%n是换行符 -->
+            <!--            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{36} : %msg%n</pattern>-->
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern><!--彩打日志-->
+            <!--解决乱码问题-->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!--滚动文件-->
+    <appender name="infoFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- ThresholdFilter:临界值过滤器，过滤掉 TRACE 和 DEBUG 级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>/tmp/logs/${LOG_NAME}/info/logback.info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!--            <maxFileSize>100MB</maxFileSize>&lt;!&ndash;单个日志文件最大100M，到了这个值，就会再创建一个日志文件，日志文件的名字最后+1&ndash;&gt;-->
+            <maxHistory>30</maxHistory><!--保存最近30天的日志-->
+            <maxFileSize>50MB</maxFileSize><!--单个文件的最大大小-->
+            <totalSizeCap>20GB</totalSizeCap><!--所有的日志文件最大20G，超过就会删除旧的日志-->
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{36} : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--滚动文件-->
+    <appender name="errorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- ThresholdFilter:临界值过滤器，过滤掉 TRACE 和 DEBUG 级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>error</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>/tmp/logs/${LOG_NAME}/error/logback.error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!--            <maxFileSize>100MB</maxFileSize>&lt;!&ndash;单个日志文件最大100M，到了这个值，就会再创建一个日志文件，日志文件的名字最后+1&ndash;&gt;-->
+            <maxHistory>30</maxHistory><!--保存最近30天的日志-->
+            <maxFileSize>50MB</maxFileSize><!--单个文件的最大大小-->
+            <totalSizeCap>20GB</totalSizeCap><!--所有的日志文件最大20G，超过就会删除旧的日志-->
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{36} : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--这里如果是info，spring、mybatis等框架则不会输出：TRACE < DEBUG < INFO <  WARN < ERROR-->
+    <!--root是所有logger的初始级，均继承root，如果某一个自定义的logger没有指定level，就会寻找父logger看有没有指定级别，直到找到root。-->
+    <!--    <root level="debug">-->
+    <!--        <appender-ref ref="stdout"/>-->
+    <!--&lt;!&ndash;        <appender-ref ref="infoFile"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;        <appender-ref ref="errorFile"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;        <appender-ref ref="logstash"/>&ndash;&gt;-->
+    <!--    </root>-->
+
+    <!--为某个包单独配置logger
+
+    比如定时任务，写代码的包名为：net.add1s.slf4j-logback
+    步骤如下：
+    1、定义一个appender，取名为task（随意，只要下面logger引用就行了）
+    appender的配置按照需要即可
+
+
+    2、定义一个logger:
+    <logger name="net.add1s.slf4j-logback" level="DEBUG" additivity="false">
+      <appender-ref ref="task" />
+    </logger>
+    注意：additivity必须设置为false，这样只会交给task这个appender，否则其他appender也会打印net.add1s.slf4j-logback里的log信息。
+
+    3、这样，在net.add1s.slf4j-logback的logger就会是上面定义的logger了。
+    private static Logger logger = LoggerFactory.getLogger(Class1.class);
+    -->
+
+    <!--配置多环境日志输出  可以在application.properties中配置选择哪个profiles : spring.profiles.active=dev-->
+    <!--开发环境:打印控制台-->
+    <springProfile name="dev">
+        <root level="debug">
+            <appender-ref ref="stdout" />
+            <appender-ref ref="infoFile" />
+            <appender-ref ref="errorFile" />
+        </root>
+    </springProfile>
+    <springProfile name="test">
+        <root level="debug">
+            <appender-ref ref="stdout" />
+            <appender-ref ref="infoFile" />
+            <appender-ref ref="errorFile" />
+        </root>
+    </springProfile>
+    <!--生产环境:输出到文件-->
+    <springProfile name="prod">
+        <root level="info">
+            <appender-ref ref="infoFile" />
+            <appender-ref ref="errorFile" />
+        </root>
+    </springProfile>
+
+</configuration>
