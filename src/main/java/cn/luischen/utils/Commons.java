@@ -28,7 +28,7 @@ public class Commons {
      * @return
      */
     public static String site_url() {
-        return site_url("");
+        return site_url("/");
     }
 
     /**
