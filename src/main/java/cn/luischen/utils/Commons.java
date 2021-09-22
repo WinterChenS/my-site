@@ -448,7 +448,6 @@ public class Commons {
             while (m_image.find()) {
                 String data = m_image.group(1).trim();
                 if(!"".equals(data) && data.contains("<img")) {
-                    System.out.println(data);
                     // //匹配src
                     Matcher m = Pattern.compile("src\\s*=\\s*\'?\"?(.*?)(\'|\"|>|\\s+)").matcher(data);
                     while (m.find()){
@@ -478,7 +477,6 @@ public class Commons {
         if (m.find()) {
             String data = m.group(1).trim();
             if(!"".equals(data) && !data.contains("<img")) {
-                System.out.println(data);
                 result = data;
             }
         }
@@ -507,7 +505,6 @@ public class Commons {
         while(m.find()) {
             String data = m.group(1).trim();
             if(!"".equals(data) && !data.contains("<img")) {
-                System.out.println(data);
                 data = "<p>" + data + "</p>";
                 rs.add(data);
             }

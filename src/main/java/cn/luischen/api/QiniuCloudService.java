@@ -9,6 +9,9 @@ import com.qiniu.storage.Configuration;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -22,6 +25,8 @@ import java.io.IOException;
  */
 @Component
 public class QiniuCloudService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(QiniuCloudService.class);
 
     @Value("${qiniu.accesskey}")
     private String ACCESS_KEY;
@@ -55,14 +60,12 @@ public class QiniuCloudService {
 
             //解析上传成功的结果
             DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
-            System.out.println(putRet.key);
-            System.out.println(putRet.hash);
             return putRet.key;
         } catch (QiniuException ex) {
             Response r = ex.response;
-            System.err.println(r.toString());
+            LOGGER.error(r.toString());
             try {
-                System.err.println(r.bodyString());
+                LOGGER.error(r.bodyString());
             } catch (QiniuException ex2) {
                 //ignore
             }

@@ -1,6 +1,8 @@
 package cn.luischen.utils;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,6 +12,10 @@ import java.util.*;
  * Created by Administrator on 2017/3/10 010.
  */
 public class DateKit {
+
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(DateKit.class);
+
     public static final int INTERVAL_DAY = 1;
     public static final int INTERVAL_WEEK = 2;
     public static final int INTERVAL_MONTH = 3;
@@ -138,7 +144,7 @@ public class DateKit {
         try {
             date = format.parse(format.format(date));
         } catch (Exception var5) {
-            System.out.println(var5.getMessage());
+            LOGGER.error(var5.getMessage());
         }
 
         return date;
@@ -153,7 +159,7 @@ public class DateKit {
         try {
             date = format.parse(format.format(date));
         } catch (Exception var5) {
-            System.out.println(var5.getMessage());
+            LOGGER.error(var5.getMessage());
         }
 
         return date;
@@ -168,7 +174,7 @@ public class DateKit {
         try {
             return format.format(date);
         } catch (Exception var6) {
-            System.out.println(var6.getMessage());
+            LOGGER.error(var6.getMessage());
             return "";
         }
     }
@@ -182,7 +188,7 @@ public class DateKit {
         try {
             date = format.parse(format.format(date));
         } catch (Exception var5) {
-            System.out.println(var5.getMessage());
+            LOGGER.error(var5.getMessage());
         }
 
         return date;
@@ -511,7 +517,7 @@ public class DateKit {
         try {
             date = format.parse(format.format(date));
         } catch (Exception var5) {
-            System.out.println(var5.getMessage());
+            LOGGER.error(var5.getMessage());
         }
 
         return date;
@@ -526,7 +532,7 @@ public class DateKit {
         try {
             newDate = format.parse(format.format(newDate));
         } catch (Exception var6) {
-            System.out.println(var6.getMessage());
+            LOGGER.error(var6.getMessage());
         }
 
         return newDate;
@@ -562,7 +568,7 @@ public class DateKit {
         try {
             newDate = format.parse(format.format(newDate));
         } catch (Exception var6) {
-            System.out.println(var6.getMessage());
+            LOGGER.error(var6.getMessage());
         }
 
         return newDate;
@@ -587,7 +593,7 @@ public class DateKit {
         try {
             newDate = format.parse(format.format(newDate));
         } catch (Exception var6) {
-            System.out.println(var6.getMessage());
+            LOGGER.error(var6.getMessage());
         }
 
         return newDate;
@@ -601,7 +607,7 @@ public class DateKit {
         try {
             date = format.parse(format.format(date));
         } catch (Exception var5) {
-            System.out.println(var5.getMessage());
+            LOGGER.error(var5.getMessage());
         }
 
         return date;
