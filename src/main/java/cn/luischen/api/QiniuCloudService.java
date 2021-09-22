@@ -1,5 +1,7 @@
 package cn.luischen.api;
 
+import cn.luischen.constant.ErrorConstant;
+import cn.luischen.exception.BusinessException;
 import cn.luischen.utils.TaleUtils;
 import com.google.gson.Gson;
 import com.qiniu.common.QiniuException;
@@ -64,15 +66,12 @@ public class QiniuCloudService {
         } catch (QiniuException ex) {
             Response r = ex.response;
             LOGGER.error(r.toString());
-            try {
-                LOGGER.error(r.bodyString());
-            } catch (QiniuException ex2) {
-                //ignore
-            }
+            throw BusinessException.withErrorCode(ErrorConstant.Att.UPLOAD_FILE_FAIL).withErrorMessageArguments(ex.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error("file upload failed", e);
+            throw BusinessException.withErrorCode(ErrorConstant.Att.UPLOAD_FILE_FAIL).withErrorMessageArguments(e.getMessage());
         }
-        return null;
+        
     }
 
 }

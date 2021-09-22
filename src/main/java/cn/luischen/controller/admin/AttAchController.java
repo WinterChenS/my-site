@@ -20,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -111,7 +112,7 @@ public class AttAchController {
     @ApiOperation("多文件上传")
     @PostMapping(value = "upload")
     @ResponseBody
-    public APIResponse filesUploadToCloud(HttpServletRequest request,
+    public APIResponse<Void> uploadfilesUploadToCloud(HttpServletRequest request,
                                           HttpServletResponse response,
                                           @ApiParam(name = "file", value = "文件数组", required = true)
                                           @RequestParam(name = "file", required = true)
