@@ -42,6 +42,7 @@ public abstract class BaseController {
         return this;
     }
 
+
     /**
      * 获取blog页面需要的公共数据
      * @param request
