@@ -7,7 +7,7 @@ services:
     ports:
       - "8089:8089"
     volumes:
-      - "./log:/log"
+      - "./tmp:/tmp"
     environment:
       SPRING_DATASOURCE_DRUID_URL: jdbc:mysql://127.0.0.1:3306/lu_tale?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
       SPRING_DATASOURCE_DRUID_USERNAME: root
