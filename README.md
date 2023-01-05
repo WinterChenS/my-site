@@ -26,6 +26,7 @@ My Site是由Docker+SpringBoot2.0+Mybatis+thymeleaf等技术实现的个人网�
 
 # Quick Start
 
+
 - [x]  [1.如何部署My Site](https://github.com/WinterChenS/my-site/wiki/%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2My-Site)
 
 # Preview
