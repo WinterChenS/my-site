@@ -1,5 +1,8 @@
 package cn.luischen.model;
 
+import cn.luischen.utils.XSSUtil;
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * 文章实体
  * Created by winterchen on 2018/4/29.
@@ -131,7 +134,12 @@ public class ContentDomain {
     }
 
     public void setContent(String content) {
-        this.content = content;
+        //xss过滤
+        if (StringUtils.isNotBlank(content)) {
+            this.content = XSSUtil.stripXSS(content);
+        } else {
+            this.content = content;
+        }
     }
 
     public Integer getAuthorId() {
