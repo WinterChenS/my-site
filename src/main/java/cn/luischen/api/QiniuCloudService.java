@@ -2,7 +2,6 @@ package cn.luischen.api;
 
 import cn.luischen.constant.ErrorConstant;
 import cn.luischen.exception.BusinessException;
-import cn.luischen.utils.TaleUtils;
 import com.google.gson.Gson;
 import com.qiniu.common.QiniuException;
 import com.qiniu.common.Zone;
@@ -11,12 +10,9 @@ import com.qiniu.storage.Configuration;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -47,7 +43,7 @@ public class QiniuCloudService {
 
     public String upload(MultipartFile file, String fileName) {
 
-        //构造一个带指定Zone对象的配置类
+        //构造一个带指定Zone对象的配置类，注意这里需要根据自己的选择的存储区域来选择对应的Zone对象
         Configuration cfg = new Configuration(Zone.zone0());
         //...其他参数参考类注释
         UploadManager uploadManager = new UploadManager(cfg);
