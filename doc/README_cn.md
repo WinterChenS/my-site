@@ -1,7 +1,5 @@
 # My Site
 
-[中文](/doc/README_cn.md) | [日本語](/doc/README_jp.md)
-
 ## Introduction
 My Site is a personal website implemented using technologies such as Docker, SpringBoot2.0, Mybatis, and Thymeleaf. Originally, it was a practical exercise project for Docker and SpringBoot. It is now open-source, and provides complete code with full functionality and easy deployment, which will undoubtedly give users an unparalleled experience. If you like this project, please give it a [star](<https://github.com/WinterChenS/my-site>) to support it.
 
