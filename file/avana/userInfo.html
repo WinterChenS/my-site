@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的账户</title>
+	<!-- style -->
+
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+
+	<!-- style -->
+
+	<!-- bootstrap -->
+
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+	<!-- responsive -->
+
+	<link href="css/responsive.css" rel="stylesheet" type="text/css">
+
+	<!-- font-awesome -->
+
+	<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+
+	<!-- font-awesome -->
+
+	<link href="css/effects/set2.css" rel="stylesheet" type="text/css">
+	<link href="css/effects/normalize.css" rel="stylesheet" type="text/css">
+	<link href="css/effects/component.css"  rel="stylesheet" type="text/css" >
+    <link type="text/css" id="layuicss-layer" rel="stylesheet" href="../layui/css/layui.css" />
+
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <style>
+        thead td {
+            font-weight: bold;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        table {
+            width: 80%;
+            margin-left: 10%;
+        }
+
+        td {
+            border: solid #ccc 1px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .edit-btn{
+            border-radius: 3px;
+            text-align: center;
+            display: block;
+            width: 60px;
+            height: 28px;
+            line-height: 28px;
+            float: right;
+        }
+        .blue-btn{
+            background: #3DA7F3;
+            color:#fff;
+        }
+        .line-btn{
+            border: 1px solid #3DA7F3;
+            color: #3DA7F3;
+        }
+        .isEdit{
+            display: none;
+        }
+        .am-col-8,
+        .am-col-16{
+            line-height: 30px;
+        }
+        .am-btn-code,.am-btn-newcode{
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            padding: 0;
+            margin-left: 10px;
+        }
+        .am-btn-newcode{
+            width: 90px;
+            margin-left: 5px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .false-mask{
+            width: 100%;
+            height: 50px;
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+        }
+        .isFirstEditPage{
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray">
+    <!--header-->
+    <div class="mask"></div>
+    <div class="header" id="header">
+    </div>
+    <script>
+        $("#header").load("head.html");
+    </script>
+    <!--右侧部分-->
+    <div class="right-area">
+        <!--右侧主要内容-->
+        <div class="right-main">
+            <div class="tlt-bar bg-gray clearfixx">
+                <span class="bread-crumb"><a>我的账户</a>&nbsp;&gt;&nbsp;<a></a></span>
+                <span class="cm-right"></span>
+            </div>
+            <div class="top-tab-area am-nmlr-25">
+                <h4>我的账户
+                    <a style="display: none;" class="cm-right am-btn am-btn-plain-primary">
+                        <i class="i i-change-user"></i>
+                        申请更换联系人
+                    </a>
+                </h4>
+            </div>
+            <div class="reg-con am-mt-30">
+                <div class="am-form-item">
+                    <label class="am-col-4 am-form-label">登录账号：</label>
+                    <div class="am-col-8  loginUser"></div>
+                    <label class="am-col-4 am-form-label">登录密码：</label>
+                    <div class="am-col-8">
+                        <input type="password" class="w200" style="border: 0;padding-top: 5px;" value="" disabled>
+                        <a class="am-ml-10"><i class="i i-edit"></i>修改</a>
+                    </div>
+                </div>
+                <div class="border-t-d ptb-l">
+                    <div class="am-form-item">
+                        <label class="am-col-4 am-form-label">超声分类：</label>
+                        <div class="am-col-16  type"></div>
+                        <div class="am-col-4">
+                            <!-- <a class="am-ml-10 edit-btn blue-btn notEdit" onclick="handleEdit()">编辑</a> -->
+                            <a class="am-ml-10 edit-btn blue-btn isEdit save-btn" onclick="handleSave()">保存</a>
+                            <a class="am-ml-10 edit-btn line-btn isEdit cancle-btn" onclick="handleCancel()">取消</a>
+                        </div>
+                </div>
+                <div class="am-form-item">
+                    <label class="am-col-4 am-form-label">姓名：</label>
+                    <div class="am-col-8">
+                        <input type="text" class="w200 realName notEdit" style="border: 0;padding-top: 5px;" value="" disabled>
+                        <input type="text" class="w200 nameIsEdit isEdit" style="padding: 5px;" value="">
+                        <a class="am-ml-10 nameEdit isAndySta isEditPage"><i class="i i-edit"></i>修改</a>
+                    </div>
+                </div>
+                <div class="am-form-item isAndy">
+                    <label class="am-col-4 am-form-label ">科室：</label>
+                    <div class="am-col-8 department"></div>
+                    <label class="am-col-4 am-form-label ">职务：</label>
+                    <div class="am-col-8  kind"></div>
+                </div>
+
+                <div class="am-form-item">
+                    <label class="am-col-4 am-form-label">联系方式：</label>
+                    <div class="am-col-8">
+                        <input type="text" class="w200 mobile notEdit" style="border: 0;padding-top: 5px;" value="" disabled>
+                        <input type="text" class="w200 mobileIsEdit isEdit" style="padding: 5px;" value="">
+                        <a class="am-ml-10 phoneEdit isAndySta isEditPage"><i class="i i-edit"></i>修改</a>
+                        <input type="button" id="mobileCode"  class="am-btn-confirm am-btn-code isFirstEditPage" value="发送验证码" onclick="sendMessage()"/>
+                    </div>
+                </div>
+
+                <div class="am-form-item isFirstEditPage">
+                    <label class="am-col-4 am-form-label isAndy">手机号验证码：</label>
+                    <div class="am-col-8">
+                        <input type="text" class="w200 isEdit"  id="verificatCode" style="padding: 5px;" value="">
+                    </div>
+                </div>
+
+                <div class="am-form-item">
+                    <label class="am-col-4 am-form-label">邮箱：</label>
+                    <div class="am-col-8 ">
+                        <!-- <input type="text" class="w200 email" style="border: 0;padding-top: 5px;" value="" disabled> -->
+                        <input type="text" class="w200 email notEdit" style="border: 0;padding-top: 5px;" value="" disabled>
+                        <input type="text" class="w200 emailIsEdit isEdit" style="padding: 5px;" value="">
+                        <a class="am-ml-10 emailEdit isAndySta isEditPage"><i class="i i-edit"></i>修改</a>
+                        <input type="button" id="emailCode"  class="am-btn-confirm am-btn-code isFirstEditPage" value="发送验证码" onclick="sendMessageEmail()"/>
+                    </div>
+                </div>
+                <div class="am-form-item isFirstEditPage">
+                    <label class="am-col-4 am-form-label">邮箱验证码：</label>
+                    <div class="am-col-8 ">
+                        <input type="text" class="w200 emailVerificatCode notEdit" style="border: 0;padding-top: 5px;" value="" disabled>
+                        <input type="text" class="w200 isEdit" id="emailVerificatCodeIsEdit" style="padding: 5px;" value="">
+                    </div>
+                </div>
+                <div class="am-form-item">
+                    <label class="am-col-4 am-form-label">上一次登录：</label>
+                    <div class="am-col-8  secondLastLoginTime"></div>
+                    <label class="am-col-4 am-form-label">登录次数：</label>
+                    <div class="am-col-8  loginNum"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    </div>
+
+    </div>
+    <!--end 右侧主要内容-->
+    </div>
+    <!--end 右侧部分-->
+
+    <!--更换密码-->
+
+    <!--更换联系人-->
+
+    <!--更换phone-->
+    <div id="pop-content-phone" style="display: none;">
+        <div class="am-pd-pop">
+            <div class="am-form-item">
+                <label class="am-col-6 am-form-label am-lg">联系方式:</label>
+                <div class="am-col-18"><input type="number" id="newPhoneInput" class="input-text am-input-lg w300"
+                        placeholder="输入联系方式"></div>
+            </div>
+        </div>
+        <div class="am-btn-area pop-btn-area">
+            <a class="am-btn-cancel" onclick="layer.closeAll()">取消</a>
+            <a class="am-btn-confirm" onclick="userInfoChangePhone()">确定</a>
+        </div>
+    </div>
+
+    <!--更换email-->
+    <div id="pop-content-email" style="display: none;">
+        <div class="am-pd-pop">
+            <div class="am-form-item">
+                <label class="am-col-6 am-form-label am-lg">邮箱:</label>
+                <div class="am-col-18">
+                    <input type="text" id="newEmailInput" class="input-text am-input-lg w300" placeholder="输入邮箱">
+                </div>
+            </div>
+        </div>
+        <div class="am-btn-area pop-btn-area">
+            <a class="am-btn-cancel" onclick="layer.closeAll()">取消</a>
+            <a class="am-btn-confirm" onclick="userInfoChangeEmail()">确定</a>
+        </div>
+    </div>
+
+    <!--更换姓名-->
+    <div id="pop-content-name" style="display: none;">
+        <div class="am-pd-pop">
+            <div class="am-form-item">
+                <label class="am-col-6 am-form-label am-lg">姓名:</label>
+                <div class="am-col-18"><input type="text" id="newNameInput" class="input-text am-input-lg w300"
+                        placeholder="输入姓名"></div>
+            </div>
+        </div>
+        <div class="am-btn-area pop-btn-area">
+            <a class="am-btn-cancel" onclick="layer.closeAll()">取消</a>
+            <a class="am-btn-confirm" onclick="userInfoChangeName()">确定</a>
+        </div>
+    </div>
+
+    <!--更换医院-->
+    <div id="pop-content-hospital" style="display: none;">
+        <div class="am-pd-pop">
+            <div class="am-form-item">
+                <label class="am-col-6 am-form-label am-lg">医院:</label>
+                <div class="am-col-18"><input type="text" id="newHospitalInput" class="input-text am-input-lg w300"
+                        placeholder="输入医院"></div>
+            </div>
+        </div>
+        <div class="am-btn-area pop-btn-area">
+            <a class="am-btn-cancel" onclick="layer.closeAll()">取消</a>
+            <a class="am-btn-confirm" onclick="userInfoChangeHospital()">确定</a>
+        </div>
+    </div>
+
+    <!-- 申请更换身份证号 -->
+    <div id="pop-content-idCard" style="display: none;">
+        <div class="am-pd-pop">
+            <div class="am-form-item">
+                <label class="am-col-6 am-form-label am-lg">身份证号:</label>
+                <div class="am-col-18"><input type="text" id="newIdCardInput" class="input-text am-input-lg w300"
+                        placeholder="输入身份证号"></div>
+            </div>
+        </div>
+        <div class="am-btn-area pop-btn-area">
+            <a class="am-btn-cancel" onclick="layer.closeAll()">取消</a>
+            <a class="am-btn-confirm" onclick="userInfoChangeIdCard()">确定</a>
+        </div>
+    </div>
+
+    <!--更换手机号(医管 && 医院填报员)-->
+    <div id="pop-content-doctorPhone" style="display: none;">
+        <div class="am-pd-pop">
+            <div class="am-form-item">
+                <label class="am-col-6 am-form-label am-lg">新手机号:</label>
+                <div class="am-col-18">
+                    <input type="number" id="newDoctorPhoneInput" class="input-text am-input-lg w200" placeholder="输入手机号">
+                    <input type="button" id="newMobileCode"  class="am-btn-confirm am-btn-newcode" value="获取验证码" onclick="sendMessagePhone()"/>
+                </div>
+            </div>
+            <div class="am-form-item">
+                <label class="am-col-6 am-form-label am-lg">新手机号验证码:</label>
+                <div class="am-col-18">
+                  <input type="text" class="input-text am-input-lg w300"  id="newVerificatCode" value="">
+                </div>
+            </div>
+        </div>
+        <div class="am-btn-area pop-btn-area">
+            <a class="am-btn-cancel" onclick="layer.closeAll()">取消</a>
+            <a class="am-btn-confirm" onclick="userInfoChangeDoctorPhone()">确定</a>
+        </div>
+    </div>
+    <!-- 更换邮箱(医管 && 医院填报员) -->
+    <div id="pop-content-doctorEmail" style="display: none;">
+        <div class="am-pd-pop">
+            <div class="am-form-item">
+                <label class="am-col-6 am-form-label am-lg">新邮箱:</label>
+                <div class="am-col-18">
+                    <input type="text" id="newDoctorEmailInput" class="input-text am-input-lg w200" placeholder="输入邮箱">
+                    <input type="button" id="newEmailCode"  class="am-btn-confirm am-btn-newcode" value="获取验证码" onclick="sendMessageDoctorEmail()"/>
+                </div>
+            </div>
+            <div class="am-form-item">
+                <label class="am-col-6 am-form-label am-lg">新邮箱验证码:</label>
+                <div class="am-col-18">
+                  <input type="text" class="input-text am-input-lg w300"  id="newEmailVerificatCode" value="">
+                </div>
+            </div>
+        </div>
+        <div class="am-btn-area pop-btn-area">
+            <a class="am-btn-cancel" onclick="layer.closeAll()">取消</a>
+            <a class="am-btn-confirm" onclick="userInfoChangeDoctorEmail()">确定</a>
+        </div>
+    </div>
+</body>
+<script src="../js/nav.js" type="text/javascript"></script> 
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script>
+
+    window.onload = function () {
+
+        layui.use('upload', function () {
+            var upload = layui.upload;
+            //执行实例
+            var uploadInst = upload.render({
+
+                elem: '#sicianfile' //绑定元素
+                ,
+                headers: {
+                    "Authorization": getToken() ? getToken() : "",
+                    "user-cookie": getUserInfo() ? getUserInfo().id : ""
+                },
+                url: fileUploadUrl //上传接口
+                ,
+                exts: 'png|gif|jpg|img|jpeg' //文件类型
+                ,
+                before: function (obj) { //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+                    layer.load(); //上传loading
+                },
+                done: function (res) {
+                    var filename = res[0].url;
+                    $("#sicianfileUrl").val(filename);
+                    $('#sicianSpan').text(res[0].filename)
+                    layer.closeAll('loading');
+                    $('#sicianfile').css('border-color', '#3da7f3')
+                    $('#sicianfile').css('color', '#3da7f3')
+                }
+            });
+        });
+
+    }
+
+    var userBean = getUserInfo() || {};
+    if (userBean.kind == 'admin') {
+        $('.isAndy').hide()
+        $('.isAndySta').show()
+    } else if(userBean.kind == "user"){
+        $('.isAndy').show()
+        $('.isAndySta').show()
+    } else{
+        $('.isAndySta').hide()
+		
+    }
+    if (userBean.kind == 'admin') {
+        $('.hosphostShowTable').show()
+        $('.app-area-item').show()
+        getRes("GET", '', joinProjectDataListUrl, function (result) {
+            if (result) {
+                var tablerstr = ''
+                for (var i = 0; i < result.length; i++) {
+                    tablerstr += '<tr><td>' + result[i].project.name + '</td>'
+                    tablerstr += '<td>' + result[i].project.type + '</td>'
+                    tablerstr += '<td>' + result[i].useNo + '</td></tr>'
+                }
+                $('.tbodyshow').html(tablerstr)
+            }
+        });
+    } else {
+        $('.hosphostShowTable').hide()
+		$('.app-area-item').hide()
+    }
+
+
+</script>
+
+</html>
