@@ -5,6 +5,9 @@ import cn.luischen.model.ContentDomain;
 import com.github.pagehelper.PageInfo;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.commons.lang3.StringUtils;
+import org.commonmark.ext.gfm.tables.TablesExtension;
+import org.commonmark.node.*;
+import org.commonmark.parser.Parser;
 import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
@@ -20,7 +23,6 @@ import java.util.regex.Pattern;
  */
 @Component
 public class Commons {
-
 
     /**
      * 网站链接
@@ -41,7 +43,6 @@ public class Commons {
         return site_option("site_url") + sub;
     }
 
-
     /**
      * 文件上传，为文件重新命名
      **/
@@ -51,24 +52,26 @@ public class Commons {
         String sdfDate = sdf.format(date);
         int pos = name.lastIndexOf(".");
         String suffix = name.substring(pos);
-        String rename = sdfDate+suffix;
+        String rename = sdfDate + suffix;
         return rename;
     }
 
     /**
      * 获取网站的描述
+     * 
      * @return
      */
-    public static String site_desc(){
+    public static String site_desc() {
         return site_option("site_description");
     }
 
-    public static String site_keywords(){
+    public static String site_keywords() {
         return site_option("site_keywords");
     }
 
     /**
      * 获取网站的备案信息
+     * 
      * @return
      */
     public static String site_record() {
@@ -77,6 +80,7 @@ public class Commons {
 
     /**
      * 获取网站标题
+     * 
      * @return
      */
     public static String site_title() {
@@ -95,27 +99,31 @@ public class Commons {
 
     /**
      * 获取GitHub地址
+     * 
      * @return
      */
-    public static String social_github(){
+    public static String social_github() {
         return site_option("social_github");
     }
 
     /**
      * 获取google网站验证码
+     * 
      * @return
      */
-    public static String google_site_verification(){
+    public static String google_site_verification() {
         return site_option("google_site_verification");
     }
 
     /**
      * 获取百度网站验证码
+     * 
      * @return
      */
-    public static String baidu_site_verification(){
+    public static String baidu_site_verification() {
         return site_option("baidu_site_verification");
     }
+
     /**
      * 网站配置项
      *
@@ -161,42 +169,45 @@ public class Commons {
 
     /**
      * 英文格式的日期
+     * 
      * @param unixTime
      * @return
      */
-    public static String fmtdate_en(Integer unixTime){
+    public static String fmtdate_en(Integer unixTime) {
         String fmtdate = fmtdate(unixTime, "d,MMM,yyyy");
         String[] dateArr = fmtdate.split(",");
         String rs = "<span>" + dateArr[0] + "</span> " + dateArr[1] + "  " + dateArr[2];
         return rs;
     }
 
-
     /**
      * 英文格式的日期-月，日
+     * 
      * @param unixTime
      * @return
      */
-    public static String fmtdate_en_m(Integer unixTime){
-        return fmtdate(unixTime,"MMM d");
+    public static String fmtdate_en_m(Integer unixTime) {
+        return fmtdate(unixTime, "MMM d");
     }
 
     /**
      * 日期-年
+     * 
      * @param unixTime
      * @return
      */
-    public static String fmtdate_en_y(Integer unixTime){
-        return fmtdate(unixTime,"yyyy");
+    public static String fmtdate_en_y(Integer unixTime) {
+        return fmtdate(unixTime, "yyyy");
     }
 
     /**
      * 将中文的yyyy年MM月 - > yyyy
+     * 
      * @param date
      * @return
      */
-    public static String parsedate_zh_y_m(String date){
-        if (StringUtils.isNotBlank(date)){
+    public static String parsedate_zh_y_m(String date) {
+        if (StringUtils.isNotBlank(date)) {
             Date d = DateKit.dateFormat(date, "yyyy年MM月");
             return DateKit.dateFormat(d, "yyyy");
         }
@@ -205,11 +216,12 @@ public class Commons {
 
     /**
      * 字符串转Date
+     * 
      * @param date
      * @return
      */
-    public static Date fmtdate_date(String date){
-        if (StringUtils.isNotBlank(date)){
+    public static Date fmtdate_date(String date) {
+        if (StringUtils.isNotBlank(date)) {
             return DateKit.dateFormat(date, "yyyy年MM月");
         }
         return null;
@@ -217,15 +229,17 @@ public class Commons {
 
     /**
      * 根据nuix时间戳获取Date
+     * 
      * @param nuixTime
      * @return
      */
-    public static Date fmtdate_unxtime(Integer nuixTime){
-        if (null != nuixTime){
+    public static Date fmtdate_unxtime(Integer nuixTime) {
+        if (null != nuixTime) {
             return DateKit.getDateByUnixTime(nuixTime);
         }
-        return  null;
+        return null;
     }
+
     /**
      * 获取社交的链接地址
      *
@@ -243,7 +257,6 @@ public class Commons {
         map.put("twitter", WebConst.initConfig.get(prefix + "twitter"));
         return map;
     }
-
 
     /**
      * An :grinning:awesome :smiley:string &#128516;with a few :wink:emojis!
@@ -268,7 +281,7 @@ public class Commons {
         return UUID.random(1, max) + str;
     }
 
-    public static String random(Long seed, int max, String str){
+    public static String random(Long seed, int max, String str) {
         if (seed == null)
             return random(max, str);
         Random random = new Random(seed);
@@ -277,10 +290,11 @@ public class Commons {
 
     /**
      * 如果blog没有配图，随机获取一张
+     * 
      * @return
      */
-    public static String randomBlogPic(Long seed){
-        return "/site/images/blog-images/blog-" + random( seed,12,".jpg");
+    public static String randomBlogPic(Long seed) {
+        return "/site/images/blog-images/blog-" + random(seed, 12, ".jpg");
     }
 
     /**
@@ -323,8 +337,6 @@ public class Commons {
         return permalink(contents.getCid(), contents.getSlug());
     }
 
-
-
     /**
      * 返回文章链接地址
      *
@@ -362,6 +374,7 @@ public class Commons {
 
     /**
      * 返回作品文章地址
+     * 
      * @param cid
      * @return
      */
@@ -371,6 +384,7 @@ public class Commons {
 
     /**
      * 返回blog文章地址
+     * 
      * @param cid
      * @return
      */
@@ -380,34 +394,38 @@ public class Commons {
 
     /**
      * 获取blog归档地址
+     * 
      * @param date
      * @return
      */
-    public static String archivePermalink(String date){
+    public static String archivePermalink(String date) {
         return site_url("/blog/archives/" + date);
     }
 
-
-    public static String archiveYearPermalink(String date){
+    public static String archiveYearPermalink(String date) {
         return site_url("/blog/archives/year/" + date);
     }
+
     /**
      * 返回blog分类的地址
+     * 
      * @param categorie
      * @return
      */
-    public static String categoriePermalink(String categorie){
+    public static String categoriePermalink(String categorie) {
         return site_url("/blog/categories/" + categorie);
     }
 
     /**
      * 返回blog标签页的地址
+     * 
      * @param tag
      * @return
      */
-    public static String tagPermalink(String tag){
+    public static String tagPermalink(String tag) {
         return site_url("/blog/tag/" + tag);
     }
+
     /**
      * 获取文章第一张图片
      *
@@ -434,39 +452,43 @@ public class Commons {
 
     /**
      * 获取文章中的所有图片
+     * 
      * @param content
      * @return
      */
     public static List<String> show_all_thumb(String content) {
-        List<String> rs = new LinkedList();
-        content = TaleUtils.mdToHtml(content);
-        if (content.contains("<img")) {
-            String img = "";
-            String regEx_img = "<[a-zA-Z]+.*?>([\\s\\S]*?)</[a-zA-Z]*>";
-            Pattern p_image = Pattern.compile(regEx_img, Pattern.MULTILINE);
-            Matcher m_image = p_image.matcher(content);
-            while (m_image.find()) {
-                String data = m_image.group(1).trim();
-                if(!"".equals(data) && data.contains("<img")) {
-                    // //匹配src
-                    Matcher m = Pattern.compile("src\\s*=\\s*\'?\"?(.*?)(\'|\"|>|\\s+)").matcher(data);
-                    while (m.find()){
-				 //  if (m.find()) {
-                        rs.add(m.group(1));
-                    }
-                }
+        Parser parser = Parser.builder()
+                .extensions(Collections.singletonList(TablesExtension.create()))
+                .build();
+        Node document = parser.parse(content);
 
-            }
+        ImageVisitor visitor = new ImageVisitor();
+        document.accept(visitor);
+
+        return visitor.getImageList();
+    }
+
+    private static class ImageVisitor extends AbstractVisitor {
+        private List<String> imageList = new ArrayList<>();
+
+        @Override
+        public void visit(Image image) {
+            imageList.add(image.getDestination());
+            visitChildren(image);
         }
-        return rs;
+
+        public List<String> getImageList() {
+            return imageList;
+        }
     }
 
     /**
      * 获取文章的文字预览
+     * 
      * @param content
      * @return
      */
-    public static String show_p(String content){
+    public static String show_p(String content) {
         String result = "";
         content = TaleUtils.mdToHtml(content);
         String reg = "<[a-zA-Z]+.*?>([\\s\\S]*?)</[a-zA-Z]*>";
@@ -476,14 +498,14 @@ public class Commons {
         Matcher m = p.matcher(content);
         if (m.find()) {
             String data = m.group(1).trim();
-            if(!"".equals(data) && !data.contains("<img")) {
+            if (!"".equals(data) && !data.contains("<img")) {
                 result = data;
             }
         }
-        result = result.replace("<img>","");
-        result = result.replace("</img>","");
-        result = result.replace("<p>","");
-        result = result.replace("</p>","");
+        result = result.replace("<img>", "");
+        result = result.replace("</img>", "");
+        result = result.replace("<p>", "");
+        result = result.replace("</p>", "");
         if (result.length() > 20)
             result = result.substring(0, 20);
         return result;
@@ -491,25 +513,45 @@ public class Commons {
 
     /**
      * 获取文章中所有的文字
+     * 
      * @param content
      * @return
      */
-    public static List<String> show_all_p(String content){
-        List<String> rs = new LinkedList();
-        content = TaleUtils.mdToHtml(content);
-        String reg = "<[a-zA-Z]+.*?>([\\s\\S]*?)</[a-zA-Z]*>";
+    public static List<String> show_all_p(String content) {
+        Parser parser = Parser.builder()
+                .extensions(Collections.singletonList(TablesExtension.create()))
+                .build();
+        Node document = parser.parse(content);
 
-        Pattern p = Pattern.compile(reg, Pattern.MULTILINE);
-        content = content.replace("&nbsp;", "");
-        Matcher m = p.matcher(content);
-        while(m.find()) {
-            String data = m.group(1).trim();
-            if(!"".equals(data) && !data.contains("<img")) {
-                data = "<p>" + data + "</p>";
-                rs.add(data);
+        TextAndLinkVisitor visitor = new TextAndLinkVisitor();
+        document.accept(visitor);
+
+        return visitor.getTextAndLinks();
+    }
+
+    private static class TextAndLinkVisitor extends AbstractVisitor {
+        private List<String> textAndLinks = new ArrayList<>();
+
+        @Override
+        public void visit(Text text) {
+            if (text.getParent() instanceof Link) {
+                return;
             }
+            textAndLinks.add("<p>" + text.getLiteral() + "</p>");
+            visitChildren(text);
         }
-        return rs;
+
+        @Override
+        public void visit(Link link) {
+            String text = link.getFirstChild() instanceof Text ? ((Text) link.getFirstChild()).getLiteral() : "";
+            String url = link.getDestination();
+            textAndLinks.add("<p><a href='" + url + "'>" + text + "</a></p>");
+            visitChildren(link);
+        }
+
+        public List<String> getTextAndLinks() {
+            return textAndLinks;
+        }
     }
 
     /**
@@ -523,7 +565,8 @@ public class Commons {
             String[] arr = categories.split(",");
             StringBuffer sbuf = new StringBuffer();
             for (String c : arr) {
-                sbuf.append("<a class=\"article-category-link\" href=\"/blog/category/" + URLEncoder.encode(c, "UTF-8") + "\">" + c + "</a>");
+                sbuf.append("<a class=\"article-category-link\" href=\"/blog/category/" + URLEncoder.encode(c, "UTF-8")
+                        + "\">" + c + "</a>");
             }
             return sbuf.toString();
         }
@@ -541,7 +584,8 @@ public class Commons {
             String[] arr = tags.split(",");
             StringBuffer sbuf = new StringBuffer();
             for (String c : arr) {
-                sbuf.append("<li class=\"article-tag-list-item\"><a href=\"/blog/tag/" + URLEncoder.encode(c, "UTF-8") + "\">#" + c + "</a></li>");
+                sbuf.append("<li class=\"article-tag-list-item\"><a href=\"/blog/tag/" + URLEncoder.encode(c, "UTF-8")
+                        + "\">#" + c + "</a></li>");
             }
             return sbuf.toString();
         }
@@ -570,6 +614,5 @@ public class Commons {
             return text;
         }
     }
-
 
 }
