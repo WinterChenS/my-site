@@ -1,9 +1,12 @@
 package cn.luischen.model;
 
+import lombok.Data;
+
 /**
  * 文章关联信息表
  * Created by winterchen on 2018/4/30.
  */
+@Data
 public class RelationShipDomain {
 
     /**
@@ -14,20 +17,5 @@ public class RelationShipDomain {
      * 项目编号
      */
     private Integer mid;
-
-    public Integer getCid() {
-        return cid;
-    }
-
-    public void setCid(Integer cid) {
-        this.cid = cid;
-    }
-
-    public Integer getMid() {
-        return mid;
-    }
-
-    public void setMid(Integer mid) {
-        this.mid = mid;
-    }
+    
 }

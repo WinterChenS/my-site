@@ -26,7 +26,6 @@ public class GlobalExceptionHandler {
             msg = ((BusinessException) e).getErrorCode();
         }
         logger.error("find exception:e={}",e.getMessage());
-        e.printStackTrace();
         return APIResponse.fail(msg);
     }
 //

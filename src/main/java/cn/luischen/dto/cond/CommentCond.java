@@ -1,9 +1,12 @@
 package cn.luischen.dto.cond;
 
+import lombok.Data;
+
 /**
  * 评论的查找参数
  * Created by winterchen on 2018/4/29.
  */
+@Data
 public class CommentCond {
     /**
      * 状态
@@ -23,35 +26,4 @@ public class CommentCond {
      */
     private Integer parent;
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Integer getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Integer startTime) {
-        this.startTime = startTime;
-    }
-
-    public Integer getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Integer endTime) {
-        this.endTime = endTime;
-    }
-
-    public Integer getParent() {
-        return parent;
-    }
-
-    public void setParent(Integer parent) {
-        this.parent = parent;
-    }
 }
