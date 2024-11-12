@@ -59,13 +59,13 @@ public class BaseInterceptor implements HandlerInterceptor {
         if (null == user) {
             Integer uid = TaleUtils.getCookieUid(request);
             if (null != uid) {
-                // 这里还是有安全隐患, cookie 是可以伪造的
+                // Cookie 可以伪造，因此要注意
                 user = userService.getUserInfoById(uid);
                 request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
             }
         }
 
-        // 如果是以 /admin 开头并且不是特定的静态资源文件，则要求认证
+        // 需要认证的路径，不包括静态资源和登录页面
         if (uri.startsWith("/admin")
                 && !uri.startsWith("/admin/login")
                 && null == user
@@ -75,13 +75,13 @@ public class BaseInterceptor implements HandlerInterceptor {
             return false;
         }
 
-        // 设置 CSRF token 并要求对敏感操作进行校验
+        // 设置 CSRF token，仅对敏感操作进行 CSRF 校验
         if ("GET".equalsIgnoreCase(request.getMethod())) {
             String csrfToken = UUID.UU64();
             // 默认存储30分钟
             cache.hset(Types.CSRF_TOKEN.getType(), csrfToken, uri, 30 * 60);
             request.setAttribute("_csrf_token", csrfToken);
-        } else if ("POST".equalsIgnoreCase(request.getMethod())) {
+        } else if ("POST".equalsIgnoreCase(request.getMethod()) && isSensitiveOperation(uri)) {
             // 检查 POST 请求的 CSRF token
             String csrfToken = request.getParameter("_csrf_token");
             String expectedUri = cache.hget(Types.CSRF_TOKEN.getType(), csrfToken);
@@ -96,13 +96,21 @@ public class BaseInterceptor implements HandlerInterceptor {
     }
 
     /**
-     * 检查是否为静态资源文件，避免对静态资源文件进行认证
+     * 检查是否为静态资源文件
      */
     private boolean isStaticResource(String uri) {
         return uri.startsWith("/admin/css") || uri.startsWith("/admin/images")
                 || uri.startsWith("/admin/js") || uri.startsWith("/admin/plugins")
                 || uri.startsWith("/admin/editormd");
     }
+
+    /**
+     * 检查是否为敏感操作路径（例如：删除、更新等操作）
+     */
+    private boolean isSensitiveOperation(String uri) {
+        return uri.contains("/delete") || uri.contains("/update") || uri.contains("/create");
+    }
+
 
 
     @Override
