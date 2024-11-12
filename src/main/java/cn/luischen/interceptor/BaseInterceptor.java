@@ -48,36 +48,62 @@ public class BaseInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         String uri = request.getRequestURI();
 
+        // 规范化路径，防止路径遍历
+        uri = uri.replaceAll("/+", "/");
+
         LOGGE.info("UserAgent: {}", request.getHeader(USER_AGENT));
         LOGGE.info("用户访问地址: {}, 来路地址: {}", uri, IPKit.getIpAddrByRequest(request));
 
-
-        //请求拦截处理
+        // 请求拦截处理
         UserDomain user = TaleUtils.getLoginUser(request);
         if (null == user) {
             Integer uid = TaleUtils.getCookieUid(request);
             if (null != uid) {
-                //这里还是有安全隐患,cookie是可以伪造的
+                // 这里还是有安全隐患, cookie 是可以伪造的
                 user = userService.getUserInfoById(uid);
                 request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
             }
         }
-        if (uri.startsWith("/admin") && !uri.startsWith("/admin/login") && null == user
-                && !uri.startsWith("/admin/css") && !uri.startsWith("/admin/images")
-                && !uri.startsWith("/admin/js") && !uri.startsWith("/admin/plugins")
-                && !uri.startsWith("/admin/editormd")) {
+
+        // 如果是以 /admin 开头并且不是特定的静态资源文件，则要求认证
+        if (uri.startsWith("/admin")
+                && !uri.startsWith("/admin/login")
+                && null == user
+                && !isStaticResource(uri)) {
+
             response.sendRedirect(request.getContextPath() + "/admin/login");
             return false;
         }
-        //设置get请求的token
-        if (request.getMethod().equals("GET")) {
-            String csrf_token = UUID.UU64();
+
+        // 设置 CSRF token 并要求对敏感操作进行校验
+        if ("GET".equalsIgnoreCase(request.getMethod())) {
+            String csrfToken = UUID.UU64();
             // 默认存储30分钟
-            cache.hset(Types.CSRF_TOKEN.getType(), csrf_token, uri, 30 * 60);
-            request.setAttribute("_csrf_token", csrf_token);
+            cache.hset(Types.CSRF_TOKEN.getType(), csrfToken, uri, 30 * 60);
+            request.setAttribute("_csrf_token", csrfToken);
+        } else if ("POST".equalsIgnoreCase(request.getMethod())) {
+            // 检查 POST 请求的 CSRF token
+            String csrfToken = request.getParameter("_csrf_token");
+            String expectedUri = cache.hget(Types.CSRF_TOKEN.getType(), csrfToken);
+            if (expectedUri == null || !expectedUri.equals(uri)) {
+                response.sendError(HttpServletResponse.SC_FORBIDDEN, "CSRF token invalid or expired.");
+                return false;
+            }
+            cache.hdel(Types.CSRF_TOKEN.getType(), csrfToken); // Token 仅使用一次
         }
+
         return true;
     }
+
+    /**
+     * 检查是否为静态资源文件，避免对静态资源文件进行认证
+     */
+    private boolean isStaticResource(String uri) {
+        return uri.startsWith("/admin/css") || uri.startsWith("/admin/images")
+                || uri.startsWith("/admin/js") || uri.startsWith("/admin/plugins")
+                || uri.startsWith("/admin/editormd");
+    }
+
 
     @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
