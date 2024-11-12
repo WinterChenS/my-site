@@ -54,34 +54,38 @@ public class BaseInterceptor implements HandlerInterceptor {
         LOGGE.info("UserAgent: {}", request.getHeader(USER_AGENT));
         LOGGE.info("用户访问地址: {}, 来路地址: {}", uri, IPKit.getIpAddrByRequest(request));
 
-        // 请求拦截处理
+        // 获取当前登录用户
         UserDomain user = TaleUtils.getLoginUser(request);
-        if (null == user) {
+        if (user == null) {
             Integer uid = TaleUtils.getCookieUid(request);
-            if (null != uid) {
-                // Cookie 可以伪造，因此要注意
+            if (uid != null) {
                 user = userService.getUserInfoById(uid);
                 request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
             }
         }
 
-        // 需要认证的路径，不包括静态资源和登录页面
+        // 权限控制
         if (uri.startsWith("/admin")
                 && !uri.startsWith("/admin/login")
-                && null == user
+                && user == null
                 && !isStaticResource(uri)) {
 
             response.sendRedirect(request.getContextPath() + "/admin/login");
             return false;
         }
 
-        // 设置 CSRF token，仅对敏感操作进行 CSRF 校验
+        // 检查权限：对于敏感操作路径（如删除），确保用户是管理员
+        if (isSensitiveOperation(uri) && user == null) {
+            response.sendError(HttpServletResponse.SC_FORBIDDEN, "Unauthorized access");
+            return false;
+        }
+
+        // 设置 CSRF token，仅对敏感操作进行校验
         if ("GET".equalsIgnoreCase(request.getMethod())) {
             String csrfToken = UUID.UU64();
-            // 默认存储30分钟
             cache.hset(Types.CSRF_TOKEN.getType(), csrfToken, uri, 30 * 60);
             request.setAttribute("_csrf_token", csrfToken);
-        } else if ("POST".equalsIgnoreCase(request.getMethod()) && isSensitiveOperation(uri)) {
+        } else if ("POST".equalsIgnoreCase(request.getMethod()) && isSensitiveOperation(uri) && user == null) {
             // 检查 POST 请求的 CSRF token
             String csrfToken = request.getParameter("_csrf_token");
             String expectedUri = cache.hget(Types.CSRF_TOKEN.getType(), csrfToken);
@@ -89,7 +93,7 @@ public class BaseInterceptor implements HandlerInterceptor {
                 response.sendError(HttpServletResponse.SC_FORBIDDEN, "CSRF token invalid or expired.");
                 return false;
             }
-            cache.hdel(Types.CSRF_TOKEN.getType(), csrfToken); // Token 仅使用一次
+            cache.hdel(Types.CSRF_TOKEN.getType(), csrfToken);
         }
 
         return true;
@@ -110,6 +114,7 @@ public class BaseInterceptor implements HandlerInterceptor {
     private boolean isSensitiveOperation(String uri) {
         return uri.contains("/delete") || uri.contains("/update") || uri.contains("/create");
     }
+
 
 
 
