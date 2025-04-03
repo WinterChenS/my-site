@@ -21,7 +21,10 @@ public abstract class UUID {
      * @return 随机数
      */
     public static int random(int min, int max) {
-        return r.nextInt(max - min + 1) + min;
+      if (min > max) {
+        throw new IllegalArgumentException("min must be less than or equal to max");
+    }
+    return random.nextInt((max - min) + 1) + min;
     }
 
     private static final char[] _UU64 = "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz".toCharArray();
