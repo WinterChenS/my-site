@@ -51,4 +51,7 @@ If you have successfully deployed it, please send the address to learn and commu
 - 2018-05-05: Optimized the selection of article types and added comment function.
 - 2018-05-03: Released first version.
 
+
+![diagram](https://github.com/user-attachments/assets/1f9a8188-57f9-4e5e-a3ad-0a40acf2e5d7)
+
 ![Stargazers over time](<https://starchart.cc/WinterChenS/my-site.svg>)
