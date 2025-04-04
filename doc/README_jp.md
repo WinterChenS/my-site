@@ -63,4 +63,6 @@ My Siteは、Docker+SpringBoot2.0+Mybatis+thymeleafなどの技術を使用し�
 - 2018年5月5日: 記事タイプの選択を最適化し、コメント機能を追加しました。
 - 2018年5月3日: 第1版をリリースしました。
 
+![diagram](https://github.com/user-attachments/assets/1f9a8188-57f9-4e5e-a3ad-0a40acf2e5d7)
+
 ![https://starchart.cc/WinterChenS/my-site.svg](https://starchart.cc/WinterChenS/my-site.svg)
