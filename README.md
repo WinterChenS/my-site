@@ -73,6 +73,9 @@ My Site是由Docker+SpringBoot2.0+Mybatis+thymeleaf等技术实现的个人网�
 - 2018-05-03: 发布第一版
 
 
+![diagram](https://github.com/user-attachments/assets/1f9a8188-57f9-4e5e-a3ad-0a40acf2e5d7)
+
+
 [![Stargazers over time](https://starchart.cc/WinterChenS/my-site.svg)](https://starchart.cc/WinterChenS/my-site)
 
 
