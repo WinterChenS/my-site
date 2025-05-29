@@ -16,8 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -46,7 +50,7 @@ public class BaseInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
-        String uri = request.getRequestURI();
+        String uri = normalizeRequestUri(request);
 
         // 规范化路径，防止路径遍历
         uri = uri.replaceAll("/+", "/");
@@ -65,7 +69,7 @@ public class BaseInterceptor implements HandlerInterceptor {
         }
 
         // 权限控制
-        if (uri.startsWith("/admin")
+        if (isAdminPath(uri)
                 && !uri.startsWith("/admin/login")
                 && user == null
                 && !isStaticResource(uri)) {
@@ -97,6 +101,28 @@ public class BaseInterceptor implements HandlerInterceptor {
         }
 
         return true;
+    }
+
+    private boolean isAdminPath(String uri) {
+        return uri.matches("^/admin(/.*)?$");
+    }
+
+    private String normalizeRequestUri(HttpServletRequest request) throws UnsupportedEncodingException {
+        String rawUri = request.getRequestURI();
+        String decodedUri = deepDecode(rawUri);
+        String normalized = Paths.get(decodedUri).normalize().toString().replace("\\", "/");
+        return normalized.toLowerCase(Locale.ROOT);
+    }
+
+
+    public String deepDecode(String uri) throws UnsupportedEncodingException {
+        String prev;
+        String decoded = uri;
+        do {
+            prev = decoded;
+            decoded = URLDecoder.decode(prev, "UTF-8");
+        } while (!prev.equals(decoded));
+        return decoded;
     }
 
     /**
