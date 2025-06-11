@@ -70,7 +70,7 @@ public class BaseInterceptor implements HandlerInterceptor {
 
         // 权限控制
         if (isAdminPath(uri)
-                && !uri.startsWith("/admin/login")
+                && !uri.matches("^/admin/login(/.*)?") // 严格匹配/admin/login路径
                 && user == null
                 && !isStaticResource(uri)) {
 
@@ -110,6 +110,14 @@ public class BaseInterceptor implements HandlerInterceptor {
     private String normalizeRequestUri(HttpServletRequest request) throws UnsupportedEncodingException {
         String rawUri = request.getRequestURI();
         String decodedUri = deepDecode(rawUri);
+
+        // 修复：移除分号及后续路径参数
+        int semicolonIndex = decodedUri.indexOf(';');
+        if (semicolonIndex > -1) {
+            decodedUri = decodedUri.substring(0, semicolonIndex);
+        }
+
+        // 规范化路径（处理"."和".."）
         String normalized = Paths.get(decodedUri).normalize().toString().replace("\\", "/");
         return normalized.toLowerCase(Locale.ROOT);
     }
