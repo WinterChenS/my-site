@@ -9,7 +9,6 @@ My Site is a personal website implemented using technologies such as Docker, Spr
 - **You can also use it as a learning project for SpringBoot technology. My Site meets the requirements and has complete code and functionality;**
 - **You can also use it as a Docker technology practice tutorial, experience and use the once popular virtual container technology. The documentation of My Site is very complete and continuously updated.**
 
-Demo site (because github picture bed is used, the loading speed of pictures is relatively slow, please wait for a while): <http://winterchen.com:8089>
 
 If you have successfully deployed it, please send the address to learn and communicate: [Welcome to share the address of the successfully deployed](<https://github.com/WinterChenS/my-site/issues/1>)
 
